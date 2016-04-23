@@ -1,0 +1,15 @@
+{
+  "db": {
+    "name": "db",
+    "connector": "memory"
+  },
+  "mlab": {
+    "host": "ds011790.mlab.com",
+    "port": 11790,
+    "database": "clapperboard",
+    "password": "password",
+    "name": "mlab",
+    "user": "admin",
+    "connector": "mongodb"
+  }
+}
