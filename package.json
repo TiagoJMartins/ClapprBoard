@@ -5,7 +5,8 @@
   "scripts": {
     "start": "node .",
     "pretest": "jshint .",
-    "posttest": "nsp check"
+    "posttest": "nsp check",
+    "lb-ng": "lb-ng server/server.js client/js/lb-services.js"
   },
   "dependencies": {
     "compression": "^1.0.3",

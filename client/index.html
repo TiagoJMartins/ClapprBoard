@@ -1,16 +1,48 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>ClapprBoard | Track Your Addiction</title>
-    <link rel="stylesheet" href="/css/styles.css" charset="utf-8">
-  </head>
-  <body>
-    <h1>Login test page</h1>
-    <form class="login-form" action="api/Clients/login" method="post">
-      <input type="text" name="email" value="" placeholder="email">
-      <input type="password" name="password" value="" placeholder="password">
-      <input type="submit" name="login" value="Login">
-    </form>
-  </body>
+<html ng-app="MainApp">
+
+<head>
+  <base href="/">
+  <meta charset="utf-8">
+  <title>ClapprBoard | Track Your Addiction</title>
+  <link rel="stylesheet" href="/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/css/styles.css" charset="utf-8">
+</head>
+
+<body>
+
+  <nav class="navbar navbar-default" role="navigation" bs-navbar>
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Brand</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li data-match-route="/$"><a href="/">Home</a></li>
+      <li data-match-route="/add"><a href="/add">Add</a></li>
+    </ul>
+    <ul class="nav navbar-nav pull-right" ng-if="!currentUser">
+      <li data-match-route="/login"><a href="/login">Login</a></li>
+      <li data-match-route="/signup"><a href="/signup">Sign Up</a></li>
+    </ul>
+    <ul class="nav navbar-nav pull-right" ng-if="currentUser">
+      <li class="navbar-text" ng-bind="currentUser.username"></li>
+      <li><a href="/logout">Logout</a></li>
+    </ul>
+  </nav>
+
+  <div ng-view></div>
+
+  <script src="/vendor/jquery.min.js" charset="utf-8"></script>
+  <script src="/vendor/angular.js" charset="utf-8"></script>
+  <script src="/vendor/angular-resource.min.js" charset="utf-8"></script>
+  <script src="/vendor/angular-route.min.js" charset="utf-8"></script>
+  <script src="/vendor/angular-strap.min.js" charset="utf-8"></script>
+  <script src="/vendor/angular-messages.min.js" charset="utf-8"></script>
+  <script src="/vendor/angular-cookies.min.js" charset="utf-8"></script>
+  <script src="/js/lb-services.js" charset="utf-8"></script>
+  <script src="/app/app.js" charset="utf-8"></script>
+  <script src="/app/services/auth.js" charset="utf-8"></script>
+  <script src="/app/controllers/auth.js" charset="utf-8"></script>
+  <script src="/app/controllers/main.js" charset="utf-8"></script>
+</body>
+
 </html>
