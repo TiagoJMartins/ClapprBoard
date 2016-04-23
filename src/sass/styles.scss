@@ -1,0 +1,8 @@
+@import "bootstrap";
+@import "bootstrap/theme";
+
+$test-color: #FFDDAA;
+
+h1 {
+  background-color: $test-color;
+}
