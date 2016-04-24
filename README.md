@@ -2,7 +2,6 @@
 
 TV Show tracking application.
 
-- Logging out still doesn't work.
-- Fix urls, maybe switch to $stateProvider?
+- URLs still need to be fixed if accessed directly.
 
 https://github.com/strongloop/loopback-getting-started-intermediate/

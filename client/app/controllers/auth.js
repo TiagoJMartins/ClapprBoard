@@ -15,8 +15,8 @@ angular.module('MainApp')
       };
     }
   ])
-  .controller('LogoutCtrl', ['$rootScope', '$location', 'AuthService',
-    function($rootScope, $location, AuthService) {
+  .controller('LogoutCtrl', ['$rootScope', '$window', 'AuthService',
+    function($rootScope, $window, AuthService) {
 
       AuthService.logout()
         .then(function() {

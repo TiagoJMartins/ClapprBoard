@@ -16,25 +16,26 @@
       <a class="navbar-brand" href="#">Brand</a>
     </div>
     <ul class="nav navbar-nav">
-      <li data-match-route="/$"><a href="/">Home</a></li>
-      <li data-match-route="/add"><a href="/add">Add</a></li>
+      <li data-match-route="/$"><a ui-sref="home" ui-sref-active="active">Home</a></li>
+      <li data-match-route="/add"><a href="#">Add</a></li>
     </ul>
     <ul class="nav navbar-nav pull-right" ng-if="!isLoggedIn">
-      <li data-match-route="/login"><a href="/login">Login</a></li>
-      <li data-match-route="/signup"><a href="/signup">Sign Up</a></li>
+      <li data-match-route="/login"><a ui-sref="login" ui-sref-active="active">Login</a></li>
+      <li data-match-route="/signup"><a ui-sref="signup" ui-sref-active="active">Sign Up</a></li>
     </ul>
     <ul class="nav navbar-nav pull-right" ng-if="isLoggedIn">
       <li class="navbar-text" ng-bind="currentUser.username"></li>
-      <li><a href="/logout">Logout</a></li>
+      <li><a ui-sref="logout" ui-sref-active="active">Logout</a></li>
     </ul>
   </nav>
 
-  <div ng-view></div>
+  <main ui-view></main>
 
   <script src="/vendor/jquery.min.js" charset="utf-8"></script>
   <script src="/vendor/angular.js" charset="utf-8"></script>
   <script src="/vendor/angular-resource.min.js" charset="utf-8"></script>
   <script src="/vendor/angular-route.min.js" charset="utf-8"></script>
+  <script src="/vendor/angular-ui-router.min.js" charset="utf-8"></script>
   <script src="/vendor/angular-strap.min.js" charset="utf-8"></script>
   <script src="/vendor/angular-messages.min.js" charset="utf-8"></script>
   <script src="/vendor/angular-cookies.min.js" charset="utf-8"></script>
