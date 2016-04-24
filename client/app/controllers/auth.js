@@ -23,4 +23,19 @@ angular.module('MainApp')
           $window.location.href = '/';
         });
     }
-  ]);
+  ])
+  .controller('SignupCtrl', ['AuthService', '$state', '$scope',
+    function(AuthService, $state, $scope) {
+
+      $scope.credentials = {
+        email: "",
+        password: ""
+      };
+
+      $scope.signup = function() {
+        AuthService.signup($scope.credentials)
+          .then(function() {
+            $state.go('signup-success');
+          });
+      };
+  }]);

@@ -27,11 +27,19 @@ angular.module('MainApp')
           });
       }
 
-      // register()
+      function register(credentials) {
+        return Client
+          .create(credentials)
+          .$promise
+          .then(function(res) {
+            
+          });
+      }
 
       return {
         login: login,
-        logout: logout
+        logout: logout,
+        signup: register
       };
     }
   ]);

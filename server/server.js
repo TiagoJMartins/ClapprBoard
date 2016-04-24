@@ -1,6 +1,7 @@
 var loopback = require('loopback');
 var boot = require('loopback-boot');
 var logger = require('morgan');
+var path = require('path');
 
 var app = module.exports = loopback();
 
