@@ -8,14 +8,12 @@ angular.module('MainApp')
           .$promise
           .then(function(res) {
             var obj = {
-              currentUser: {
                 id: res.user.id,
                 token: res.id,
                 email: credentials.email
-              }
-            };
-            console.log(res);
-            $cookies.putObject('currentUser', obj)
+              };
+            $cookies.putObject('session', obj);
+            $rootScope.currentUser = obj;
           });
       }
 
@@ -24,8 +22,8 @@ angular.module('MainApp')
           .logout()
           .$promise
           .then(function() {
-            console.log('logoutservice');
-            $cookies.remove('currentUser');
+            $cookies.remove('session');
+            $rootScope.currentUser = null;
           });
       }
 

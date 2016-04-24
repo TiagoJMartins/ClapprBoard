@@ -30,6 +30,7 @@ angular.module('MainApp', ['ngResource', 'ngMessages', 'ngRoute', 'mgcrea.ngStra
         redirectTo: '/'
       });
   }])
-  .run(['$cookies', '$rootScope', function($cookies, $rootScope) {
-    $rootScope.currentUser = $cookies.getObject('currentUser');
+  .run(['$cookies', '$rootScope', 'Client', function($cookies, $rootScope, Client) {
+    $rootScope.currentUser = $cookies.getObject('session');
+    $rootScope.isLoggedIn = Client.isAuthenticated();
   }]);

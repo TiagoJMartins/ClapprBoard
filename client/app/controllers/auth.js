@@ -1,6 +1,6 @@
 angular.module('MainApp')
-  .controller('LoginCtrl', ['$scope', '$location', 'AuthService',
-    function($scope, $location, AuthService) {
+  .controller('LoginCtrl', ['$scope', '$window', 'AuthService',
+    function($scope, $window, AuthService) {
 
       $scope.credentials = {
         email: 'tiago@coisas.com',
@@ -10,7 +10,7 @@ angular.module('MainApp')
       $scope.login = function() {
         AuthService.login($scope.credentials)
           .then(function() {
-            $location.path('/');
+            $window.location.href = '/';
           });
       };
     }
@@ -20,8 +20,7 @@ angular.module('MainApp')
 
       AuthService.logout()
         .then(function() {
-          console.log('logoutctrl');
-          $location.path('/');
+          $window.location.href = '/';
         });
     }
   ]);

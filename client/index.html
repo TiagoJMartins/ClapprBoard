@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="/css/styles.css" charset="utf-8">
 </head>
 
-<body>
+<body ng-cloak>
 
   <nav class="navbar navbar-default" role="navigation" bs-navbar>
     <div class="navbar-header">
@@ -19,11 +19,11 @@
       <li data-match-route="/$"><a href="/">Home</a></li>
       <li data-match-route="/add"><a href="/add">Add</a></li>
     </ul>
-    <ul class="nav navbar-nav pull-right" ng-if="!currentUser">
+    <ul class="nav navbar-nav pull-right" ng-if="!isLoggedIn">
       <li data-match-route="/login"><a href="/login">Login</a></li>
       <li data-match-route="/signup"><a href="/signup">Sign Up</a></li>
     </ul>
-    <ul class="nav navbar-nav pull-right" ng-if="currentUser">
+    <ul class="nav navbar-nav pull-right" ng-if="isLoggedIn">
       <li class="navbar-text" ng-bind="currentUser.username"></li>
       <li><a href="/logout">Logout</a></li>
     </ul>
@@ -38,6 +38,7 @@
   <script src="/vendor/angular-strap.min.js" charset="utf-8"></script>
   <script src="/vendor/angular-messages.min.js" charset="utf-8"></script>
   <script src="/vendor/angular-cookies.min.js" charset="utf-8"></script>
+  <script src="/vendor/ngStorage.min.js" charset="utf-8"></script>
   <script src="/js/lb-services.js" charset="utf-8"></script>
   <script src="/app/app.js" charset="utf-8"></script>
   <script src="/app/services/auth.js" charset="utf-8"></script>
