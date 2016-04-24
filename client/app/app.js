@@ -33,7 +33,7 @@ angular.module('MainApp', ['ngResource', 'ngMessages', 'ui.router', 'mgcrea.ngSt
         })
         .state('forbidden', {
           url: '/forbidden',
-          template: '<p>401 Forbidden</p>'
+          template: '<p>403 Forbidden</p>'
         });
 
         $urlRouterProvider.otherwise('home');

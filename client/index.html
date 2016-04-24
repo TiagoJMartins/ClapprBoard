@@ -13,7 +13,10 @@
 
   <nav class="navbar navbar-default" role="navigation" bs-navbar>
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">Brand</a>
+      <a class="navbar-brand" ui-sref="home">
+        <span class="fa fa-video-camera"></span>
+        Clappr<strong>Board</strong>
+      </a>
     </div>
     <ul class="nav navbar-nav">
       <li data-match-route="/$"><a ui-sref="home" ui-sref-active="active">Home</a></li>
@@ -43,6 +46,7 @@
   <script src="/js/lb-services.js" charset="utf-8"></script>
   <script src="/app/app.js" charset="utf-8"></script>
   <script src="/app/services/auth.js" charset="utf-8"></script>
+  <script src="/app/services/show.js" charset="utf-8"></script>
   <script src="/app/controllers/auth.js" charset="utf-8"></script>
   <script src="/app/controllers/main.js" charset="utf-8"></script>
 </body>

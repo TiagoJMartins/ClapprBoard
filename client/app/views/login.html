@@ -1,7 +1,14 @@
-<h1>Login</h1>
-
-<form class="login-form" ng-submit="login()">
-  <input type="text" name="email" placeholder="email" ng-model="credentials.email">
-  <input type="password" name="password" placeholder="password" ng-model="credentials.password">
-  <input type="submit" name="login" value="Login">
-</form>
+<div class="container">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <strong>Login</strong>
+    </div>
+    <div class="panel-body">
+      <form class="login-form" ng-submit="login()">
+        <input type="text" name="email" placeholder="email" ng-model="credentials.email">
+        <input type="password" name="password" placeholder="password" ng-model="credentials.password">
+        <input type="submit" name="login" value="Login">
+      </form>
+    </div>
+  </div>
+</div>

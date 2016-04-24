@@ -9,6 +9,7 @@
     "lb-ng": "lb-ng server/server.js client/js/lb-services.js"
   },
   "dependencies": {
+    "async": "^2.0.0-rc.3",
     "compression": "^1.0.3",
     "cors": "^2.5.2",
     "express-history-api-fallback": "^2.0.0",
@@ -19,7 +20,8 @@
     "loopback-connector-mongodb": "^1.13.3",
     "loopback-datasource-juggler": "^2.39.0",
     "morgan": "^1.7.0",
-    "serve-favicon": "^2.0.1"
+    "serve-favicon": "^2.0.1",
+    "xml2js": "^0.4.16"
   },
   "devDependencies": {
     "gulp": "^3.9.1",

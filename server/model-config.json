@@ -32,5 +32,9 @@
   "Client": {
     "dataSource": "mlab",
     "public": true
+  },
+  "Show": {
+    "dataSource": "mlab",
+    "public": true
   }
 }

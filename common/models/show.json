@@ -1,0 +1,48 @@
+{
+  "name": "Show",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "weekDay": {
+      "type": "string"
+    },
+    "released": {
+      "type": "date"
+    },
+    "genre": {
+      "type": [
+        "string"
+      ]
+    },
+    "rating": {
+      "type": "number"
+    },
+    "status": {
+      "type": "string"
+    },
+    "poster": {
+      "type": "string"
+    },
+    "subscribers": {
+      "type": [
+        "object"
+      ]
+    },
+    "episodes": {
+      "type": [
+        "object"
+      ]
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
