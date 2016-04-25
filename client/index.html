@@ -1,54 +1,54 @@
 <!DOCTYPE html>
 <html ng-app="MainApp">
+  <head>
+    <base href="/">
+    <meta charset="utf-8">
+    <title>ClapprBoard | Track Your Addiction</title>
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/font-awesome-animation.min.css">
+    <link rel="stylesheet" href="/css/styles.css" charset="utf-8">
+  </head>
+  <body ng-cloak>
+    <nav class="navbar navbar-default" role="navigation" bs-navbar>
+      <div class="navbar-header">
+        <a class="navbar-brand" ui-sref="home">
+          <span class="fa fa-video-camera"></span>
+          Clappr<strong>Board</strong>
+        </a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li data-match-route="/$"><a ui-sref="home" ui-sref-active="active">Home</a></li>
+        <li data-match-route="/add"><a href="#">Add</a></li>
+      </ul>
+      <ul class="nav navbar-nav pull-right" ng-if="!isLoggedIn">
+        <li data-match-route="/login"><a ui-sref="login" ui-sref-active="active">Login</a></li>
+        <li data-match-route="/signup"><a ui-sref="signup" ui-sref-active="active">Sign Up</a></li>
+      </ul>
+      <ul class="nav navbar-nav pull-right" ng-if="isLoggedIn">
+        <li class="navbar-text" ng-bind="currentUser.email"></li>
+        <li><a ui-sref="logout" ui-sref-active="active">Logout</a></li>
+      </ul>
+    </nav>
 
-<head>
-  <base href="/">
-  <meta charset="utf-8">
-  <title>ClapprBoard | Track Your Addiction</title>
-  <link rel="stylesheet" href="/css/font-awesome.min.css">
-  <link rel="stylesheet" href="/css/styles.css" charset="utf-8">
-</head>
+    <main ui-view></main>
 
-<body ng-cloak>
+    <footer></footer>
 
-  <nav class="navbar navbar-default" role="navigation" bs-navbar>
-    <div class="navbar-header">
-      <a class="navbar-brand" ui-sref="home">
-        <span class="fa fa-video-camera"></span>
-        Clappr<strong>Board</strong>
-      </a>
-    </div>
-    <ul class="nav navbar-nav">
-      <li data-match-route="/$"><a ui-sref="home" ui-sref-active="active">Home</a></li>
-      <li data-match-route="/add"><a href="#">Add</a></li>
-    </ul>
-    <ul class="nav navbar-nav pull-right" ng-if="!isLoggedIn">
-      <li data-match-route="/login"><a ui-sref="login" ui-sref-active="active">Login</a></li>
-      <li data-match-route="/signup"><a ui-sref="signup" ui-sref-active="active">Sign Up</a></li>
-    </ul>
-    <ul class="nav navbar-nav pull-right" ng-if="isLoggedIn">
-      <li class="navbar-text" ng-bind="currentUser.username"></li>
-      <li><a ui-sref="logout" ui-sref-active="active">Logout</a></li>
-    </ul>
-  </nav>
-
-  <main ui-view></main>
-
-  <script src="/vendor/jquery.min.js" charset="utf-8"></script>
-  <script src="/vendor/angular.js" charset="utf-8"></script>
-  <script src="/vendor/angular-resource.min.js" charset="utf-8"></script>
-  <script src="/vendor/angular-route.min.js" charset="utf-8"></script>
-  <script src="/vendor/angular-ui-router.min.js" charset="utf-8"></script>
-  <script src="/vendor/angular-strap.min.js" charset="utf-8"></script>
-  <script src="/vendor/angular-messages.min.js" charset="utf-8"></script>
-  <script src="/vendor/angular-cookies.min.js" charset="utf-8"></script>
-  <script src="/vendor/ngStorage.min.js" charset="utf-8"></script>
-  <script src="/js/lb-services.js" charset="utf-8"></script>
-  <script src="/app/app.js" charset="utf-8"></script>
-  <script src="/app/services/auth.js" charset="utf-8"></script>
-  <script src="/app/services/show.js" charset="utf-8"></script>
-  <script src="/app/controllers/auth.js" charset="utf-8"></script>
-  <script src="/app/controllers/main.js" charset="utf-8"></script>
-</body>
-
+    <script src="/vendor/jquery.min.js" charset="utf-8"></script>
+    <script src="/vendor/masonry.pkgd.min.js" charset="utf-8"></script>
+    <script src="/vendor/angular.js" charset="utf-8"></script>
+    <script src="/vendor/angular-resource.min.js" charset="utf-8"></script>
+    <script src="/vendor/angular-route.min.js" charset="utf-8"></script>
+    <script src="/vendor/angular-ui-router.min.js" charset="utf-8"></script>
+    <script src="/vendor/angular-strap.min.js" charset="utf-8"></script>
+    <script src="/vendor/angular-messages.min.js" charset="utf-8"></script>
+    <script src="/vendor/angular-cookies.min.js" charset="utf-8"></script>
+    <script src="/vendor/ngStorage.min.js" charset="utf-8"></script>
+    <script src="/js/lb-services.js" charset="utf-8"></script>
+    <script src="/app/app.js" charset="utf-8"></script>
+    <script src="/app/services/auth.js" charset="utf-8"></script>
+    <script src="/app/services/show.js" charset="utf-8"></script>
+    <script src="/app/controllers/auth.js" charset="utf-8"></script>
+    <script src="/app/controllers/main.js" charset="utf-8"></script>
+  </body>
 </html>

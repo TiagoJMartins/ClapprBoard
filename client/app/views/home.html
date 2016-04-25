@@ -1,12 +1,29 @@
 <div class="container">
   <div class="panel panel-default">
     <div class="panel-heading">
-      {{headingTitle}}
+      <form class="search-form" ng-submit="find()">
+        <input type="text" name="query" placeholder="Search..." ng-model="query" autocomplete="off"></input>
+        <input type="submit" name="search" value="Go"></input>
+      </form>
     </div>
     <div class="panel-body">
-      {{currentUser.id}}
-      {{currentUser.token}}<br>
-      {{currentUser.email}}
+      <i class="fa fa-spinner fa-2x faa-spin animated" ng-show="working"></i>
+      <div class="main-content" ng-hide="working">
+
+        {{panelBody.error}}
+        {{panelBody.title}}
+
+        <div class="grid" 
+             data-masonry='{ "itemSelector": ".grid-item", "columnWidth": 200 }'>
+          <div class="grid-item" 
+               ng-repeat="show in panelBody">
+
+              <img ng-src="{{show.images.poster.thumb}}" width="150">
+              <p class="grid-item-text">{{show.title}}</p>
+
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

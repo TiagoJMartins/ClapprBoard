@@ -6,28 +6,32 @@
     "validateUpsert": true
   },
   "properties": {
-    "name": {
+    "slug": {
+      "type": "string"
+    },
+    "title": {
       "type": "string",
       "required": true
     },
-    "weekDay": {
-      "type": "string"
-    },
-    "released": {
-      "type": "date"
-    },
-    "genre": {
-      "type": [
-        "string"
-      ]
-    },
-    "rating": {
+    "year": {
       "type": "number"
     },
-    "status": {
+    "ids": {
+      "type": "object"
+    },
+    "overview": {
       "type": "string"
     },
-    "poster": {
+    "first_aired": {
+      "type": "string"
+    },
+    "airs": {
+      "type": "object"
+    },
+    "runtime": {
+      "type": "number"
+    },
+    "network": {
       "type": "string"
     },
     "subscribers": {
@@ -35,10 +39,35 @@
         "object"
       ]
     },
-    "episodes": {
-      "type": [
-        "object"
-      ]
+    "country": {
+      "type": "string"
+    },
+    "trailer": {
+      "type": "string"
+    },
+    "homepage": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    },
+    "rating": {
+      "type": "number"
+    },
+    "votes": {
+      "type": "number"
+    },
+    "language": {
+      "type": "string"
+    },
+    "genres": {
+      "type": ["string"]
+    },
+    "aired_episodes": {
+      "type": "number"
+    },
+    "images": {
+      "type": "object"
     }
   },
   "validations": [],

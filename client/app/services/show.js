@@ -1,4 +1,9 @@
 angular.module('MainApp')
-  .factory('Show', ['Show', function(Show) {
-    
+  .factory('ShowService', ['$resource', function($resource) {
+    return {
+    	'findShow': $resource('/api/Shows/find-show'),
+    	'trakt': {
+    		'find': $resource('/api/Shows/trakt/info')
+    	}
+    };
   }]);

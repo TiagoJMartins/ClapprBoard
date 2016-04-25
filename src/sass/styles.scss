@@ -53,3 +53,22 @@ $alert-info-text: #25484e;
 .navbar-default {
   border-radius: 0;
 }
+
+.grid-item {
+	position: relative;
+	float: left;
+	width: 150px;
+	height: 225px;
+	margin: 5px 10px 5px 10px;
+}
+
+.grid-item-text {
+	color: white;
+	position: absolute;
+	z-index: 1000;
+	bottom: 5px;
+	background-color: rgba(56,56,56,0.6);
+	width: 100%;
+	height: 1.4em;
+	display: none;
+}
