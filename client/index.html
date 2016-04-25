@@ -11,13 +11,13 @@
   <body ng-cloak>
     <nav class="navbar navbar-default" role="navigation" bs-navbar>
       <div class="navbar-header">
-        <a class="navbar-brand" href="/">
+        <a class="navbar-brand" data-ui-sref-opts="{reload: true}" ui-sref="home">
           <span class="fa fa-video-camera"></span>
           Clappr<strong>Board</strong>
         </a>
       </div>
       <ul class="nav navbar-nav">
-        <li data-match-route="/$"><a ui-sref="home" ui-sref-active="active">Home</a></li>
+        <li data-match-route="/$"><a ui-sref="home" ui-sref-active="active" data-ui-sref-opts="{reload: true}">Home</a></li>
         <li data-match-route="/add"><a href="#">Add</a></li>
       </ul>
       <ul class="nav navbar-nav pull-right" ng-if="!isLoggedIn">
