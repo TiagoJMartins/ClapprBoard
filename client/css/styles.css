@@ -3943,7 +3943,7 @@ tbody.collapse.in {
     color: #333; }
     .navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
       color: #333;
-      background-color: #fee091; }
+      background-color: #FFCB43; }
   .navbar-default .navbar-text {
     color: #777; }
   .navbar-default .navbar-nav > li > a {
@@ -6278,12 +6278,18 @@ button.close {
 .navbar-default {
   border-radius: 0; }
 
+.navbar-brand {
+  background-color: #fee091; }
+
 .grid-item {
   position: relative;
   float: left;
   width: 150px;
   height: 225px;
-  margin: 5px 10px 5px 10px; }
+  margin: 5px 10px 5px 10px;
+  border: 2px solid #333;
+  border-radius: 3px;
+  overflow: hidden; }
 
 .grid-item-text {
   color: white;

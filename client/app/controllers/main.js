@@ -3,24 +3,25 @@ angular.module('MainApp')
     function($scope, $rootScope, ShowService, Show) {
       $scope.headingTitle = "Titleeeee";
 
-      $scope.working = false;
+      $scope.working = true;
+      $rootScope.error = '';
 
       Show.find({
       	filter: {
       		limit: 16
       	}
       }, function(results) {
-      	$scope.working = true;
+      	$rootScope.error = '';
       	$scope.panelBody = results;
       	$scope.working = false;
       });
 
       $scope.find = function() {
-            $scope.panelBody = '';
       	$scope.working = true;
+      	$rootScope.error = '';
 
       	if (!$scope.query) {
-      		$scope.panelBody = {error: 'Please enter a search query.'};
+      		$rootScope.error = 'Please enter a search query.'
       		$scope.working = false;
       		return;
       	}
@@ -33,7 +34,7 @@ angular.module('MainApp')
       		if (!result.result) {
                         ShowService.trakt.find.get({ slug: slug }, function(result) {
                               if (result.error) {
-                                    $scope.panelBody = {error: "Show has not been found."};
+                                    $rootScope.error = 'Requested show could not be found.';
                                     $scope.working = false;
                                     return;
                               } else {
@@ -60,14 +61,17 @@ angular.module('MainApp')
                                     newShow.images = data.images;
                                     newShow.slug = slug;
 
-                                    $scope.panelBody = Show.create(newShow);
+                                    Show.create(newShow);
+                                    $scope.panelBody = {
+                                          result: newShow
+                                    };
                                     $scope.query = '';
                                     $scope.working = false;
                                     return;
                               }
                         });
       		} else {
-            		$scope.panelBody = result.result;
+            		$scope.panelBody = result;
             		$scope.query = '';
             		$scope.working = false;
                   }

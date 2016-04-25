@@ -21,8 +21,9 @@ $navbar-default-bg: #fff;
 $navbar-default-border: #e3e9ec;
 
 $navbar-default-brand-color: #333;
+$navbar-default-brand-bg: #fee091;
 $navbar-default-brand-hover-color: #333;
-$navbar-default-brand-hover-bg: #fee091;
+$navbar-default-brand-hover-bg: #FFCB43;
 
 $btn-success-bg: $brand-success;
 $btn-success-border: darken($btn-success-bg, 3%);
@@ -54,12 +55,19 @@ $alert-info-text: #25484e;
   border-radius: 0;
 }
 
+.navbar-brand {
+	background-color: $navbar-default-brand-bg;
+}
+
 .grid-item {
 	position: relative;
 	float: left;
 	width: 150px;
 	height: 225px;
 	margin: 5px 10px 5px 10px;
+	border: 2px solid #333;
+	border-radius: 3px;
+	overflow: hidden;
 }
 
 .grid-item-text {
@@ -72,3 +80,5 @@ $alert-info-text: #25484e;
 	height: 1.4em;
 	display: none;
 }
+
+
