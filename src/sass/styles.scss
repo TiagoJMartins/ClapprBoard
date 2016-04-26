@@ -51,6 +51,10 @@ $alert-info-text: #25484e;
 @import "bootstrap";
 @import "bootstrap/theme";
 
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+
 .navbar-default {
   border-radius: 0;
 }

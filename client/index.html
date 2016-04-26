@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="MainApp">
+<html ng-app="MainApp" class="ng-cloak">
   <head>
     <base href="/">
     <meta charset="utf-8">
@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="/css/font-awesome-animation.min.css">
     <link rel="stylesheet" href="/css/styles.css" charset="utf-8">
   </head>
-  <body ng-cloak>
+  <body>
     <nav class="navbar navbar-default" role="navigation" bs-navbar>
       <div class="navbar-header">
         <a class="navbar-brand" data-ui-sref-opts="{reload: true}" ui-sref="home">
@@ -30,7 +30,7 @@
       </ul>
     </nav>
 
-    <div class="alert alert-danger" ng-if="error" ng-cloak>{{error}}</div>
+    <div class="alert alert-danger" ng-if="error">{{error}}</div>
     <main ui-view></main>
 
     <footer></footer>

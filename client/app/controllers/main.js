@@ -1,6 +1,6 @@
 angular.module('MainApp')
-  .controller('MainCtrl', ['$scope', '$rootScope', 'ShowService', 'Show',
-    function($scope, $rootScope, ShowService, Show) {
+  .controller('MainCtrl', ['$scope', '$rootScope', 'ShowService', 'Show', '$alert', 
+    function($scope, $rootScope, ShowService, Show, $alert) {
       $scope.headingTitle = "Titleeeee";
 
       $scope.working = true;
