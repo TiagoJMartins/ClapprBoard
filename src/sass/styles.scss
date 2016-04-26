@@ -51,6 +51,14 @@ $alert-info-text: #25484e;
 @import "bootstrap";
 @import "bootstrap/theme";
 
+@mixin image-border() {
+	border: 2px solid #333;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	-ms-border-radius: 3px;
+	border-radius: 3px;
+}
+
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
   display: none !important;
 }
@@ -69,8 +77,7 @@ $alert-info-text: #25484e;
 	width: 150px;
 	height: 225px;
 	margin: 5px 10px 5px 10px;
-	border: 2px solid #333;
-	border-radius: 3px;
+	@include image-border;
 	overflow: hidden;
 }
 
@@ -85,4 +92,28 @@ $alert-info-text: #25484e;
 	display: none;
 }
 
+.show-banner {
+	@include image-border;
+}
 
+.show-poster {
+	margin: 0 auto;
+}
+
+	@media screen and (max-width: 992px) {
+.show-title a{
+		font-style: underline;
+	}
+}
+
+.show-overview {
+	margin-top: 2em;
+}
+
+.btn-show {
+	margin-top: 20px;
+}
+
+.show-info-header {
+	width: 100%;
+}

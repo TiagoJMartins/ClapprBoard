@@ -1,0 +1,37 @@
+<div class="container">
+	<div class="panel panel-default">
+		<div class="panel-heading hide-bg">
+			<img class="show-banner center-block img-responsive" ng-src="{{show.images.banner.full}}">
+		</div>
+		<div class="panel-body">
+			<i class="fa fa-spinner fa-2x faa-spin animated" ng-show="working"></i>
+			<div class="show-detail row" ng-hide="working">
+				
+				<img class="show-poster img-responsive img-rounded col-md-3" ng-src="{{show.images.poster.thumb}}">
+				<div class="col-md-9">
+					<div class="show-info-header row">
+						<h2 class="show-title col-md-10">
+							<a ng-href="{{show.homepage}}">{{show.title}}</a>
+						</h2>
+						<button class="btn btn-success btn-show col-md-2">
+							<i class="fa fa-plus"></i>
+							Subscribe
+						</button>
+					</div>
+					
+					<div class="show-airtime">
+						<h5 class="airtime">
+							{{show.airs.day}}, at {{show.airs.time}} on {{show.network}}
+						</h5>
+						<h6 class="timeleft">{{time}}</h6>
+					</div>
+					<p class="show-overview">
+						{{show.overview}}
+					</p>
+
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
