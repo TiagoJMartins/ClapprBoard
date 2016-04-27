@@ -83,6 +83,11 @@ $small-breakpoint: 768px;
 
 .navbar-brand {
 	background-color: $navbar-default-brand-bg;
+	
+	& img {
+		display: inline;
+		margin-bottom: 5px;
+	}
 }
 
 .grid {
