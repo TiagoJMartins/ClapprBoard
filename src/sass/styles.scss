@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700);
+@import url(//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700);
 
 $body-bg: #d5d8de;
 
@@ -73,6 +73,10 @@ $small-breakpoint: 768px;
   display: none !important;
 }
 
+.img-rounded {
+	border-radius: 4px;
+}
+
 .navbar-default {
   border-radius: 0;
 }
@@ -81,15 +85,24 @@ $small-breakpoint: 768px;
 	background-color: $navbar-default-brand-bg;
 }
 
-.grid-item {
+.grid {
+	width: 100%;
+	text-align: center;
+}
 
-	position: relative;
-	float: left;
+.grid-item {
 	width: 150px;
 	height: 225px;
-	margin: 5px 10px 5px 10px;
-	@include imageBorder;
-	overflow: hidden;
+	vertical-align: top;
+	display: inline-block;
+	margin: 10px;
+}
+
+.dummy-stretch {
+	width: 100%;
+	display: inline-block;
+	font-size: 0;
+	line-height: 0;
 }
 
 .show-detail {
@@ -132,7 +145,7 @@ $small-breakpoint: 768px;
 	.show-poster {
 		width: 100%;
 		margin: 0 auto;
-		padding-bottom: 2em;
+		margin-bottom: 2em;
 		transition: 0.3s ease;
 	}
 
