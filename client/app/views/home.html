@@ -16,7 +16,7 @@
         <div class="grid">
           <div class="grid-item" ng-repeat="show in panelBody track by $index">
             <a ui-sref="show-detail({id: show.slug})">
-              <img ng-src="{{show.images.poster.thumb}}" class="img-responsive img-rounded">
+              <img ng-src="{{show.images.poster.thumb}}" class="img-responsive img-rounded show-img">
             </a>
           </div>
           <span class="dummy-stretch"></span>

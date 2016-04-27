@@ -6299,7 +6299,8 @@ button.close {
   height: 225px;
   vertical-align: top;
   display: inline-block;
-  margin: 10px; }
+  margin: 10px;
+  transition: 0.5s ease; }
 
 .dummy-stretch {
   width: 100%;
@@ -6367,3 +6368,11 @@ button.close {
     .nav li,
     .nav li > a {
       display: inline-block; } }
+
+@media screen and (max-width: 418px) {
+  .grid-item {
+    width: 120px;
+    height: 180px; }
+  .show-img {
+    width: 120px;
+    transition: 0.5s ease; } }

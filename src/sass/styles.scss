@@ -50,6 +50,7 @@ $alert-info-text: #25484e;
 
 $medium-breakpoint: 992px;
 $small-breakpoint: 768px;
+$extra-small-breakpoint: 418px;
 
 @import "bootstrap";
 @import "bootstrap/theme";
@@ -101,6 +102,7 @@ $small-breakpoint: 768px;
 	vertical-align: top;
 	display: inline-block;
 	margin: 10px;
+	transition: 0.5s ease;
 }
 
 .dummy-stretch {
@@ -196,4 +198,16 @@ $small-breakpoint: 768px;
 		}
 	}
 
+}
+
+@media screen and (max-width: $extra-small-breakpoint) {
+	.grid-item {
+		width: 120px;
+		height: 180px;
+	}
+	
+	.show-img {
+		width: 120px;
+		transition: 0.5s ease;
+	}
 }
