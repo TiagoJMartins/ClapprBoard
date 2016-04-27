@@ -119,6 +119,11 @@ $extra-small-breakpoint: 418px;
 
 .show-banner {
 	@include imageBorder;
+	width: 100%;
+}
+
+.panel-heading {
+	padding: 0;
 }
 
 .show-poster {
@@ -152,6 +157,10 @@ $extra-small-breakpoint: 418px;
 	& > .input-group {
 		width: 220px;
 	}
+}
+
+.main-panel-heading {
+	padding: 10px 10px 10px 20px;
 }
 
 @media screen and (max-width: $small-breakpoint) {
