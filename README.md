@@ -8,8 +8,7 @@ TV Show tracking application.
 - Set up global error alerts
 - Fix 404 when user searches for non existing show.
 - Fix querying shows (it should be more flexible, for example, searching "breaking" should return results with query ordered by relevance, only by clicking one should it be added to DB(?))
-- After finishing views, start working on responsive layout.
+- Center grid of shows in home page to eliminate white space on the right side.
 - Create footer.
-- Fix media queries.
 
 https://github.com/strongloop/loopback-getting-started-intermediate/
