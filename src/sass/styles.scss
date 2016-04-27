@@ -139,6 +139,14 @@ $small-breakpoint: 768px;
 	margin-top: 2em;
 }
 
+.search-form {
+	margin-bottom: 0;
+	
+	& > .input-group {
+		width: 220px;
+	}
+}
+
 @media screen and (max-width: $small-breakpoint) {
 
 

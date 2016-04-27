@@ -1,17 +1,20 @@
 <div class="container">
   <div class="panel panel-default">
     <div class="panel-heading">
-      <form class="search-form" ng-submit="find()">
-        <input type="text" name="query" placeholder="Search..." ng-model="query" autocomplete="off"></input>
-        <input type="submit" name="search" value="Go"></input>
+      <form class="search-form form-group" ng-submit="find()">
+        <div class="input-group">
+          <input class="form-control" type="text" name="query" placeholder="Search..." ng-model="query" autocomplete="off"></input>
+          <span class="input-group-btn">
+            <button class="form-control btn btn-default" type="submit"><span class="fa fa-search"></span></button>
+          </span>
+        </div>
       </form>
     </div>
     <div class="panel-body">
       <i class="fa fa-spinner fa-2x faa-spin animated" ng-show="working"></i>
       <div class="main-content" ng-hide="working">
         <div class="grid">
-          <div class="grid-item"
-            ng-repeat="show in panelBody track by $index">
+          <div class="grid-item" ng-repeat="show in panelBody track by $index">
             <a ui-sref="show-detail({id: show.slug})">
               <img ng-src="{{show.images.poster.thumb}}" class="img-responsive img-rounded">
             </a>

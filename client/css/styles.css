@@ -6333,6 +6333,11 @@ button.close {
 .show-overview {
   margin-top: 2em; }
 
+.search-form {
+  margin-bottom: 0; }
+  .search-form > .input-group {
+    width: 220px; }
+
 @media screen and (max-width: 768px) {
   .show-poster {
     width: 100%;
