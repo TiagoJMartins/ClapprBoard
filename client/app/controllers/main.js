@@ -27,7 +27,7 @@ angular.module('MainApp')
       	}
 
             ShowService.trakt.query.get({ query: $scope.query }, function(res) {
-                  if (!res) {
+                  if (!res.results.length) {
                         $rootScope.error = 'No results found for "' + $scope.query + '".';
                         $scope.working = false;
                         return;
