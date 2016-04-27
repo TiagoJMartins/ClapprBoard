@@ -11,5 +11,6 @@ TV Show tracking application.
 - Add wrapper for show info in show-detail.html
 - Work on episode listing in show-detail.html
 - Fix CSS for season tabs.
+- Minify CSS and JS. Concat all JS into a single file. Create .maps (Maybe add to watch task?)
 
 https://github.com/strongloop/loopback-getting-started-intermediate/
