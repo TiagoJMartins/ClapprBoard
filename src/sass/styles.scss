@@ -163,6 +163,23 @@ $extra-small-breakpoint: 418px;
 	padding: 10px 10px 10px 20px;
 }
 
+.nav-tabs {
+	& > li {
+		&:active > a,
+		&:hover > a {
+			background-color: #FFF;
+		}
+		& > a {
+			cursor: pointer;
+		}
+	}
+}
+
+.tab-content {
+	background-color: #FFF;
+	margin-bottom: 100px;
+}
+
 @media screen and (max-width: $small-breakpoint) {
 
 

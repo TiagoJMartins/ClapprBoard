@@ -34,4 +34,10 @@
 			</div>
 		</div>
 	</div>
+	<div class="episode-container">
+		<div class="season-tabs" bs-tabs>
+			<div ng-repeat="tab in tabs" data-title="{{tab.title}}" name="{{tab.title}}" ng-include="tab.template" bs-pane>
+			</div>
+		</div>
+	</div>
 </div>
