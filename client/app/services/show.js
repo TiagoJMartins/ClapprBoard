@@ -3,7 +3,8 @@ angular.module('MainApp')
     return {
     	'findShow': $resource('/api/Shows/find-show'),
     	'trakt': {
-    		'find': $resource('/api/Shows/trakt/info')
+    		'find': $resource('/api/Shows/trakt/info'),
+    		'query': $resource('/api/Shows/trakt/query')
     	}
     };
   }]);

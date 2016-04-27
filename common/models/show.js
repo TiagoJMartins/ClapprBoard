@@ -35,8 +35,8 @@ module.exports = function(Show) {
   		extended: ['full', 'images']
   	})
   	.then(function(show) {
-  		cb(null, show);
-  	})
+      cb(null, show);
+    })
   	.catch(function(err) {
   		cb(err);
   	});
@@ -51,6 +51,32 @@ module.exports = function(Show) {
   	}
   );
 
+
+  Show.getSeasons = function(slug, cb) {
+    // get seasons from trakt
+  };
+
+  Show.queryTrakt = function(query, cb) {
+    trakt.search({
+      type: 'show',
+      query: query
+    })
+    .then(function(results) {
+      cb(null, results);
+    })
+    .catch(function(err) {
+      cb(err);
+    });
+  };
+
+  Show.remoteMethod(
+    'queryTrakt',
+    {
+      accepts: [{ arg: 'query', type: 'string' }],
+      returns: { arg: 'results', type: 'object' },
+      http: { path: '/trakt/query', verb: 'get' }
+    }
+  );
 
 };
 

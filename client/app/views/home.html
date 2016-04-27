@@ -11,10 +11,9 @@
       <div class="main-content" ng-hide="working">
         <div class="grid">
           <div class="grid-item"
-            ng-repeat="show in panelBody">
+            ng-repeat="show in panelBody track by $index">
             <a ui-sref="show-detail({id: show.slug})">
-              <img ng-src="{{show.images.poster.thumb}}" width="150" class="">
-              <p class="grid-item-text">{{show.title}}</p>
+              <img ng-src="{{show.images.poster.thumb}}" width="150">
             </a>
           </div>
         </div>

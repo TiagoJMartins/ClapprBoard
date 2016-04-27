@@ -10,5 +10,6 @@ TV Show tracking application.
 - Fix querying shows (it should be more flexible, for example, searching "breaking" should return results with query ordered by relevance, only by clicking one should it be added to DB(?))
 - Center grid of shows in home page to eliminate white space on the right side.
 - Create footer.
+- Add wrapper for show info in show-detail.html
 
 https://github.com/strongloop/loopback-getting-started-intermediate/

@@ -1,6 +1,6 @@
 angular.module('MainApp')
-	.controller('DetailCtrl', ['$scope', '$rootScope', 'ShowService', '$state',
-		function($scope, $rootScope, ShowService, $state) {
+	.controller('DetailCtrl', ['$scope', '$rootScope', 'ShowService', '$state', 'Show',
+		function($scope, $rootScope, ShowService, $state, Show) {
 
 			$scope.slug = $state.params.id;
 			$scope.working = true;
@@ -9,14 +9,45 @@ angular.module('MainApp')
 			ShowService.findShow.get({ slug: $scope.slug }, function(data) {
 
 				if(!data.result) {
-					$rootScope.error = "The requested show could not be retrieved.";
-					$scope.working = false;
-					return;
+					ShowService.trakt.find.get({ slug: $scope.slug }, function(result) {
+                              if (result.error) {
+                                    $rootScope.error = 'Requested show could not be found.';
+                                    $scope.working = false;
+                                    return;
+                              } else {
+                                    var data = result.result;
+
+                                    var newShow = {};
+                                    newShow.title = data.title;
+                                    newShow.year = data.year;
+                                    newShow.ids = data.ids;
+                                    newShow.overview = data.overview;
+                                    newShow.first_aired = data.first_aired;
+                                    newShow.airs = data.airs;
+                                    newShow.runtime = data.runtime;
+                                    newShow.network = data.network;
+                                    newShow.country = data.country;
+                                    newShow.trailer = data.trailer;
+                                    newShow.homepage = data.homepage;
+                                    newShow.status = data.status;
+                                    newShow.rating = Math.round(data.rating * 10) / 10;
+                                    newShow.votes = data.votes;
+                                    newShow.language = data.language;
+                                    newShow.genres = data.genres;
+                                    newShow.aired_episodes = data.aired_episodes;
+                                    newShow.images = data.images;
+                                    newShow.slug = $scope.slug;
+
+                                    Show.create(newShow);
+                                    $scope.show = newShow;
+                                    $scope.working = false;
+                                    return;
+                              }
+                        });
 				}
 
 				$scope.show = data.result;
 				$scope.time = moment();
-				$scope.rating = Math.round(data.result.rating * 10) / 10;
 				$rootScope.error = '';
 				$scope.working = false;
 				return;

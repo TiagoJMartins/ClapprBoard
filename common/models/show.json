@@ -68,6 +68,9 @@
     },
     "images": {
       "type": "object"
+    },
+    "seasons": {
+      "type": "[object]"
     }
   },
   "validations": [],

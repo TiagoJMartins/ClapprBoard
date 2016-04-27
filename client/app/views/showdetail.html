@@ -1,12 +1,12 @@
 <div class="container">
 	<div class="panel panel-default">
-		<div class="panel-heading hide-bg">
+		<div class="panel-heading hide-bg" ng-show="{{show.images.banner.full}}">
 			<img class="show-banner center-block img-responsive" ng-src="{{show.images.banner.full}}">
 		</div>
 		<div class="panel-body">
 			<i class="fa fa-spinner fa-2x faa-spin animated" ng-show="working"></i>
 			<div class="show-detail" ng-hide="working">				
-				<img class="show-poster img-responsive img-rounded" ng-src="{{show.images.poster.thumb}}">
+				<img class="show-poster img-responsive img-rounded" ng-src="{{show.images.poster.full}}">
 				<div class="show-info-header">
 					<h2 class="show-title">
 					<a ng-href="{{show.homepage}}">{{show.title}}</a>
@@ -17,10 +17,16 @@
 					</button>
 				</div>
 				<div class="show-airtime">
-					<h5 class="airtime">
+					<h5 class="airtime" ng-show="show.airs.day">
 					{{show.airs.day}}, at {{show.airs.time}} on {{show.network}}
 					</h5>
-					<h6 class="timeleft">{{time}}</h6>
+					<h5 class="airtime" ng-hide="show.airs.day">
+						No air time information found.
+					</h5>
+					<h6 class="status" ng-show="show.status === 'returning series'">Returning Series</h6>
+					<h6 class="status" ng-show="show.status === 'cancelled'">Cancelled</h6>
+					<h6 class="status" ng-show="show.status === 'ended'">Finished Series</h6>
+					<h6 class="status" ng-show="show.status === 'in production'">In Production</h6>
 				</div>
 				<p class="show-overview">
 					{{show.overview}}

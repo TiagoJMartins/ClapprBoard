@@ -6331,15 +6331,15 @@ button.close {
     width: 100%;
     margin: 0 auto;
     padding-bottom: 2em;
-    transition: 0.7s ease-in; }
+    transition: 0.3s ease; }
   .show-info-header h2 {
     display: block;
     text-align: center;
     padding-bottom: 0.7em;
-    transition: 0.7s ease-in; }
+    transition: 0.3s ease; }
   .show-info-header .btn-show {
     margin-right: 0;
-    transition: 0.7s ease-in; }
+    transition: 0.3s ease; }
   .navbar-brand {
     float: none;
     display: block;
