@@ -52,11 +52,45 @@ angular.module('MainApp')
 							}
 						});
 
+						newArr.forEach(function(season) {
+
+							var episodeCount = season.content.episode_count;
+							season.content.episodes = [];
+							(function(count, season) {
+								var i = 1;
+								function forloop(){
+									if (i < count) {
+										ShowService.trakt.episodes.get({
+											slug: slug,
+											season: season.title.substring(season.title.length - 1, season.title.length),
+											episode: i
+										}, function(ep) {
+											var self = season.content.episodes;
+											self.push(ep.result);
+											i++;
+											forloop();
+										});
+									} else {
+										console.log('Loop finished!', i);
+									}
+								}
+								forloop();
+							})(episodeCount, season);
+						});
+						
+						console.log('Arr', newArr)
+
 						show.seasons = newArr;
-						show.$save().then(function(data) {
+
+						console.log('show.seasons', show.seasons);
+
+						show.$save()
+						.then(function(data) {
+							console.log('saved data');
 							$scope.show = data;
 						})
 						.catch(function(err) {
+							console.log('error saving data');
 							$rootScope.error = 'Error saving season information to the database.'
 						});
 

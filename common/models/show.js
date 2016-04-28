@@ -19,15 +19,6 @@ module.exports = function(Show) {
   	});
   };
 
-  Show.remoteMethod(
-  	'findShow', 
-  	{
-  		accepts: [{ arg: 'slug', type: 'string' }],
-  		returns: { arg: 'result', type: 'object'},
-  		http: { path: '/find-show', verb: 'get' }
-  	}
-  );
-
 
   Show.getFromTrakt = function(slug, cb) {
   	trakt.shows.summary({
@@ -41,15 +32,6 @@ module.exports = function(Show) {
   		cb(err);
   	});
   };
-
-  Show.remoteMethod(
-  	'getFromTrakt', 
-  	{
-  		accepts: [{ arg: 'slug', type: 'string' }],
-  		returns: { arg: 'result', type: 'object' },
-  		http: { path: '/trakt/info', verb: 'get' }
-  	}
-  );
 
 
   Show.getSeasons = function(slug, cb) {
@@ -65,15 +47,6 @@ module.exports = function(Show) {
     });
   };
 
-  Show.remoteMethod(
-    'getSeasons',
-    {
-      accepts: [{ arg: 'id', type: 'string' }],
-      returns: { arg: 'results', type: 'object'},
-      http: { path: '/trakt/seasons', verb: 'get' }
-    }
-  );
-
   Show.queryTrakt = function(query, cb) {
     trakt.search({
       type: 'show',
@@ -87,6 +60,48 @@ module.exports = function(Show) {
     });
   };
 
+  Show.getEpisodes = function(slug, season, episode, cb) {
+    trakt.episodes.summary({
+      id: slug,
+      season: season,
+      episode: episode,
+      extended: ['images', 'full']
+    })
+    .then(function(result) {
+      cb(null, result);
+    })
+    .catch(function(err) {
+      cb(err);
+    });
+  }
+
+  Show.remoteMethod(
+    'findShow', 
+    {
+      accepts: [{ arg: 'slug', type: 'string' }],
+      returns: { arg: 'result', type: 'object'},
+      http: { path: '/find-show', verb: 'get' }
+    }
+  );
+
+  Show.remoteMethod(
+    'getFromTrakt', 
+    {
+      accepts: [{ arg: 'slug', type: 'string' }],
+      returns: { arg: 'result', type: 'object' },
+      http: { path: '/trakt/info', verb: 'get' }
+    }
+  );
+
+  Show.remoteMethod(
+    'getSeasons',
+    {
+      accepts: [{ arg: 'id', type: 'string' }],
+      returns: { arg: 'results', type: 'object'},
+      http: { path: '/trakt/seasons', verb: 'get' }
+    }
+  );
+
   Show.remoteMethod(
     'queryTrakt',
     {
@@ -96,17 +111,16 @@ module.exports = function(Show) {
     }
   );
 
+  Show.remoteMethod(
+    'getEpisodes',
+    {
+      accepts: [
+        { arg: 'slug', type: 'string'},
+        { arg: 'season', type: 'number' },
+        { arg: 'episode', type: 'number' }
+      ],
+      returns: { arg: 'result', type: 'object' },
+      http: { path: '/trakt/episodes', verb: 'get' }
+    }
+  );
 };
-
-/**	Flow for handling show query.
-*
-*	1. Search Query of: "Breaking Bad".
-*	2. "Breaking Bad" gets turned into slug.
-*	3. "breaking-bad" is used as search term.
-*		3.1. Retrieve results from Mongo to see if queried show exists.
-*			3.1.1. Show exists: Return data.
-*			3.1.2. Show doesn't exists: Call to trakt API.
-*				3.1.2.1. API call successful: POST /api/Show and return it's data.
-*				3.1.2.2. API call unsuccessful: Return error, show is not available.
-*
-**/

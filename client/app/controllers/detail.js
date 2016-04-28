@@ -42,52 +42,6 @@ angular.module('MainApp')
                         });
 				}
 
-				/*
-				if (!data.result.seasons) {
-						ShowService.trakt.seasons.get({
-						id: $scope.slug
-					}, function(data) {
-						
-						if(!data.results) {
-							$rootScope.error = 'Could not find any seasons for this show.';
-							return;
-						}
-
-						var seasons = data.results;
-
-						var newArr = [];
-
-						
-						seasons.forEach(function(season) {
-							if (season.number) {
-								var obj = {
-									title: 'Season ' + season.number,
-									content: {
-										rating: Math.round(season.rating * 10) / 10,
-										episode_count: season.episode_count,
-										aired_episodes: season.aired_episodes,
-										first_aired: season.first_aired,
-										overview: season.overview,
-										images: season.images
-									}
-								}
-								newArr.push(obj);
-							}
-						});
-
-						Show.prototype$updateAttributes(
-						{
-							'id': $scope.show.id
-						},
-						{
-							'seasons': newArr
-						});
-
-						$state.go($state.current, {}, {reload: true});
-					});
-				}
-				*/
-
 				$scope.show = data.result;
 				$scope.time = moment();
 				$rootScope.error = '';

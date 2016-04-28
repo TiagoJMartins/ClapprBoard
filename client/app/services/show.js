@@ -5,7 +5,8 @@ angular.module('MainApp')
     	'trakt': {
     		'find': $resource('/api/Shows/trakt/info'),
     		'query': $resource('/api/Shows/trakt/query'),
-    		'seasons': $resource('/api/Shows/trakt/seasons')
+    		'seasons': $resource('/api/Shows/trakt/seasons'),
+            'episodes': $resource('/api/Shows/trakt/episodes')
     	}
     };
   }]);
