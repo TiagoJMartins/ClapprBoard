@@ -6,7 +6,8 @@ angular.module('MainApp')
 
       Show.find({
       	filter: {
-      		limit: 16
+                  order: 'rating DESC',
+      		limit: 15
       	}
       }, function(results) {
       	$rootScope.error = '';
