@@ -6356,6 +6356,25 @@ button.close {
 .nav-tabs > li > a {
   cursor: pointer; }
 
+.nav-tabs {
+  border-bottom: 1px solid #ddd; }
+  .nav-tabs > li {
+    float: left;
+    margin-bottom: -1px; }
+    .nav-tabs > li > a {
+      margin-right: 2px;
+      line-height: 1.42857;
+      border: 1px solid transparent;
+      border-radius: 4px 4px 0 0; }
+      .nav-tabs > li > a:hover {
+        border-color: #d4d4d4 #d4d4d4 #ddd; }
+    .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+      color: #555555;
+      background-color: #d5d8de;
+      border: 1px solid #ddd;
+      border-bottom-color: transparent;
+      cursor: default; }
+
 .tab-content {
   background-color: #FFF;
   margin-bottom: 100px; }

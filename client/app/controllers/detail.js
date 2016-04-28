@@ -5,34 +5,6 @@ angular.module('MainApp')
 			$scope.slug = $state.params.id;
 			$scope.working = true;
 			$scope.show = {};
-			
-			$scope.tabs = [{
-			      title: 'Season 1',
-			      template: 'app/views/episodes.html',
-			      content: 'Raw denim you probably haven\'t heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica.'
-			}, {
-			      title: 'Season 2',
-			      template: 'app/views/episodes.html',
-			      content: 'Food truck fixie locavore, accusamus mcsweeney\'s marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee.'
-			}, {
-			      title: 'Season 3',
-			      template: 'app/views/episodes.html',
-			      content: 'Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney\'s organic lomo retro fanny pack lo-fi farm-to-table readymade.'
-			}, {
-			      title: 'Season 4',
-			      template: 'app/views/episodes.html',
-			      content: 'Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney\'s organic lomo retro fanny pack lo-fi farm-to-table readymade.'
-			}, {
-			      title: 'Season 5',
-			      template: 'app/views/episodes.html',
-			      content: 'Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney\'s organic lomo retro fanny pack lo-fi farm-to-table readymade.'
-			}, {
-			      title: 'Season 6',
-			      template: 'app/views/episodes.html',
-			      content: 'Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney\'s organic lomo retro fanny pack lo-fi farm-to-table readymade.'
-			}];
-			
-			$scope.tabs.activeTab = 1;
 
 			ShowService.findShow.get({ slug: $scope.slug }, function(data) {
 
@@ -66,12 +38,55 @@ angular.module('MainApp')
                                     newShow.images = data.images;
                                     newShow.slug = $scope.slug;
 
-                                    Show.create(newShow);
-                                    $scope.show = newShow;
+                                    $scope.show = Show.create(newShow);
                                     $scope.working = false;
                                     return;
                               }
                         });
+				}
+
+				if (!data.result.seasons) {
+						ShowService.trakt.seasons.get({
+						id: $scope.slug
+					}, function(data) {
+						if(!data.results) {
+							$rootScope.error = 'Could not find any seasons for this show.';
+							$scope.working = false;
+							return;
+						}
+
+						var seasons = data.results;
+
+						var newArr = [];
+
+						
+						seasons.forEach(function(season) {
+							if (season.number) {
+								var obj = {
+									title: 'Season ' + season.number,
+									content: {
+										rating: Math.round(season.rating * 10) / 10,
+										episode_count: season.episode_count,
+										aired_episodes: season.aired_episodes,
+										first_aired: season.first_aired,
+										overview: season.overview,
+										images: season.images
+									}
+								}
+								newArr.push(obj);
+							}
+						});
+
+						Show.prototype$updateAttributes(
+						{
+							'id': $scope.show.id
+						},
+						{
+							'seasons': newArr
+						});
+
+						$state.go($state.current, {}, {reload: true});
+					});
 				}
 
 				$scope.show = data.result;
@@ -80,6 +95,5 @@ angular.module('MainApp')
 				$scope.working = false;
 				return;
 			});
-
 		}
 	]);

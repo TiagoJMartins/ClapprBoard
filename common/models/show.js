@@ -53,8 +53,26 @@ module.exports = function(Show) {
 
 
   Show.getSeasons = function(slug, cb) {
-    // get seasons from trakt
+    trakt.seasons.summary({
+      id: slug,
+      extended: ['full', 'images']
+    })
+    .then(function(results) {
+      cb(null, results);
+    })
+    .catch(function(err) {
+      cb(err);
+    });
   };
+
+  Show.remoteMethod(
+    'getSeasons',
+    {
+      accepts: [{ arg: 'id', type: 'string' }],
+      returns: { arg: 'results', type: 'object'},
+      http: { path: '/trakt/seasons', verb: 'get' }
+    }
+  );
 
   Show.queryTrakt = function(query, cb) {
     trakt.search({

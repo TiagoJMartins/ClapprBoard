@@ -70,7 +70,7 @@
       "type": "object"
     },
     "seasons": {
-      "type": "[object]"
+      "type": "array"
     }
   },
   "validations": [],
