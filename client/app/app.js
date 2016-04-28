@@ -15,6 +15,11 @@ angular.module('MainApp', ['ngResource', 'ngMessages', 'ui.router', 'angular-loa
           templateUrl: 'app/views/showdetail.html',
           controller: 'DetailCtrl'
         })
+        .state('show-episodes', {
+          url: '/shows/:id/episodes',
+          templateUrl: 'app/views/seasondetail.html',
+          controller: 'EpisodeCtrl'
+        })
         .state('login', {
           url: '/login',
           templateUrl: 'app/views/login.html',
@@ -57,5 +62,14 @@ angular.module('MainApp', ['ngResource', 'ngMessages', 'ui.router', 'angular-loa
         $state.go('forbidden');
       }
     });
+
+    $rootScope.$on('$stateChangeSuccess', function(e, to, toParams, from, fromParams) {
+      $rootScope.previousState = from.name;
+      $rootScope.previousParams = fromParams;
+    });
+
+    $rootScope.prevState = function(state, params) {
+      $state.go(state, params);
+    };
 
   }]);

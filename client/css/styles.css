@@ -6387,6 +6387,10 @@ button.close {
   background-color: #FFF;
   margin-bottom: 100px; }
 
+@media screen and (min-width: 1440px) {
+  .container-fluid {
+    width: 1280px; } }
+
 @media screen and (max-width: 768px) {
   .show-poster {
     width: 100%;

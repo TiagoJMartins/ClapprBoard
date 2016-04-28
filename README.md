@@ -6,12 +6,10 @@ TV Show tracking application.
 - Implement TTL on cookie.
 - Create Subscribe factory to subscribe and unsubscribe from shows (create respective remote methods aswell)
 - Set up global error alerts
-- Fix 404 when user searches for non existing show.
 - Create footer.
 - Add wrapper for show info in show-detail.html
-- Work on episode listing in show-detail.html
-- Fix flickering of state-reload when show does not have season info.
-- Improve loading icon (maybe loading bar on top/bottom of website)
 - Minify CSS and JS. Concat all JS into a single file. Create .maps (Maybe add to watch task?)
+- Work on getting episode information and decent layout to display them.
+- Implement some sort of "back button". (is it really necessary?)
 
 https://github.com/strongloop/loopback-getting-started-intermediate/

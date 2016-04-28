@@ -1,11 +1,10 @@
-<div class="container">
+<div class="container-fluid">
 	<div class="panel panel-default">
 		<div class="panel-heading hide-bg" ng-show="show.images.banner.full">
 			<img class="show-banner center-block img-responsive" ng-src="{{show.images.banner.full}}">
 		</div>
 		<div class="panel-body">
-			<!-- <i class="fa fa-spinner fa-2x faa-spin animated" ng-show="working"></i> -->
-			<div class="show-detail" ng-hide="working">				
+			<div class="show-detail" ng-show="show">				
 				<img class="show-poster img-responsive img-rounded" ng-src="{{show.images.poster.full}}">
 				<div class="show-info-header">
 					<h2 class="show-title">
@@ -31,6 +30,7 @@
 				<p class="show-overview">
 					{{show.overview}}
 				</p>
+				<a ui-sref="show-episodes({id: show.slug})">Episodes</a>
 			</div>
 		</div>
 	</div>

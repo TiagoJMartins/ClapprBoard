@@ -10,6 +10,7 @@ angular.module('MainApp')
       	}
       }, function(results) {
       	$rootScope.error = '';
+            $scope.panelBody = '';
       	$scope.panelBody = results;
       });
 

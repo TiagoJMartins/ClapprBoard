@@ -1,0 +1,15 @@
+<div class="container-fluid">
+	<div class="panel panel-default" ng-show="show">
+		<div class="panel-heading hide-bg" ng-show="show.images.banner.full">
+			<img class="show-banner center-block img-responsive" ng-src="{{show.images.banner.full}}">
+		</div>
+		<div class="panel-body">
+			<div class="episode-container">
+				<div class="season-tabs" bs-tabs>
+					<div ng-repeat="season in show.seasons" data-title="{{season.title}}" name="{{season.title}}" ng-include="'app/views/episodes.html'" bs-pane>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

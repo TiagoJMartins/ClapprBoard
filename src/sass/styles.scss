@@ -48,6 +48,7 @@ $alert-info-bg: #e5f7fd;
 $alert-info-border: #bcf8f3;
 $alert-info-text: #25484e;
 
+$big-breakpoint: 1440px;
 $medium-breakpoint: 992px;
 $small-breakpoint: 768px;
 $extra-small-breakpoint: 418px;
@@ -224,6 +225,12 @@ $extra-small-breakpoint: 418px;
 	margin-bottom: 100px;
 }
 
+@media screen and (min-width: $big-breakpoint) {
+	.container-fluid {
+		width: 1280px;
+	}
+}
+
 @media screen and (max-width: $small-breakpoint) {
 
 
@@ -281,3 +288,4 @@ $extra-small-breakpoint: 418px;
 		transition: 0.5s ease;
 	}
 }
+

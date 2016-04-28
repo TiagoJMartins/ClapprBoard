@@ -21,7 +21,7 @@
       <div class="nav-links">
         <ul class="nav navbar-nav">
           <li data-match-route="/$"><a ui-sref="home" ui-sref-active="active" data-ui-sref-opts="{reload: true}">Home</a></li>
-          <li data-match-route="/add"><a href="#">Add</a></li>
+          <li data-match-route="/add"><a class="disabled" on-click="prevState(previousState, previousParams)">Back</a></li>
         </ul>
         <ul class="nav navbar-nav pull-right" ng-if="!isLoggedIn">
           <li data-match-route="/login"><a ui-sref="login" ui-sref-active="active">Login</a></li>
@@ -58,5 +58,6 @@
     <script src="/app/controllers/auth.js" charset="utf-8"></script>
     <script src="/app/controllers/main.js" charset="utf-8"></script>
     <script src="/app/controllers/detail.js" charset="utf-8"></script>
+    <script src="/app/controllers/episode.js" charset="utf-8"></script>
   </body>
 </html>
