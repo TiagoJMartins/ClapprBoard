@@ -1,12 +1,79 @@
-<div class="container">
-	<div class="season-info">
-		Rating: {{season.content.rating}} <br>
-		Episodes: {{season.content.episode_count}} <br>
-		Aired: {{season.content.aired_episodes}} <br>
-		First Aired: {{season.content.first_aired}} <br>
+<style>
+.episode-list {
+	list-style: none;
+	padding-left: 0;
+	margin-bottom: 0;
+}
 
-		<ul>
-			<li ng-repeat="episode in season.content.episodes" ng-hide="!episode.title"><p>{{episode.number}}: {{episode.title}}</p></li>
-		</ul>
+.episode-list > li {
+	position: relative;
+	display: block;
+	border: 1px solid #949494;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	-ms-border-radius: 3px;
+	border-radius: 3px;
+	margin: 5px 0 5px 0;
+	min-height: 75px;
+}
+
+.episode-info {
+}
+
+.episode-info > p {
+	display: inline-block;
+	margin: 3px 0 0 115px;
+}
+
+#episode-overview {
+	font-size: 0.9em;
+	margin-top: 0 !important;
+}
+
+.episode-pic {
+}
+
+.episode-pic > img {
+	position: absolute;
+	top: 50%;
+	height: 60px;
+	margin-top: -30px;
+	margin-left: 2px;
+	margin-right: 7px;
+	border: 1px solid #BCBCBC;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	-ms-border-radius: 3px;
+	border-radius: 3px;
+}
+
+.season-info,
+.episode-list-wrapper {
+	padding-top: 1em;
+}
+
+
+</style>
+<div class="container-fluid">
+	<div class="season-info">
+		<div class="season-info-header">
+			Rating: {{season.content.rating}} <br>
+			Episodes: {{season.content.episode_count}} <br>
+			Aired: {{season.content.aired_episodes}} <br>
+			First Aired: {{season.content.first_aired}} <br>
+		</div>
+		<div class="episode-list-wrapper">
+			<ul class="episode-list">
+				<li ng-repeat="episode in season.content.episodes" ng-hide="!episode.title">
+				<div class="episode-pic">
+					<img ng-src="{{episode.images.screenshot.thumb}}" class="img-responsive">
+				</div>
+				<div class="episode-info">
+					<p><strong>{{episode.number}}. {{episode.title}}</strong></p>
+					<p id="episode-overview">{{episode.overview}}</p>
+				</div>
+				</li>
+			</ul>
+		</div>
 	</div>
 </div>
