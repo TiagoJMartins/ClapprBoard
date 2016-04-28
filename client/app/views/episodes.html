@@ -1,1 +1,10 @@
-<div>{{season.content.overview}}</div>
+<div class="container">
+	<div class="season-info">
+		Rating: {{season.content.rating}} <br>
+		Episodes: {{season.content.episode_count}} <br>
+		Aired: {{season.content.aired_episodes}} <br>
+		First Aired: {{season.content.first_aired}} <br>
+
+		<img ng-src="{{season.content.images.thumb.full}}">
+	</div>
+</div>
