@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/css/font-awesome.min.css">
     <link rel="stylesheet" href="/css/font-awesome-animation.min.css">
     <link rel="stylesheet" href="/css/styles.css" charset="utf-8">
+    <link rel="stylesheet" href="/css/loading-bar.css" charset="utf-8">
   </head>
   <body>
     <nav class="navbar navbar-default" role="navigation" bs-navbar>
@@ -31,6 +32,7 @@
         </ul>
       </div>
     </nav>
+    <div id="loading-bar"></div>
 
     <div class="alert alert-danger" ng-if="error">{{error}}</div>
     <main ui-view></main>
@@ -48,6 +50,7 @@
     <script src="/vendor/angular-messages.min.js" charset="utf-8"></script>
     <script src="/vendor/angular-cookies.min.js" charset="utf-8"></script>
     <script src="/vendor/ngStorage.min.js" charset="utf-8"></script>
+    <script src="/js/loading-bar.min.js" charset="utf-8"></script>
     <script src="/js/lb-services.js" charset="utf-8"></script>
     <script src="/app/app.js" charset="utf-8"></script>
     <script src="/app/services/auth.js" charset="utf-8"></script>

@@ -11,7 +11,7 @@ var config = {
 }
 
 gulp.task('css', function() {
-  gulp.src(config.SRC_SASS)
+  gulp.src('config.SRC_SASS')
       .pipe(plumber())
       .pipe(sass({
         includePaths: [config.BOOTSTRAP]

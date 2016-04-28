@@ -1,5 +1,7 @@
-angular.module('MainApp', ['ngResource', 'ngMessages', 'ui.router', 'ngAnimate', 'ngCookies', 'lbServices', 'mgcrea.ngStrap'])
-  .config(['$locationProvider', '$stateProvider', '$urlRouterProvider', function($locationProvider, $stateProvider, $urlRouterProvider) {
+angular.module('MainApp', ['ngResource', 'ngMessages', 'ui.router', 'angular-loading-bar',
+                           'ngAnimate', 'ngCookies', 'lbServices', 'mgcrea.ngStrap'])
+  .config(['$locationProvider', '$stateProvider', '$urlRouterProvider', 'cfpLoadingBarProvider',
+    function($locationProvider, $stateProvider, $urlRouterProvider, cfpLoadingBarProvider) {
     //$locationProvider.html5Mode(false);
 
       $stateProvider
@@ -36,9 +38,14 @@ angular.module('MainApp', ['ngResource', 'ngMessages', 'ui.router', 'ngAnimate',
           template: '<p>403 Forbidden</p>'
         });
 
+        cfpLoadingBarProvider.includeSpinner = false;
+        cfpLoadingBarProvider.parentSelector = '#loading-bar';
+        cfpLoadingBarProvider.latencyThreshold = 350;
+
         $urlRouterProvider.otherwise('home');
   }])
-  .run(['$cookies', '$rootScope', 'Client', '$state', function($cookies, $rootScope, Client, $state) {
+  .run(['$cookies', '$rootScope', 'Client', '$state',
+   function($cookies, $rootScope, Client, $state) {
     $rootScope.currentUser = $cookies.getObject('session');
     $rootScope.isLoggedIn = Client.isAuthenticated();
 

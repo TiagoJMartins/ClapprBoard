@@ -21,7 +21,7 @@ $navbar-default-bg: #fff;
 $navbar-default-border: #e3e9ec;
 
 $navbar-default-brand-color: #333;
-$navbar-default-brand-bg: #fee091;
+$navbar-default-brand-bg: #FEE091;
 $navbar-default-brand-hover-color: #333;
 $navbar-default-brand-hover-bg: #FFCB43;
 
@@ -68,6 +68,12 @@ $extra-small-breakpoint: 418px;
 	-webkit-transition: 0.5s ease;
 	-moz-transition: 0.5s ease;
 	-ms-transition: 0.5s ease;
+}
+
+@keyframes loadingFade {
+	0%    { background-color: #FFC429 }
+	50%   { background-color: #FFEFC8 }
+	100%  { background-color: #FFC429 }
 }
 
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {

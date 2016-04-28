@@ -3,7 +3,6 @@ angular.module('MainApp')
 		function($scope, $rootScope, ShowService, $state, Show) {
 
 			$scope.slug = $state.params.id;
-			$scope.working = true;
 			$scope.show = {};
 
 			ShowService.findShow.get({ slug: $scope.slug }, function(data) {
@@ -12,7 +11,6 @@ angular.module('MainApp')
 					ShowService.trakt.find.get({ slug: $scope.slug }, function(result) {
                               if (result.error) {
                                     $rootScope.error = 'Requested show could not be found.';
-                                    $scope.working = false;
                                     return;
                               } else {
                                     var data = result.result;
@@ -39,19 +37,19 @@ angular.module('MainApp')
                                     newShow.slug = $scope.slug;
 
                                     $scope.show = Show.create(newShow);
-                                    $scope.working = false;
                                     return;
                               }
                         });
 				}
 
+				/*
 				if (!data.result.seasons) {
 						ShowService.trakt.seasons.get({
 						id: $scope.slug
 					}, function(data) {
+						
 						if(!data.results) {
 							$rootScope.error = 'Could not find any seasons for this show.';
-							$scope.working = false;
 							return;
 						}
 
@@ -88,11 +86,11 @@ angular.module('MainApp')
 						$state.go($state.current, {}, {reload: true});
 					});
 				}
+				*/
 
 				$scope.show = data.result;
 				$scope.time = moment();
 				$rootScope.error = '';
-				$scope.working = false;
 				return;
 			});
 		}
