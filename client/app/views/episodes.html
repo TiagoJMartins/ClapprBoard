@@ -5,6 +5,8 @@
 		Aired: {{season.content.aired_episodes}} <br>
 		First Aired: {{season.content.first_aired}} <br>
 
-		<img ng-src="{{season.content.images.thumb.full}}">
+		<ul>
+			<li ng-repeat="episode in season.content.episodes" ng-hide="!episode.title"><p>{{episode.number}}: {{episode.title}}</p></li>
+		</ul>
 	</div>
 </div>
