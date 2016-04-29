@@ -67,12 +67,18 @@ angular.module('MainApp', ['ngResource', 'ngMessages', 'ui.router', 'angular-loa
 
     $rootScope.$on('$stateChangeStart', function(event, next, params) {
       if (next.authenticate && !$rootScope.isLoggedIn) {
+        
         event.preventDefault();
         $rootScope.afterAuth = {
           next: next,
           params: params
         };
-        $state.go('forbidden');
+        
+        if (next.name === 'home') {
+          $state.go('login');
+        } else {
+          $state.go('forbidden');  
+        }
       }
     });
 
