@@ -48,6 +48,14 @@ $alert-info-bg: #e5f7fd;
 $alert-info-border: #bcf8f3;
 $alert-info-text: #25484e;
 
+$episode-options-icon: #567484;;
+$episode-options-icon-focus: $episode-options-icon;
+$episode-options-icon-hover: #5F96C5;
+
+$show-options-icon: #FF0000;
+$show-options-icon-focus: $show-options-icon;
+$show-options-icon-hover: #1E00FF;
+
 $big-breakpoint: 1440px;
 $medium-breakpoint: 992px;
 $small-breakpoint: 768px;
@@ -151,6 +159,24 @@ $extra-small-breakpoint: 418px;
 	.btn-show {
 		float: right;
 		margin-right: 1em;
+		background-color: none;
+
+		&:active {
+			-webkit-box-shadow: none;
+			-moz-box-shadow: none;
+			-o-box-shadow: none;
+			-ms-box-shadow: none;
+			box-shadow: none;
+		}
+
+		&:focus {
+			color: $show-options-icon-focus;
+			outline: none;
+		}
+
+		&:hover {
+			color: $show-options-icon-hover;
+		}
 	}
 }
 
@@ -170,60 +196,80 @@ $extra-small-breakpoint: 418px;
 	padding: 10px 10px 10px 20px;
 }
 
-.nav-tabs {
-	& > li {
-		&:active > a,
-		&:hover > a {
-			background-color: #FFF;
+.season-tabs-container {
+	text-align: center;
+
+	ul.nav {
+		display: inline-block;
+	}
+}
+
+.episode-list {
+	list-style: none;
+	padding-left: 0;
+
+	li {
+		position: relative;
+		margin: 1em 0 1em 0;
+		overflow: hidden;
+		height: 100%;
+		//border: 2px solid #333;
+	}
+}
+
+.episode-image {
+	padding-left: 0;
+	padding-right: 0;
+	img {
+		margin: 0 auto;
+		@include imageBorder;
+	}
+}
+
+.episode-info {
+	padding: 0.6em 1.3em 1.2em 1.3em;
+
+	.episode-date {
+		display: block;
+		margin-bottom: 5px;
+
+	}
+}
+
+.episode-header {	
+	p {
+		display: inline-block;
+		margin: 5px 0 2px;
+		font-weight: bold;
+	}
+
+	a {
+		color: $episode-options-icon;
+		margin: 5px 2px 2px;
+		float: right;
+
+		&:active {
+			-webkit-box-shadow: none;
+			-moz-box-shadow: none;
+			-o-box-shadow: none;
+			-ms-box-shadow: none;
+			box-shadow: none;
 		}
-		& > a {
-			cursor: pointer;
+
+		&:focus {
+			color: $episode-options-icon-focus;
+			outline: none;
+		}
+
+		&:hover {
+			color: $episode-options-icon-hover;
 		}
 	}
 }
 
-.nav-tabs {
-  border-bottom: 1px solid $nav-tabs-border-color;
-  > li {
-    float: left;
-    // Make the list-items overlay the bottom border
-    margin-bottom: -1px;
-
-    // Actual tabs (as links)
-    > a {
-      margin-right: 2px;
-      line-height: $line-height-base;
-      border: 1px solid transparent;
-      border-radius: $border-radius-base $border-radius-base 0 0;
-      &:hover {
-        border-color: #d4d4d4 #d4d4d4 $nav-tabs-border-color;
-      }
-    }
-
-    // Active state, and its :hover to override normal :hover
-    &.active > a {
-      &,
-      &:hover,
-      &:focus {
-        color: $nav-tabs-active-link-hover-color;
-        background-color: $nav-tabs-active-link-hover-bg;
-        border: 1px solid $nav-tabs-active-link-hover-border-color;
-        border-bottom-color: transparent;
-        cursor: default;
-      }
-    }
-  }
-  // pulling this in mainly for less shorthand
-  &.nav-justified {
-    @extend .nav-justified;
-    @extend .nav-tabs-justified;
-  }
-}
-
-.tab-content {
-	background-color: #FFF;
-	margin-bottom: 100px;
-}
+/*****************/
+/* Media Queries */
+/*****************/
 
 @media screen and (min-width: $big-breakpoint) {
 	.container-fluid {
@@ -272,6 +318,30 @@ $extra-small-breakpoint: 418px;
 		li,
 		li > a {
 			display: inline-block;
+		}
+	}
+
+	.episode-info {
+		-webkit-border-radius: 0 0 10px 10px;
+		   -moz-border-radius: 0 0 10px 10px;
+			 -o-border-radius: 0 0 10px 10px;
+			-ms-border-radius: 0 0 10px 10px;
+				border-radius: 0 0 10px 10px;
+		background-color: #DADADA;
+		background-image: -webkit-linear-gradient(#545454, 5%, #FFFFFF);
+		background-image: -o-linear-gradient(#545454, 5%, #FFFFFF);
+		background-image: linear-gradient(#545454, 5%, #FFFFFF);
+		margin: 0 auto;
+		width: 97%;
+	}
+
+	.episode-image {
+		img {
+			-webkit-border-radius: 3px 3px 0 0;
+			   -moz-border-radius: 3px 3px 0 0;
+				 -o-border-radius: 3px 3px 0 0;
+				-ms-border-radius: 3px 3px 0 0;
+					border-radius: 3px 3px 0 0;
 		}
 	}
 

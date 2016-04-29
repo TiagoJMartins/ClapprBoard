@@ -4,9 +4,39 @@
 			<img class="show-banner center-block img-responsive" ng-src="{{show.images.banner.full}}">
 		</div>
 		<div class="panel-body">
-			<div class="episode-container">
-				<div class="season-tabs" bs-tabs>
-					<div ng-repeat="season in show.seasons" data-title="{{season.title}}" name="{{season.title}}" ng-include="'app/views/episodes.html'" bs-pane>
+			<div class="season-container">				
+				<div class="season-tabs-container">
+					<ul class="nav nav-tabs"> 
+						<li ng-repeat="season in show.seasons">
+							<a href ng-click="setTab(season.number)">{{season.title}}</a>
+						</li>
+					</ul>
+				</div>
+				<div class="season-info" ng-repeat="season in show.seasons" ng-show="tab === season.number">
+					<div class="season-info-header">
+						
+					</div>
+					<div class="season-episodes">
+						<ul class="episode-list">
+							<li class="row" ng-repeat="episode in season.episodes" ng-hide="!episode.title">
+								<div class="episode-image col-sm-4">
+									<img ng-src="{{episode.images.screenshot.full || show.images.fanart.medium}}" class="img-responsive">							
+								</div>
+								<div class="episode-info col-sm-8">
+									<div class="episode-header">
+										<p>Episode {{episode.number}} - {{episode.title}}</p>
+										<a href="" class="btn btn-xs">
+											<i class="fa fa-eye fa-2x"></i>
+										</a>
+										<a href="" class="btn btn-xs">
+											<i class="fa fa-eye-slash fa-2x"></i>
+										</a>
+									</div>
+									<small class="episode-date">{{episode.first_aired}}</small>
+									<small>{{episode.overview | limitTo: 200 }}</small>
+								</div>
+							</li>
+						</ul>
 					</div>
 				</div>
 			</div>

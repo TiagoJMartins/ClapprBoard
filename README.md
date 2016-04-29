@@ -9,7 +9,7 @@ TV Show tracking application.
 - Create footer.
 - Add wrapper for show info in show-detail.html
 - Minify CSS and JS. Concat all JS into a single file. Create .maps (Maybe add to watch task?)
-- Modify way of getting episodes. Maybe create Episode model and relate it to the Show model. Try server-side querying for the episodes, updating the model automatically and the angular client only has to retrieve it and display it.
 - Implement some sort of "back button". (is it really necessary?)
+- create ng filter for truncating show.overview nicely
 
 https://github.com/strongloop/loopback-getting-started-intermediate/

@@ -5,6 +5,11 @@ angular.module('MainApp')
             var slug = $state.params.id;
             $scope.show = {};
             $rootScope.error = '';
+            $scope.tab = 1;
+
+            $scope.setTab = function(pos) {
+            	$scope.tab = pos;
+            };
 
             Show.find({
                 filter: {
@@ -39,14 +44,13 @@ angular.module('MainApp')
                             if (season.number) {
                                 var obj = {
                                     title: 'Season ' + season.number,
-                                    content: {
-                                        rating: Math.round(season.rating * 10) / 10,
-                                        episode_count: season.episode_count,
-                                        aired_episodes: season.aired_episodes,
-                                        first_aired: season.first_aired,
-                                        overview: season.overview,
-                                        images: season.images
-                                    }
+                                    number: season.number,
+                                    rating: Math.round(season.rating * 10) / 10,
+                                    episode_count: season.episode_count,
+                                    aired_episodes: season.aired_episodes,
+                                    first_aired: season.first_aired,
+                                    overview: season.overview,
+                                    images: season.images
                                 }
                                 newArr.push(obj);
                             }
@@ -54,8 +58,8 @@ angular.module('MainApp')
 
                         newArr.forEach(function(season) {
 
-                            var episodeCount = season.content.episode_count + 1;
-                            season.content.episodes = [];
+                            var episodeCount = season.episode_count + 1;
+                            season.episodes = [];
                             (function(count, season) {
                                 var i = 1;
 
@@ -63,10 +67,10 @@ angular.module('MainApp')
                                     if (i < count) {
                                         ShowService.trakt.episodes.get({
                                             slug: slug,
-                                            season: season.title.substring(season.title.length - 1, season.title.length),
+                                            season: season.number,
                                             episode: i
                                         }, function(ep) {
-                                            var self = season.content.episodes;
+                                            var self = season.episodes;
                                             self.push(ep.result);
                                             i++;
                                             forloop();
@@ -96,6 +100,7 @@ angular.module('MainApp')
                     return;
                 }
             });
+
 
         }
     ]);
