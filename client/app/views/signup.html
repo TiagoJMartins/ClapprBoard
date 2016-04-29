@@ -1,7 +1,22 @@
-<h1>Signup</h1>
+<div class="container container-auth">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="auth-header">Sign Up</h3>
+    </div>
+    <div class="panel-body">
+      	<small class="text-center" ng-show="signupForm.email.$invalid && !signupForm.email.$pristine">Please enter a valid email.</small>
+      	<form class="signup-form" ng-submit="signup()" name="signupForm" novalidate>
+        <label for="email">Email</label>
+        <input class="form-control" type="email" name="email" ng-model="credentials.email" required>
 
-<form class="signup-form" ng-submit="signup()">
-  <input type="text" name="email" placeholder="email" ng-model="credentials.email">
-  <input type="password" name="password" placeholder="password" ng-model="credentials.password">
-  <input type="submit" name="signup" value="Sign Up">
-</form>
+        <label for="password">Password</label>
+        <input class="form-control" type="password" name="password" ng-model="credentials.password" required>
+
+        <label for="confirm">Confirm password</label>
+        <input class="form-control" type="password" name="confirm" ng-model="credentials.confirm" required>
+
+        <input ng-disabled="signupForm.$invalid" class="btn btn-default btn-auth" type="submit" name="login" value="Sign Up">
+      </form>
+    </div>
+  </div>
+</div>

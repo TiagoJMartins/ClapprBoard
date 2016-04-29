@@ -8,17 +8,20 @@ angular.module('MainApp', ['ngResource', 'ngMessages', 'ui.router', 'angular-loa
         .state('home', {
           url: '/',
           templateUrl: 'app/views/home.html',
-          controller: 'MainCtrl'
+          controller: 'MainCtrl',
+          authenticate: true
         })
         .state('show-detail', {
           url: '/shows/:id',
           templateUrl: 'app/views/showdetail.html',
-          controller: 'DetailCtrl'
+          controller: 'DetailCtrl',
+          authenticate: true
         })
         .state('show-episodes', {
           url: '/shows/:id/episodes',
           templateUrl: 'app/views/seasondetail.html',
-          controller: 'EpisodeCtrl'
+          controller: 'EpisodeCtrl',
+          authenticate: true
         })
         .state('login', {
           url: '/login',
@@ -36,11 +39,12 @@ angular.module('MainApp', ['ngResource', 'ngMessages', 'ui.router', 'angular-loa
         })
         .state('logout', {
           url: '/logout',
-          controller: 'LogoutCtrl'
+          controller: 'LogoutCtrl',
+          authenticate: true
         })
         .state('forbidden', {
           url: '/forbidden',
-          template: '<p>403 Forbidden</p>'
+          templateUrl: 'app/views/forbidden.html'
         });
 
         cfpLoadingBarProvider.includeSpinner = false;
@@ -54,11 +58,20 @@ angular.module('MainApp', ['ngResource', 'ngMessages', 'ui.router', 'angular-loa
     $rootScope.currentUser = $cookies.getObject('session');
     $rootScope.isLoggedIn = Client.isAuthenticated();
 
-    $state.go('home');
+    if ($rootScope.isLoggedIn) {
+      $state.go('home');  
+    } else {
+      $state.go('login');
+    }
+    
 
-    $rootScope.$on('$stateChangeStart', function(event, next) {
-      if (next.authenticate && !$rootScope.currentUser) {
+    $rootScope.$on('$stateChangeStart', function(event, next, params) {
+      if (next.authenticate && !$rootScope.isLoggedIn) {
         event.preventDefault();
+        $rootScope.afterAuth = {
+          next: next,
+          params: params
+        };
         $state.go('forbidden');
       }
     });

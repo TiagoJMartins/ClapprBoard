@@ -278,6 +278,43 @@ tooltip {
 	}
 }
 
+
+
+/*****************/
+/*  Auth Styles  */
+/*****************/
+
+.container-auth {
+	width: 500px;
+}
+
+.auth-header {
+	margin-top: 10px;
+	margin-left: 10px;
+}
+
+.login-form,
+.signup-form {
+	padding-top: 15px;
+	input {
+		margin-bottom: 20px;
+	}
+	label {
+		display: block;
+	}
+	small {
+		display: block;
+		color: $brand-danger;
+		margin: 5px 5px 5px 5px;
+	}
+}
+
+.btn-auth {
+	float: right;
+}
+
+
+
 /*****************/
 /* Media Queries */
 /*****************/
@@ -355,6 +392,10 @@ tooltip {
 		}
 	}
 
+	.container-auth {
+		width: 350px;
+	}
+
 }
 
 @media screen and (max-width: $extra-small-breakpoint) {
@@ -366,6 +407,10 @@ tooltip {
 	.show-img {
 		width: 120px;
 		transition: 0.5s ease;
+	}
+
+	.container-auth {
+		width: 100%;
 	}
 }
 

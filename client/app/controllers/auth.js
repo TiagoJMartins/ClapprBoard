@@ -3,8 +3,9 @@ angular.module('MainApp')
     function($scope, $window, AuthService) {
 
       $scope.credentials = {
-        email: 'tiago@coisas.com',
-        password: '123'
+        email: 'foo@bar.com',
+        password: 'foobar',
+        remember: true
       };
 
       $scope.login = function() {
@@ -29,7 +30,8 @@ angular.module('MainApp')
 
       $scope.credentials = {
         email: "",
-        password: ""
+        password: "",
+        confirm: ""
       };
 
       $scope.signup = function() {

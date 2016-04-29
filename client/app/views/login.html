@@ -1,13 +1,27 @@
-<div class="container">
+<div class="container container-auth">
+  <pre class="text-center">
+    Test account
+    <strong>Email:</strong> foo@bar.com
+    <strong>Password:</strong> foobar
+  </pre>
   <div class="panel panel-default">
     <div class="panel-heading">
-      <strong>Login</strong>
+      <h3 class="auth-header">Log In</h3>
     </div>
     <div class="panel-body">
       <form class="login-form" ng-submit="login()">
-        <input type="text" name="email" placeholder="email" ng-model="credentials.email">
-        <input type="password" name="password" placeholder="password" ng-model="credentials.password">
-        <input type="submit" name="login" value="Login">
+        <label for="email">Email</label>
+        <input class="form-control" type="email" name="email" placeholder="email" ng-model="credentials.email">
+
+        <label for="password">Password</label>
+        <input class="form-control" type="password" name="password" placeholder="password" ng-model="credentials.password">
+
+        <label for="remember">
+          <input type="checkbox" name="remember" ng-model="credentials.remember">
+          Remember Me
+        </label>
+
+        <input class="btn btn-default btn-auth" type="submit" name="login" value="Log In">
       </form>
     </div>
   </div>

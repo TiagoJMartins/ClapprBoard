@@ -6431,6 +6431,34 @@ tooltip {
     color: #5F96C5; }
 
 /*****************/
+/*  Auth Styles  */
+/*****************/
+.container-auth {
+  width: 500px; }
+
+.auth-header {
+  margin-top: 10px;
+  margin-left: 10px; }
+
+.login-form,
+.signup-form {
+  padding-top: 15px; }
+  .login-form input,
+  .signup-form input {
+    margin-bottom: 20px; }
+  .login-form label,
+  .signup-form label {
+    display: block; }
+  .login-form small,
+  .signup-form small {
+    display: block;
+    color: #bb0318;
+    margin: 5px 5px 5px 5px; }
+
+.btn-auth {
+  float: right; }
+
+/*****************/
 /* Media Queries */
 /*****************/
 @media screen and (min-width: 1440px) {
@@ -6479,7 +6507,9 @@ tooltip {
     -moz-border-radius: 3px 3px 0 0;
     -o-border-radius: 3px 3px 0 0;
     -ms-border-radius: 3px 3px 0 0;
-    border-radius: 3px 3px 0 0; } }
+    border-radius: 3px 3px 0 0; }
+  .container-auth {
+    width: 350px; } }
 
 @media screen and (max-width: 418px) {
   .grid-item {
@@ -6487,4 +6517,6 @@ tooltip {
     height: 180px; }
   .show-img {
     width: 120px;
-    transition: 0.5s ease; } }
+    transition: 0.5s ease; }
+  .container-auth {
+    width: 100%; } }
