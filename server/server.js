@@ -6,6 +6,9 @@ var path = require('path');
 var app = module.exports = loopback();
 
 app.use(logger('dev'));
+app.use(loopback.bodyParser.json({limit: 52428800}));
+app.use(loopback.bodyParser.urlencoded({limit: 52428800, extended: true}));
+
 
 app.start = function() {
   // start the web server
