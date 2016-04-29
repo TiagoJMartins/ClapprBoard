@@ -4,7 +4,7 @@ angular.module('MainApp')
 
       function login(credentials) {
         return Client
-          .login(credentials)
+          .login({ rememberMe: credentials.remember }, credentials)
           .$promise
           .then(function(res) {
             var obj = {
@@ -12,7 +12,10 @@ angular.module('MainApp')
                 token: res.id,
                 email: credentials.email
               };
-            $cookies.putObject('session', obj);
+            
+            if (credentials.remember) {
+              $cookies.putObject('session', obj);        
+            }
             $rootScope.currentUser = obj;
           });
       }

@@ -296,11 +296,14 @@ tooltip {
 .login-form,
 .signup-form {
 	padding-top: 15px;
+	
 	input {
 		margin-bottom: 20px;
+		transform: 0.3s ease;
 	}
 	label {
 		display: block;
+		transform: 0.3s ease;
 	}
 	small {
 		display: block;

@@ -6445,10 +6445,12 @@ tooltip {
   padding-top: 15px; }
   .login-form input,
   .signup-form input {
-    margin-bottom: 20px; }
+    margin-bottom: 20px;
+    transform: 0.3s ease; }
   .login-form label,
   .signup-form label {
-    display: block; }
+    display: block;
+    transform: 0.3s ease; }
   .login-form small,
   .signup-form small {
     display: block;
