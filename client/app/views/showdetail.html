@@ -10,8 +10,11 @@
 					<h2 class="show-title">
 					<a ng-href="{{show.homepage}}">{{show.title}}</a>
 					</h2>
-					<a href class="btn btn-xs btn-show">
+					<a href class="btn btn-xs btn-show btn-subscribe" tooltips tooltip-template="Subscribe">
 						<i class="fa fa-plus fa-2x"></i>
+					</a>
+					<a ui-sref="show-episodes({id: show.slug})" class="btn btn-xs btn-show btn-episodes" tooltips tooltip-template="Episodes">
+						<i class="fa fa-th-list fa-2x"></i>
 					</a>
 				</div>
 				<div class="show-airtime">
@@ -29,7 +32,6 @@
 				<p class="show-overview">
 					{{show.overview}}
 				</p>
-				<a ui-sref="show-episodes({id: show.slug})">Episodes</a>
 			</div>
 		</div>
 	</div>

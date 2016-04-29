@@ -1,5 +1,5 @@
 angular.module('MainApp', ['ngResource', 'ngMessages', 'ui.router', 'angular-loading-bar',
-                           'ngAnimate', 'ngCookies', 'lbServices', 'mgcrea.ngStrap'])
+                           'ngAnimate', 'ngCookies', 'lbServices', 'mgcrea.ngStrap', '720kb.tooltips'])
   .config(['$locationProvider', '$stateProvider', '$urlRouterProvider', 'cfpLoadingBarProvider',
     function($locationProvider, $stateProvider, $urlRouterProvider, cfpLoadingBarProvider) {
     //$locationProvider.html5Mode(false);

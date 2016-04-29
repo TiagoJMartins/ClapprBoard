@@ -52,13 +52,13 @@ $episode-options-icon: #567484;;
 $episode-options-icon-focus: $episode-options-icon;
 $episode-options-icon-hover: #5F96C5;
 
-$show-options-icon: #FF0000;
+$show-options-icon: $brand-success;
 $show-options-icon-focus: $show-options-icon;
-$show-options-icon-hover: #1E00FF;
+$show-options-icon-hover: lighten($brand-success, 10%);
 
 $big-breakpoint: 1440px;
 $medium-breakpoint: 992px;
-$small-breakpoint: 768px;
+$small-breakpoint: 767px;
 $extra-small-breakpoint: 418px;
 
 @import "bootstrap";
@@ -87,6 +87,11 @@ $extra-small-breakpoint: 418px;
 
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
   display: none !important;
+}
+
+html,
+body {
+	overflow-x: hidden;
 }
 
 .img-rounded {
@@ -155,28 +160,34 @@ $extra-small-breakpoint: 418px;
 	h2 {
 		display: inline;
 	}
+}
 
-	.btn-show {
-		float: right;
-		margin-right: 1em;
-		background-color: none;
+tooltip {
+	float: right;
+}
 
-		&:active {
-			-webkit-box-shadow: none;
-			-moz-box-shadow: none;
-			-o-box-shadow: none;
-			-ms-box-shadow: none;
-			box-shadow: none;
-		}
+.btn-show {
+	float: right;
+	margin-right: 1em;
+	margin-left: 1em;
+	background-color: none;
+	color: $show-options-icon;
 
-		&:focus {
-			color: $show-options-icon-focus;
-			outline: none;
-		}
+	&:active {
+		-webkit-box-shadow: none;
+		-moz-box-shadow: none;
+		-o-box-shadow: none;
+		-ms-box-shadow: none;
+		box-shadow: none;
+	}
 
-		&:hover {
-			color: $show-options-icon-hover;
-		}
+	&:focus {
+		color: $show-options-icon-focus;
+		outline: none;
+	}
+
+	&:hover {
+		color: $show-options-icon-hover;
 	}
 }
 
@@ -296,7 +307,6 @@ $extra-small-breakpoint: 418px;
 		}
 
 		.btn-show {
-			margin-right: 0;
 			transition: 0.3s ease;
 		}
 	}

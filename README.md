@@ -11,5 +11,6 @@ TV Show tracking application.
 - Minify CSS and JS. Concat all JS into a single file. Create .maps (Maybe add to watch task?)
 - Implement some sort of "back button". (is it really necessary?)
 - create ng filter for truncating show.overview nicely
+- create retries for when calls to the API fail (implement counter to limit retries)
 
 https://github.com/strongloop/loopback-getting-started-intermediate/

@@ -6286,6 +6286,10 @@ button.close {
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
   display: none !important; }
 
+html,
+body {
+  overflow-x: hidden; }
+
 .img-rounded {
   border-radius: 4px; }
 
@@ -6342,21 +6346,26 @@ button.close {
 .show-info-header h2 {
   display: inline; }
 
-.show-info-header .btn-show {
+tooltip {
+  float: right; }
+
+.btn-show {
   float: right;
   margin-right: 1em;
-  background-color: none; }
-  .show-info-header .btn-show:active {
+  margin-left: 1em;
+  background-color: none;
+  color: #22ae5f; }
+  .btn-show:active {
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
     -o-box-shadow: none;
     -ms-box-shadow: none;
     box-shadow: none; }
-  .show-info-header .btn-show:focus {
-    color: #FF0000;
+  .btn-show:focus {
+    color: #22ae5f;
     outline: none; }
-  .show-info-header .btn-show:hover {
-    color: #1E00FF; }
+  .btn-show:hover {
+    color: #2dd677; }
 
 .show-overview {
   margin-top: 2em; }
@@ -6428,7 +6437,7 @@ button.close {
   .container-fluid {
     width: 1280px; } }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
   .show-poster {
     width: 100%;
     margin: 0 auto;
@@ -6440,7 +6449,6 @@ button.close {
     padding-bottom: 0.7em;
     transition: 0.3s ease; }
   .show-info-header .btn-show {
-    margin-right: 0;
     transition: 0.3s ease; }
   .navbar-brand {
     float: none;
