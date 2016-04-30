@@ -6463,9 +6463,9 @@ tooltip {
 /*****************/
 /* Media Queries */
 /*****************/
-@media screen and (min-width: 1440px) {
+@media screen and (min-width: 1280px) {
   .container-fluid {
-    width: 1280px; } }
+    width: 1024px; } }
 
 @media screen and (max-width: 767px) {
   .show-poster {

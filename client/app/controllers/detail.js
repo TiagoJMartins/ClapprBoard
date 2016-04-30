@@ -35,6 +35,7 @@ angular.module('MainApp')
                                     newShow.aired_episodes = data.aired_episodes;
                                     newShow.images = data.images;
                                     newShow.slug = $scope.slug;
+                                    newShow.subscribers = [];
 
                                     $scope.show = Show.create(newShow);
                                     return;

@@ -11,6 +11,10 @@ var url = trakt.get_url();
 
 module.exports = function(Show) {
 
+  /*************/
+  /* Trakt API */
+  /*************/
+
   Show.findShow = function(slug, cb) {
   	Show.findOne({ where: { slug: slug } }, function(err, result) {
   		if (err) return cb(err, null);
@@ -121,6 +125,87 @@ module.exports = function(Show) {
       ],
       returns: { arg: 'result', type: 'object' },
       http: { path: '/trakt/episodes', verb: 'get' }
+    }
+  );
+
+  /**********************/
+  /* Show Subscriptions */
+  /**********************/
+
+  Show.subscribe = function(user_id, show_slug, cb) {
+    Show.findOne({
+      where: {
+        slug: show_slug
+      }
+    }, function(err, show) {
+      if (err) {
+        cb(err, null);
+      }
+
+      if (show.subscribers.indexOf(user_id) !== -1) {
+        cb(null, 'user already subscribed');
+        return;
+      }
+
+      show.subscribers.push(user_id);
+      show.save(function(err) {
+        if (err) {
+          cb(err, null);
+        }
+        cb(null, 'success');
+      });
+    });
+  };
+
+  Show.unsubscribe = function(user_id, show_slug, cb) {
+    Show.findOne({
+      where: {
+        slug: show_slug
+      }
+    }, function(err, show) {
+      if (err) {
+        cb(err, null);
+      }
+
+      if (show.subscribers.indexOf(user_id) === -1) {
+
+        cb(null, 'user is not subscribed to this show');
+        return;
+      }
+
+      var userIndex = show.subscribers.indexOf(user_id);
+      show.subscribers.splice(userIndex, 1);
+      show.save(function(err) {
+        if (err) {
+          cb(err, null);
+        }
+
+        cb(null, 'success');
+      });
+    });
+  };
+
+  Show.remoteMethod(
+    'subscribe',
+    {
+      accepts: [
+        { arg: 'user', type: 'string' },
+        { arg: 'show', type: 'string' }
+      ],
+      returns: { arg: 'resp', type: 'object' },
+      http: { path: '/subscribe', verb: 'post' }
+    }
+  );
+
+  Show.remoteMethod(
+    'unsubscribe',
+    {
+      accepts: [
+        { arg: 'user', type: 'string' },
+        { arg: 'show', type: 'string' }
+      ],
+      returns: { arg: 'resp', type: 'object' },
+      http: { path: '/unsubscribe', verb: 'post' }
     }
   );
 };

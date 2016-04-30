@@ -1,36 +1,36 @@
 <div class="container container-auth">
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h3 class="auth-header">Sign Up</h3>
-    </div>
-    <div class="panel-body">
-      <form class="signup-form" name="signupForm" ng-submit="signup()" novalidate>
-        <div class="form-group" ng-class="{ 'has-error': signupForm.email.$touched && signupForm.email.$invalid,
-                                            'has-success': signupForm.email.$touched && signupForm.email.$valid }">
-          <label for="email">Email</label>
-          <div class="auth-errors" ng-messages="signupForm.email.$error" ng-show="signupForm.email.$touched">
-            <div class="alert alert-info" ng-messages-include="app/views/templates/messages.html"></div>
-          </div>
-          <input class="form-control" type="email" name="email" ng-model="credentials.email" required>
-        </div>
-        <div class="form-group" ng-class="{ 'has-error': signupForm.password.$touched && signupForm.password.$invalid,
-                                            'has-success': signupForm.password.$touched && signupForm.password.$valid }">
-          <label for="password">Password</label>
-          <div class="auth-errors" ng-messages="signupForm.password.$error" ng-show="signupForm.password.$touched">
-            <div ng-messages-include="app/views/templates/messages.html"></div>
-          </div>
-          <input class="form-control" type="password" name="password" ng-model="credentials.password" required>
-        </div>
-        <div class="form-group" ng-class="{ 'has-error': signupForm.confirm.$touched && signupForm.confirm.$invalid,
-                                            'has-success': signupForm.confirm.$touched && signupForm.confirm.$valid }">
-          <label for="confirm">Confirm password</label>
-          <div class="auth-errors" ng-messages="signupForm.confirm.$error" ng-show="signupForm.confirm.$touched">
-            <div ng-messages-include="app/views/templates/messages.html"></div>
-          </div>
-          <input class="form-control" type="password" name="confirm" ng-model="credentials.confirm" required>
-        </div>
-        <input ng-disabled="signupForm.$invalid" class="btn btn-default btn-auth" type="submit" name="signup" value="Sign Up">
-      </form>
-    </div>
-  </div>
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h3 class="auth-header">Sign Up</h3>
+		</div>
+		<div class="panel-body">
+			<form class="signup-form" name="signupForm" ng-submit="signup()" novalidate>
+				<div class="form-group" ng-class="{ 'has-error': signupForm.email.$touched && signupForm.email.$invalid,
+					'has-success': signupForm.email.$touched && signupForm.email.$valid }">
+					<label for="email">Email</label>
+					<div class="auth-errors" ng-messages="signupForm.email.$error" ng-show="signupForm.email.$touched">
+						<div class="alert alert-info" ng-messages-include="app/views/templates/messages.html"></div>
+					</div>
+					<input class="form-control" type="email" name="email" ng-model="credentials.email" required>
+				</div>
+				<div class="form-group" ng-class="{ 'has-error': signupForm.password.$touched && signupForm.password.$invalid,
+					'has-success': signupForm.password.$touched && signupForm.password.$valid }">
+					<label for="password">Password</label>
+					<div class="auth-errors" ng-messages="signupForm.password.$error" ng-show="signupForm.password.$touched">
+						<div ng-messages-include="app/views/templates/messages.html"></div>
+					</div>
+					<input class="form-control" type="password" name="password" ng-model="credentials.password" required>
+				</div>
+				<div class="form-group" ng-class="{ 'has-error': signupForm.confirm.$touched && signupForm.confirm.$invalid,
+					'has-success': signupForm.confirm.$touched && signupForm.confirm.$valid }">
+					<label for="confirm">Confirm password</label>
+					<div class="auth-errors" ng-messages="signupForm.confirm.$error" ng-show="signupForm.confirm.$touched">
+						<div ng-messages-include="app/views/templates/messages.html"></div>
+					</div>
+					<input class="form-control disabled" type="password" name="confirm" ng-model="credentials.confirm" confirm-password="credentials.password">
+				</div>
+				<input ng-disabled="signupForm.$invalid" class="btn btn-default btn-auth" type="submit" name="signup" value="Sign Up">
+			</form>
+		</div>
+	</div>
 </div>

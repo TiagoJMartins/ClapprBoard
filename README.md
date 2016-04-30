@@ -13,7 +13,6 @@ TV Show tracking application.
 - create retries for when calls to the API fail (implement counter to limit retries)
 - validate signup form (confirm passwords) handle errors from server (wrong email, wrong password, etc)
 - when user is forbidden and asked to login, create redirection to continue flow
-- when user tries to access entry points without being authenticated, redirect to login
 - begin working on show subscriptions
 - begin working on watched episodes
 - display all dates correctly, aswell as time left with moment.js
