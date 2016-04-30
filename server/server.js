@@ -9,10 +9,12 @@ app.use(logger('dev'));
 app.use(loopback.bodyParser.json({limit: 52428800}));
 app.use(loopback.bodyParser.urlencoded({limit: 52428800, extended: true}));
 
+var server_port = process.env.OPENSHIFT_NODEJS_PORT || 8080;
+var server_ip_address = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1';
 
 app.start = function() {
   // start the web server
-  return app.listen(function() {
+  return app.listen(server_port, server_ip_address, function() {
     app.emit('started');
     var baseUrl = app.get('url').replace(/\/$/, '');
     console.log('Web server listening at: %s', baseUrl);

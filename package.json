@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "server/server.js",
   "scripts": {
-    "start": "node .",
+    "start": "supervisor server/server.js",
     "pretest": "jshint .",
     "posttest": "nsp check",
     "lb-ng": "lb-ng server/server.js client/js/lb-services.js"
@@ -36,8 +36,8 @@
   },
   "repository": {
     "type": "",
-    "url": ""
+    "url": "https://github.com/TiagoJMartins/ClapprBoard.git"
   },
-  "license": "UNLICENSED",
-  "description": "clapprboard"
+  "license": "MIT",
+  "description": "A TV Show tracking application."
 }
