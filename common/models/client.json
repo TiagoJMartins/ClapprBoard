@@ -8,10 +8,21 @@
   "properties": {
     "country": {
       "type": "string"
+    },
+    "watchlist": {
+      "type": "object"
     }
   },
   "validations": [],
   "relations": {},
-  "acls": [],
+  "acls": [
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$owner",
+      "permission": "ALLOW",
+      "property": "watch"
+    }
+  ],
   "methods": {}
 }

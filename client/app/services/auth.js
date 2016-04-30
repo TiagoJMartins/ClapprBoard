@@ -7,16 +7,7 @@ angular.module('MainApp')
           .login({ rememberMe: credentials.remember }, credentials)
           .$promise
           .then(function(res) {
-            var obj = {
-                id: res.user.id,
-                token: res.id,
-                email: credentials.email
-              };
             
-            if (credentials.remember) {
-              $cookies.putObject('session', obj);        
-            }
-            $rootScope.currentUser = obj;
           });
       }
 
@@ -25,8 +16,7 @@ angular.module('MainApp')
           .logout()
           .$promise
           .then(function() {
-            $cookies.remove('session');
-            $rootScope.currentUser = null;
+            
           });
       }
 

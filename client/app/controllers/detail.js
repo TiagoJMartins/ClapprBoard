@@ -4,6 +4,9 @@ angular.module('MainApp')
 
 			$scope.slug = $state.params.id;
 			$scope.show = {};
+                  $scope.isSubscribed = function(subscribers) {
+                        return ShowService.util.isSubscribed(subscribers);
+                  }
 
 			ShowService.findShow.get({ slug: $scope.slug }, function(data) {
 

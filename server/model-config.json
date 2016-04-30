@@ -36,5 +36,9 @@
   "Show": {
     "dataSource": "mlab",
     "public": true
+  },
+  "WatchList": {
+    "dataSource": "mlab",
+    "public": true
   }
 }

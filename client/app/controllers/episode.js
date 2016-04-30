@@ -11,6 +11,8 @@ angular.module('MainApp')
             	$scope.tab = pos;
             };
 
+
+
             Show.find({
                 filter: {
                     where: {
@@ -105,3 +107,10 @@ angular.module('MainApp')
 
         }
     ]);
+
+/*
+    ng-click on watch button:   watch(episode.ids.trakt)
+    ng-click on unwatch button: unwatch(episode.ids.trakt)
+    ng-show on buttons: function returns true or false  
+        watched(episode.ids.trakt) -> checks user watchlist to return result
+*/

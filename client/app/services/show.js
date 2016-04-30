@@ -1,8 +1,5 @@
 angular.module('MainApp')
   .factory('ShowService', ['$resource', '$rootScope', function($resource, $rootScope) {
-
-    var user_id = $rootScope.currentUser.id;
-
     return {
     	'findShow': $resource('/api/Shows/find-show'),
     	'trakt': {
@@ -17,6 +14,7 @@ angular.module('MainApp')
         },
         'util': {
             isSubscribed: function(subscribers) {
+                var user_id = $rootScope.currentUser.id;
                 return subscribers.indexOf(user_id) === -1 ? false : true;
             }
         }

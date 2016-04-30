@@ -1,6 +1,6 @@
 angular.module('MainApp')
-  .controller('LoginCtrl', ['$scope', '$window', 'AuthService', '$state', 
-    function($scope, $window, AuthService, $state) {
+  .controller('LoginCtrl', ['$scope', '$window', 'AuthService', '$state', '$rootScope',
+    function($scope, $window, AuthService, $state, $rootScope) {
 
       $scope.credentials = {
         email: 'foo@bar.com',

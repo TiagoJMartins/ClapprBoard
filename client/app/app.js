@@ -55,7 +55,13 @@ angular.module('MainApp', ['ngResource', 'ngMessages', 'ui.router', 'angular-loa
   }])
   .run(['$cookies', '$rootScope', 'Client', '$state',
    function($cookies, $rootScope, Client, $state) {
-    $rootScope.currentUser = $cookies.getObject('session');
+    
+    Client.getCurrent(function(success) {
+      $rootScope.currentUser = success;
+    }, function(err) {
+      $rootScope.currentUser = null;
+    });
+    
     $rootScope.isLoggedIn = Client.isAuthenticated();
 
     if ($rootScope.isLoggedIn) {
