@@ -1,6 +1,6 @@
 angular.module('MainApp')
-    .controller('EpisodeCtrl', ['$scope', 'ShowService', '$state', 'Show', '$rootScope',
-        function($scope, ShowService, $state, Show, $rootScope) {
+    .controller('EpisodeCtrl', ['$scope', 'ShowService', '$state', 'Show', '$rootScope', 'WatchListService',
+        function($scope, ShowService, $state, Show, $rootScope, WatchListService) {
 
             var slug = $state.params.id;
             $scope.show = {};
@@ -11,7 +11,17 @@ angular.module('MainApp')
             	$scope.tab = pos;
             };
 
+            $scope.watch = function(slug, ep_id) {
+                WatchListService.watch(slug, ep_id);
+            };
 
+            $scope.unwatch = function(slug, ep_id) {
+                WatchListService.unwatch(slug, ep_id);
+            };
+
+            /*$scope.watched = function(slug, ep_id) {
+                return WatchListService.watched(slug, ep_id);
+            };*/
 
             Show.find({
                 filter: {
@@ -99,6 +109,7 @@ angular.module('MainApp')
 
                     // show.seasons exists!
                     $scope.subscribed = ShowService.util.isSubscribed(show.subscribers);
+
                     $scope.show = show;
                     return;
                 }

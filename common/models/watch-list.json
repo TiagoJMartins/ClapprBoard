@@ -11,9 +11,7 @@
       "required": true
     },
     "shows": {
-      "type": [
-        "object"
-      ]
+      "type": "object"
     }
   },
   "validations": [],
