@@ -96,6 +96,7 @@ angular.module('MainApp')
                 } else {
 
                     // show.seasons exists!
+                    $scope.subscribed = ShowService.util.isSubscribed(show.subscribers);
                     $scope.show = show;
                     return;
                 }

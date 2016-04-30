@@ -61,7 +61,9 @@
       "type": "string"
     },
     "genres": {
-      "type": ["string"]
+      "type": [
+        "string"
+      ]
     },
     "aired_episodes": {
       "type": "number"

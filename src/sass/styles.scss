@@ -48,13 +48,21 @@ $alert-info-bg: #e5f7fd;
 $alert-info-border: #bcf8f3;
 $alert-info-text: #25484e;
 
-$episode-options-icon: #567484;;
+$episode-options-icon: #023665;
 $episode-options-icon-focus: $episode-options-icon;
-$episode-options-icon-hover: #5F96C5;
+$episode-options-icon-hover: lighten($episode-options-icon, 10%);
 
-$show-options-icon: $brand-success;
+$show-options-icon: #A022AE;
 $show-options-icon-focus: $show-options-icon;
-$show-options-icon-hover: lighten($brand-success, 10%);
+$show-options-icon-hover: lighten($show-options-icon, 10%);
+
+$show-options-subscribe: $brand-success;
+$show-options-subscribe-focus: $show-options-subscribe;
+$show-options-subscribe-hover: lighten($show-options-subscribe, 10%);
+
+$show-options-unsubscribe: #A90000;
+$show-options-unsubscribe-focus: $show-options-unsubscribe;
+$show-options-unsubscribe-hover: lighten($show-options-unsubscribe, 10%);
 
 $big-breakpoint: 1280px;
 $medium-breakpoint: 992px;
@@ -188,6 +196,53 @@ tooltip {
 
 	&:hover {
 		color: $show-options-icon-hover;
+
+		i {
+			transform: scaleX(1.3) scaleY(1.3);
+			transition: 0.1s;
+		}
+	}
+}
+
+.btn-subscribe {
+	color: $show-options-subscribe;
+
+	&:active {
+		-webkit-box-shadow: none;
+		-moz-box-shadow: none;
+		-o-box-shadow: none;
+		-ms-box-shadow: none;
+		box-shadow: none;
+	}
+
+	&:focus {
+		color: $show-options-subscribe-focus;
+		outline: none;
+	}
+
+	&:hover {
+		color: $show-options-subscribe-hover;
+	}
+}
+
+.btn-unsubscribe {
+	color: $show-options-unsubscribe;
+
+	&:active {
+		-webkit-box-shadow: none;
+		-moz-box-shadow: none;
+		-o-box-shadow: none;
+		-ms-box-shadow: none;
+		box-shadow: none;
+	}
+
+	&:focus {
+		color: $show-options-unsubscribe-focus;
+		outline: none;
+	}
+
+	&:hover {
+		color: $show-options-unsubscribe-hover;
 	}
 }
 
@@ -274,6 +329,10 @@ tooltip {
 
 		&:hover {
 			color: $episode-options-icon-hover;
+			i {
+				transform: scaleX(1.2) scaleY(1.2);
+				transition: 0.1s ease;
+			}
 		}
 	}
 }

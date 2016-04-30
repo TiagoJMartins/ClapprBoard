@@ -8,11 +8,6 @@
   "properties": {
     "country": {
       "type": "string"
-    },
-    "subscribed": {
-      "type": [
-        "string"
-      ]
     }
   },
   "validations": [],

@@ -43,10 +43,29 @@ angular.module('MainApp')
                         });
 				}
 
-				$scope.show = data.result;
-				$scope.time = moment();
-				$rootScope.error = '';
+                        $scope.subscribed = ShowService.util.isSubscribed(data.result.subscribers);
+                        $scope.show = data.result;
+                        $scope.time = moment();
+                        $rootScope.error = '';
 				return;
 			});
+
+                  $scope.subscribe = function() {
+                        ShowService.sub.subscribe.save({
+                              user: $rootScope.currentUser.id,
+                              show: $scope.slug
+                        }, function() {
+                              $state.go('show-detail', $scope.slug, { reload: true });
+                        });
+                  }
+
+                  $scope.unsubscribe = function() {
+                        ShowService.sub.unsubscribe.save({
+                              user: $rootScope.currentUser.id,
+                              show: $scope.slug
+                        }, function() {
+                              $state.go('show-detail', $scope.slug, { reload: true });
+                        });
+                  }
 		}
 	]);
