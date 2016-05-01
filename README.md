@@ -20,5 +20,19 @@ TV Show tracking application.
 - add loading spinner overlay on website
 - don't show checkbox if episode hasn't aired yet
 - style episode with no info
+- "my shows" page needs to be made a lot better, with useful information but not messy
+- search bar on home page should be detached from the panel
+- show detail -> detach banner from panel, use space between to add the latest shows
+- add more info to every page, make it all a bit more busy, it helps make the user feel like they have a lot more available to them
+
+## SUGAR
+
+- optimize red routes
+- instant visual feedback on marking a show as watched
+- **ERRORS** **ERRORS** SHOW ERRORS TO USER!
+- show latest episodes in series detail page (maybe 3?)
+- calendar for upcoming shows?
+- main page should have a second panel for subscribed shows' latest episodes or upcoming or trending or top shows
+- quick actions on show thumbnails?
 
 https://github.com/strongloop/loopback-getting-started-intermediate/
