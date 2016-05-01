@@ -10,10 +10,10 @@
 #loading-bar-spinner {
   pointer-events: none;
   -webkit-pointer-events: none;
-  -webkit-transition: 350ms linear all;
-  -moz-transition: 350ms linear all;
-  -o-transition: 350ms linear all;
-  transition: 350ms linear all;
+  -webkit-transition: 150ms linear all;
+  -moz-transition: 150ms linear all;
+  -o-transition: 150ms linear all;
+  transition: 150ms linear all;
 }
 
 #loading-bar.ng-enter,
@@ -35,11 +35,12 @@
   -moz-transition: width 350ms;
   -o-transition: width 350ms;
   transition: width 350ms;
+  /* #00F1FF */
 
-  background: #FFBF26;
+  background: #DA9E00;
   position: fixed;
-  z-index: 10002;
-  top: 0;
+  z-index: 10020;
+  top: 50px;
   left: 0;
   width: 100%;
   height: 3px;
@@ -50,15 +51,15 @@
 /* Fancy blur effect */
 #loading-bar .peg {
   position: absolute;
-  width: 70px;
+  width: 80px;
   right: 0;
-  top: 1px;
-  height: 4px;
+  top: 0;
+  height: 3px;
   opacity: .65;
-  -moz-box-shadow: #FFBF26 1px 0 6px 1px;
-  -ms-box-shadow: #FFBF26 1px 0 6px 1px;
-  -webkit-box-shadow: #FFBF26 1px 0 6px 1px;
-  box-shadow: #FFBF26 1px 0 6px 1px;
+  -moz-box-shadow: #DA9E00 1px 0 6px 1px;
+  -ms-box-shadow: #DA9E00 1px 0 6px 1px;
+  -webkit-box-shadow: #DA9E00 1px 0 6px 1px;
+  box-shadow: #DA9E00 1px 0 6px 1px;
   -moz-border-radius: 100%;
   -webkit-border-radius: 100%;
   border-radius: 100%;
@@ -68,24 +69,34 @@
   display: block;
   position: fixed;
   z-index: 10002;
-  top: 10px;
-  left: 10px;
+  top: 50px;
+  height: 100%;
+  width: 100%;
+  
+  background-color: rgba(255, 255, 255, 0.80);
 }
 
-#loading-bar-spinner .spinner-icon {
-  width: 14px;
-  height: 14px;
-
-  border:  solid 2px transparent;
-  border-top-color:  #FFBF26;
-  border-left-color: #FFBF26;
-  border-radius: 50%;
-
-  -webkit-animation: loading-bar-spinner 400ms linear infinite;
-  -moz-animation:    loading-bar-spinner 400ms linear infinite;
-  -ms-animation:     loading-bar-spinner 400ms linear infinite;
-  -o-animation:      loading-bar-spinner 400ms linear infinite;
-  animation:         loading-bar-spinner 400ms linear infinite;
+#loading-bar-spinner .spinner-icon:before {
+  position: absolute;
+  
+  top: 50%;
+  left: 50%;
+  
+  margin-left: -0.5em;
+  margin-top: -2em;
+  
+  color: #DA9E00;
+  content: '\f110';
+  font-family: FontAwesome;
+  font-size: 7em;
+  transform-origin: 50% 50%;
+  
+  -webkit-animation: loading-bar-spinner 650ms linear infinite;
+  -moz-animation:    loading-bar-spinner 650ms linear infinite;
+  -ms-animation:     loading-bar-spinner 650ms linear infinite;
+  -o-animation:      loading-bar-spinner 650ms linear infinite;
+  animation:         loading-bar-spinner 650ms linear infinite;
+  
 }
 
 @-webkit-keyframes loading-bar-spinner {

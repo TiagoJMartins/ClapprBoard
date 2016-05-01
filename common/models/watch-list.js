@@ -72,6 +72,29 @@ module.exports = function(WatchList) {
 		});
 	}
 
+	WatchList.shows = function(user_id, cb) {
+		WatchList.findOne({
+			where: {
+				user_id: user_id
+			}
+		}, function(err, instance) {
+			if (err) return cb(err, null);
+
+			if (!instance || !instance.shows) return cb(null, null);
+
+			console.log('FOUND: ', instance.shows);
+			return cb(null, instance.shows);
+
+			async.forEach(instance.shows, function(show, callback) {
+				console.log('BUILDING SUBSCRIBED SHOWS: ', show);
+				returnArr.push(show);
+				callback();
+			}, function(err) {
+				return cb(null, returnArr);
+			});
+		})
+	};
+
 	WatchList.remoteMethod(
 		'modify',
 		{
@@ -97,4 +120,14 @@ module.exports = function(WatchList) {
 		}
 	);
 
+	WatchList.remoteMethod(
+		'shows',
+		{
+			accepts: [
+		        { arg: 'user_id', type: 'string' }
+      		],
+      		returns: { arg: 'result', type: 'object' },
+      		http: { path: '/shows', verb: 'get' }
+		}
+	);
 };

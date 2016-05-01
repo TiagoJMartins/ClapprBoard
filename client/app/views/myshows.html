@@ -1,0 +1,17 @@
+<div class="container-fluid">
+	<div class="panel">
+		<div class="panel-heading">
+			<h1 class="text-center">Subscribed Shows</h1>
+			{{subscribed}}
+		</div>
+		<div class="panel-body">
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum explicabo sapiente, voluptas ad et provident perspiciatis error, quos tenetur quasi eius laudantium sit pariatur modi ipsam magni dolor nostrum dolorum.</p>
+			<div ng-repeat="(show, episodes) in subscriptions">
+				<p>{{show}}</p>
+				<ul>
+					<li ng-repeat="episode in episodes">{{episode}}</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>

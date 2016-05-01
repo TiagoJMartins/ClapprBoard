@@ -22,7 +22,7 @@
       <div class="nav-links">
         <ul class="nav navbar-nav">
           <li data-match-route="/$"><a ui-sref="home" ui-sref-active="active" data-ui-sref-opts="{reload: true}">Home</a></li>
-          <li data-match-route="/add"><a class="disabled" on-click="prevState(previousState, previousParams)">Back</a></li>
+          <li data-match-route="/myshows"><a ui-sref="my-shows" ui-sref-active="active">My Shows</a></li>
         </ul>
         <ul class="nav navbar-nav pull-right" ng-if="!isLoggedIn">
           <li data-match-route="/login"><a ui-sref="login" ui-sref-active="active">Log In</a></li>
@@ -33,7 +33,13 @@
         </ul>
       </div>
     </nav>
-    <div id="loading-bar"></div>
+    <div id="loading-bar">
+      <!-- <div class="bar"></div>
+      <div class="peg"></div> -->
+    </div>
+    <!-- <div id="loading-bar-spinner">
+      <div class="spinner-icon"></div>
+    </div> -->
 
     <div class="alert alert-danger" ng-if="error">{{error}}</div>
     <main ui-view></main>
@@ -64,5 +70,6 @@
     <script src="/app/controllers/main.js" charset="utf-8"></script>
     <script src="/app/controllers/detail.js" charset="utf-8"></script>
     <script src="/app/controllers/episode.js" charset="utf-8"></script>
+    <script src="/app/controllers/myshows.js" charset="utf-8"></script>
   </body>
 </html>

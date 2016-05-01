@@ -15,8 +15,10 @@ TV Show tracking application.
 - implement caching of data (and time until it goes bad and requires update)
 - implement notifications
 - email validation (maybe?)
-- watchlist checkboxes need fixing
-- checkboxes also need styling (replace for the ones that styled <a> tags)
 - sugar.js for dates aswell
+- watchlist checkboxes need to update automatically, without the need for the submit button
+- add loading spinner overlay on website
+- don't show checkbox if episode hasn't aired yet
+- style episode with no info
 
 https://github.com/strongloop/loopback-getting-started-intermediate/

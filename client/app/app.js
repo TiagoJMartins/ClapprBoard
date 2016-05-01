@@ -17,6 +17,12 @@ angular.module('MainApp', ['ngResource', 'ngMessages', 'ui.router', 'angular-loa
           controller: 'DetailCtrl',
           authenticate: true
         })
+        .state('my-shows', {
+          url:'/myshows',
+          templateUrl: 'app/views/myshows.html',
+          controller: 'MyShowsCtrl',
+          authenticate: true
+        })
         .state('show-episodes', {
           url: '/shows/:id/episodes',
           templateUrl: 'app/views/seasondetail.html',
@@ -47,7 +53,6 @@ angular.module('MainApp', ['ngResource', 'ngMessages', 'ui.router', 'angular-loa
           templateUrl: 'app/views/forbidden.html'
         });
 
-        cfpLoadingBarProvider.includeSpinner = false;
         cfpLoadingBarProvider.parentSelector = '#loading-bar';
         cfpLoadingBarProvider.latencyThreshold = 350;
 

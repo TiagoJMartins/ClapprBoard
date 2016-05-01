@@ -24,6 +24,14 @@ angular.module('MainApp')
 								show_slug: slug,
 								episodes: episodes
 							}).$promise;
+				},
+				shows: function() {
+					var user_id = $rootScope.currentUser.id;
+
+					return $resource('/api/WatchLists/shows')
+							.get({
+								user_id: user_id
+							}).$promise;
 				}
 			};
 	}]);
