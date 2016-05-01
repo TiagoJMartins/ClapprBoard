@@ -3,22 +3,10 @@ angular.module('MainApp')
 		function($resource, $rootScope, $q){
 
 			return {
-				watch: function(slug, episodes) {
+				modify: function(slug, episodes) {
 					var user_id = $rootScope.currentUser.id;
 
-					return $resource('/api/WatchLists/add')
-							.save({
-								user_id: user_id,
-								show_slug: slug,
-								episodes: episodes
-							}, function(data) {
-								return data.result;
-							});
-				},
-				unwatch: function(slug, episodes) {
-					var user_id = $rootScope.currentUser.id;
-
-					return $resource('/api/WatchLists/remove')
+					return $resource('/api/WatchLists/modify')
 							.save({
 								user_id: user_id,
 								show_slug: slug,

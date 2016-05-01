@@ -13,12 +13,7 @@ angular.module('MainApp')
             };
 
             $scope.watch = function() {
-                WatchListService.watch(slug, $scope.watchlistSelection);
-                $state.go($state.current, slug, { reload: true });
-            };
-
-            $scope.unwatch = function() {
-                WatchListService.unwatch(slug, $scope.watchlistSelection);
+                WatchListService.modify(slug, $scope.watchlistSelection);
                 $state.go($state.current, slug, { reload: true });
             };
 
@@ -44,7 +39,6 @@ angular.module('MainApp')
                 .then(function(watchlist) {
                     $scope.watchlist = watchlist.result;
                     $scope.show = data.result;
-                    console.log(watchlist.result);
                 })
                 .catch(function(err) {
                     console.log(err);
