@@ -14,14 +14,12 @@
 				</div>
 				<div class="season-info" ng-repeat="season in show.seasons" ng-show="tab === season.number">
 					<div class="season-info-header">
-						<pre>
-							Debug:
-							<strong>Subscribed?:</strong> {{subscribed}}
-							<strong>Season:</strong> {{season.number}}
-							<strong>Episodes:</strong> {{season.episode_count}}
-							<strong>Aired:</strong> {{season.aired_episodes}}
-						</pre>
-						<a href ng-click="watch()">Submit Episodes</a>
+						<div class="well well-sm">
+							<a ng-click="watch()" class="btn btn-default btn-sm">
+								<i class="fa fa-eye"></i>
+								Watch Selected
+							</a>
+						</div>
 					</div>
 					<div class="season-episodes">
 						<ul class="episode-list">

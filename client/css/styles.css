@@ -6414,6 +6414,10 @@ tooltip {
   .season-tabs-container ul.nav {
     display: inline-block; }
 
+.season-info-header >
+.well {
+  text-align: right; }
+
 .episode-list {
   list-style: none;
   padding-left: 0; }

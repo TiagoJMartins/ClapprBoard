@@ -27,7 +27,6 @@ angular.module('MainApp')
                 }
             };
 
-
             ShowService.findShow.get({ slug: slug }, function(data) {
             if(!data.result) {
                 $rootScope.error = 'Requested show could not be found.';
@@ -49,10 +48,3 @@ angular.module('MainApp')
         });
         }
     ]);
-
-/*
-    ng-click on watch button:   watch(episode.ids.trakt)
-    ng-click on unwatch button: unwatch(episode.ids.trakt)
-    ng-show on buttons: function returns true or false  
-        watched(episode.ids.trakt) -> checks user watchlist to return result
-*/
