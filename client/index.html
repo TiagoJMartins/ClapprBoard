@@ -22,7 +22,7 @@
       <div class="nav-links">
         <ul class="nav navbar-nav">
           <li data-match-route="/$"><a ui-sref="home" ui-sref-active="active" data-ui-sref-opts="{reload: true}">Home</a></li>
-          <li data-match-route="/myshows"><a ui-sref="my-shows" ui-sref-active="active">My Shows</a></li>
+          <li data-match-route="/myshows" ng-show="isLoggedIn"><a ui-sref="my-shows" ui-sref-active="active">My Shows</a></li>
         </ul>
         <ul class="nav navbar-nav pull-right" ng-if="!isLoggedIn">
           <li data-match-route="/login"><a ui-sref="login" ui-sref-active="active">Log In</a></li>

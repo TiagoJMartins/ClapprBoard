@@ -376,6 +376,15 @@ tooltip {
 
 }
 
+.banner-container {
+
+	margin: 1em 0 1.5em 0;
+
+	img {
+		width: 70%;
+	}
+}
+
 
 
 /*****************/
@@ -427,6 +436,12 @@ tooltip {
 }
 
 @media screen and (max-width: $small-breakpoint) {
+
+	.banner-container {
+		img {
+			width: 100%;
+		}
+	}
 
 	.show-poster {
 		width: 100%;

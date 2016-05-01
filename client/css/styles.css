@@ -6493,6 +6493,11 @@ tooltip {
       color: #00aa0e;
       opacity: 0.6; }
 
+.banner-container {
+  margin: 1em 0 1.5em 0; }
+  .banner-container img {
+    width: 70%; }
+
 /*****************/
 /*  Auth Styles  */
 /*****************/
@@ -6531,6 +6536,8 @@ tooltip {
     width: 1024px; } }
 
 @media screen and (max-width: 767px) {
+  .banner-container img {
+    width: 100%; }
   .show-poster {
     width: 100%;
     margin: 0 auto;

@@ -5,13 +5,13 @@
 			{{subscribed}}
 		</div>
 		<div class="panel-body">
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum explicabo sapiente, voluptas ad et provident perspiciatis error, quos tenetur quasi eius laudantium sit pariatur modi ipsam magni dolor nostrum dolorum.</p>
 			<div ng-repeat="(show, episodes) in subscriptions">
 				<div class="sub-show-container" ng-show="episodes.length">
-					<p>{{show}}</p>
-					<ul>
-						<li ng-repeat="episode in episodes">{{episode}}</li>
-					</ul>
+					<div class="banner-container">
+						<a ui-sref="show-detail({id: show})">
+							<img ng-src="{{images[show].banner.full}}" class="img-responsive center-block">
+						</a>
+					</div>
 				</div>
 			</div>
 		</div>
