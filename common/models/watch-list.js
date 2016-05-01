@@ -106,18 +106,16 @@ module.exports = function(WatchList) {
 				return;
 			}
 
-			var watchlist = {};
+			var watchlist = [];
 
-			if (!instance.shows[show_slug]) {
+			if (!instance || !instance.shows[show_slug]) {
 				cb(null, null);
 				return;
 			}
 
 			async.forEach(episodes, function(episode, callback) {	
 					if (instance.shows[show_slug].indexOf(episode) !== -1) {
-						watchlist[episode] = true;
-					} else {
-						watchlist[episode] = false;
+						watchlist.push(episode);
 					}
 				callback();
 
@@ -165,7 +163,7 @@ module.exports = function(WatchList) {
 		        { arg: 'show_slug', type: 'string' },
 		        { arg: 'episodes', type: 'array' }
       		],
-      		returns: { arg: 'result', type: 'object' },
+      		returns: { arg: 'result', type: 'array' },
       		http: { path: '/watched', verb: 'get' }
 		}
 	);

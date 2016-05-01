@@ -3,32 +3,33 @@ angular.module('MainApp')
         function($scope, ShowService, $state, Show, $rootScope, WatchListService) {
 
             var slug = $state.params.id;
-            $scope.show = {};
             $rootScope.error = '';
-            $scope.tab = 1;
+            $scope.show = {};
+            $scope.watchlistSelection = [];
 
+            $scope.tab = 1;
             $scope.setTab = function(pos) {
-            	$scope.tab = pos;
+                $scope.tab = pos;
             };
 
-/*            Show.findOne({
-                filter: {
-                    where: {
-                        slug: slug
-                    }
-                }
-            }, function(data) {
-                var show = data.result;
+            $scope.watch = function() {
+                WatchListService.watch(slug, $scope.watchlistSelection);
+            };
 
-                if (!show) {
-                    $rootScope.error = 'The information requested could not be retrieved.';
-                    return;
-                }
+            $scope.unwatch = function() {
+                WatchListService.unwatch(slug, $scope.watchlistSelection);
+            };
 
-                $scope.subscribed = ShowService.util.isSubscribed(show.subscribers);
-                $scope.show = show;
-                return;
-            });*/
+            $scope.toggleOnWatchlist = function(ep_id) {
+                var index = $scope.watchlistSelection.indexOf(ep_id);
+
+                if (index > -1) {
+                    $scope.watchlistSelection.splice(index, 1);
+                } else {
+                    $scope.watchlistSelection.push(ep_id);
+                }
+            };
+
 
             ShowService.findShow.get({ slug: slug }, function(data) {
             if(!data.result) {
@@ -36,10 +37,17 @@ angular.module('MainApp')
                 return;
             }
 
-              $scope.subscribed = ShowService.util.isSubscribed(data.result.subscribers);
-              $scope.show = data.result;
-              $scope.time = moment();
-              $rootScope.error = '';
+            $scope.subscribed = ShowService.util.isSubscribed(data.result.subscribers);
+            $scope.show = data.result;
+            WatchListService.watched(slug, data.result.episode_ids)
+                .then(function(data) {
+                    console.log(data.result);
+                })
+                .catch(function(err) {
+                    console.log(err);
+                });
+            $scope.time = moment();
+            $rootScope.error = '';
             return;
         });
         }

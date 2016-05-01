@@ -21,6 +21,7 @@
 							<strong>Episodes:</strong> {{season.episode_count}}
 							<strong>Aired:</strong> {{season.aired_episodes}}
 						</pre>
+						<a href ng-click="watch()">Submit Episodes</a>
 					</div>
 					<div class="season-episodes">
 						<ul class="episode-list">
@@ -31,12 +32,14 @@
 								<div class="episode-info col-sm-8">
 									<div class="episode-header">
 										<p>Episode {{episode.number}}<br>{{episode.title}}</p>
-										<a href class="btn btn-xs" ng-show="subscribed && !watched[episode.ids.trakt]">
+										<input 
+										type="checkbox" 
+										class="btn btn-xs" 
+										ng-show="subscribed" 
+										ng-checked="watchlist[episode.ids.imdb]" 
+										ng-click="toggleOnWatchlist(episode.ids.imdb)">
 											<i class="fa fa-eye fa-2x"></i>
-										</a>
-										<a href class="btn btn-xs" ng-show="subscribed && watched[episode.ids.trakt]">
-											<i class="fa fa-eye-slash fa-2x"></i>
-										</a>
+										</input>
 									</div>
 									<small class="episode-date">{{episode.first_aired}}</small>
 									<small>{{episode.overview | limitTo: 200 }}</small>
@@ -49,3 +52,4 @@
 		</div>
 	</div>
 </div>
+

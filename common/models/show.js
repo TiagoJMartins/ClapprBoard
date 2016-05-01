@@ -51,6 +51,7 @@ module.exports = function(Show) {
           newShow.aired_episodes = show.aired_episodes;
           newShow.images = show.images;
           newShow.slug = slug;
+          newShow.episode_ids = [];
           newShow.subscribers = [];
 
           newArr = [];
@@ -101,6 +102,7 @@ module.exports = function(Show) {
                       .then(function(result) {
                         console.log('PUSHING EPISODES...')
                         season.episodes.push(result);
+                        newShow.episode_ids.push(result.ids.trakt);
                         count++;
                         return callback(null, count);
                       })
@@ -136,10 +138,6 @@ module.exports = function(Show) {
   	});
   };
 
-  Show.getSeasons = function(slug, cb) {
-    
-  };
-
   Show.queryTrakt = function(query, cb) {
     trakt.search({
       type: 'show',
@@ -153,21 +151,6 @@ module.exports = function(Show) {
     });
   };
 
-  Show.getEpisodes = function(slug, season, episode, cb) {
-    trakt.episodes.summary({
-      id: slug,
-      season: season,
-      episode: episode,
-      extended: ['images', 'full']
-    })
-    .then(function(result) {
-      cb(null, result);
-    })
-    .catch(function(err) {
-      cb(err);
-    });
-  }
-
   Show.remoteMethod(
     'findShow', 
     {
@@ -178,33 +161,11 @@ module.exports = function(Show) {
   );
 
   Show.remoteMethod(
-    'getSeasons',
-    {
-      accepts: [{ arg: 'id', type: 'string' }],
-      returns: { arg: 'results', type: 'object'},
-      http: { path: '/trakt/seasons', verb: 'get' }
-    }
-  );
-
-  Show.remoteMethod(
     'queryTrakt',
     {
       accepts: [{ arg: 'query', type: 'string' }],
       returns: { arg: 'results', type: 'object' },
       http: { path: '/trakt/query', verb: 'get' }
-    }
-  );
-
-  Show.remoteMethod(
-    'getEpisodes',
-    {
-      accepts: [
-        { arg: 'slug', type: 'string'},
-        { arg: 'season', type: 'number' },
-        { arg: 'episode', type: 'number' }
-      ],
-      returns: { arg: 'result', type: 'object' },
-      http: { path: '/trakt/episodes', verb: 'get' }
     }
   );
 

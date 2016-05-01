@@ -3,10 +3,7 @@ angular.module('MainApp')
     return {
     	'findShow': $resource('/api/Shows/find-show'),
     	'trakt': {
-    		'find': $resource('/api/Shows/trakt/info'),
-    		'query': $resource('/api/Shows/trakt/query'),
-    		'seasons': $resource('/api/Shows/trakt/seasons'),
-            'episodes': $resource('/api/Shows/trakt/episodes')
+    		'query': $resource('/api/Shows/trakt/query')
     	},
         'sub': {
             'subscribe': $resource('/api/Shows/subscribe'),

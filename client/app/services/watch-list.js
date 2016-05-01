@@ -1,6 +1,6 @@
 angular.module('MainApp')
-	.factory('WatchListService', ['$resource', '$rootScope', 
-		function($resource, $rootScope){
+	.factory('WatchListService', ['$resource', '$rootScope', '$q', 
+		function($resource, $rootScope, $q){
 
 			return {
 				watch: function(slug, episodes) {
@@ -35,10 +35,7 @@ angular.module('MainApp')
 								user_id: user_id,
 								show_slug: slug,
 								episodes: episodes
-							}, function(res) {
-								console.log('res', res);
-								return res.result;
-							});
+							}).$promise;
 				}
 			};
 	}]);

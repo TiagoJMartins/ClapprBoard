@@ -73,6 +73,9 @@
     },
     "seasons": {
       "type": "array"
+    },
+    "episode_ids": {
+      "type": "array"
     }
   },
   "validations": [],
