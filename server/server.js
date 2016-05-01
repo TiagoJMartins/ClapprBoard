@@ -5,7 +5,7 @@ var path = require('path');
 
 var app = module.exports = loopback();
 
-app.use(logger('dev'));
+app.use(logger(':method :url :status :response-time ms - :res[content-length] | :date[web]'));
 
 
 app.start = function() {
