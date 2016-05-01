@@ -2,7 +2,8 @@
 
 TV Show tracking application.
 
-- Implement TTL on cookie.
+## TODO
+- fix invalid auth token after server restart
 - Set up global error alerts
 - Create footer.
 - Minify CSS and JS. Concat all JS into a single file. Create .maps (Maybe add to watch task?)
@@ -17,9 +18,9 @@ TV Show tracking application.
 - email validation (maybe?)
 - sugar.js for dates aswell
 - watchlist checkboxes need to update automatically, without the need for the submit button
-- add loading spinner overlay on website
 - don't show checkbox if episode hasn't aired yet
 - style episode with no info
+<<<<<<< HEAD
 - "my shows" page needs to be made a lot better, with useful information but not messy
 - search bar on home page should be detached from the panel
 - show detail -> detach banner from panel, use space between to add the latest shows
@@ -36,3 +37,5 @@ TV Show tracking application.
 - quick actions on show thumbnails?
 
 https://github.com/strongloop/loopback-getting-started-intermediate/
+=======
+>>>>>>> 772c4bc90d604f73678f33069f4ba612ede221b1
