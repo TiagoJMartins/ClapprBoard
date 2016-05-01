@@ -6445,24 +6445,42 @@ tooltip {
   margin: 5px 0 2px;
   font-weight: bold; }
 
-.episode-header a {
-  color: #023665;
-  margin: 5px 2px 2px;
-  float: right; }
-  .episode-header a:active {
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-    -o-box-shadow: none;
-    -ms-box-shadow: none;
-    box-shadow: none; }
-  .episode-header a:focus {
-    color: #023665;
+.episode-header > input[type=checkbox] {
+  visibility: hidden; }
+  .episode-header > input[type=checkbox]:checked + label span {
+    opacity: 1;
     outline: none; }
-  .episode-header a:hover {
-    color: #035197; }
-    .episode-header a:hover i {
-      transform: scaleX(1.2) scaleY(1.2);
-      transition: 0.1s ease; }
+  .episode-header > input[type=checkbox] + label {
+    float: right; }
+  .episode-header > input[type=checkbox] + label span {
+    position: relative;
+    color: #00770A;
+    display: inline-block;
+    margin: 9px 2px 2px;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    opacity: 0.3;
+    transition: 0.1s; }
+    .episode-header > input[type=checkbox] + label span:before {
+      content: '\f00c';
+      font-family: FontAwesome;
+      top: -8px;
+      position: absolute;
+      font-size: 2.1em; }
+    .episode-header > input[type=checkbox] + label span:active {
+      -webkit-box-shadow: none;
+      -moz-box-shadow: none;
+      -o-box-shadow: none;
+      -ms-box-shadow: none;
+      box-shadow: none;
+      transform: scaleX(-0.009); }
+    .episode-header > input[type=checkbox] + label span:focus {
+      color: #00770A;
+      outline: none; }
+    .episode-header > input[type=checkbox] + label span:hover {
+      color: #00aa0e;
+      opacity: 0.6; }
 
 /*****************/
 /*  Auth Styles  */

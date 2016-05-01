@@ -95,7 +95,7 @@ module.exports = function(WatchList) {
 		});
 	}
 
-	WatchList.hasWatched = function(user_id, show_slug, episodes, cb) {
+	WatchList.hasWatched = function(user_id, show_slug, cb) {
 		WatchList.findOne({
 			where: {
 				user_id: user_id
@@ -106,26 +106,12 @@ module.exports = function(WatchList) {
 				return;
 			}
 
-			var watchlist = [];
-
 			if (!instance || !instance.shows[show_slug]) {
 				cb(null, null);
 				return;
 			}
 
-			async.forEach(episodes, function(episode, callback) {	
-					if (instance.shows[show_slug].indexOf(episode) !== -1) {
-						watchlist.push(episode);
-					}
-				callback();
-
-			}, function(err) {
-				if (err) {
-					cb(err, null);
-					return;
-				}
-				cb(null, watchlist);
-			});
+			cb(null, instance.shows[show_slug]);
 		});
 	}
 
@@ -160,8 +146,7 @@ module.exports = function(WatchList) {
 		{
 			accepts: [
 		        { arg: 'user_id', type: 'string' },
-		        { arg: 'show_slug', type: 'string' },
-		        { arg: 'episodes', type: 'array' }
+		        { arg: 'show_slug', type: 'string' }
       		],
       		returns: { arg: 'result', type: 'array' },
       		http: { path: '/watched', verb: 'get' }

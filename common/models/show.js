@@ -102,7 +102,7 @@ module.exports = function(Show) {
                       .then(function(result) {
                         console.log('PUSHING EPISODES...')
                         season.episodes.push(result);
-                        newShow.episode_ids.push(result.ids.trakt);
+                        newShow.episode_ids.push(result.ids.trakt.toString());
                         count++;
                         return callback(null, count);
                       })

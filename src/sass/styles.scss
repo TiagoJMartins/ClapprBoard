@@ -48,7 +48,7 @@ $alert-info-bg: #e5f7fd;
 $alert-info-border: #bcf8f3;
 $alert-info-text: #25484e;
 
-$episode-options-icon: #023665;
+$episode-options-icon: #00770A;
 $episode-options-icon-focus: $episode-options-icon;
 $episode-options-icon-hover: lighten($episode-options-icon, 10%);
 
@@ -308,11 +308,37 @@ tooltip {
 		margin: 5px 0 2px;
 		font-weight: bold;
 	}
+}
 
-	a {
+.episode-header > input[type=checkbox] {
+	visibility: hidden;
+	
+	&:checked + label span {
+		opacity: 1;
+		outline: none;
+	}
+
+	& + label {
+	    float: right;
+	}
+	& + label span {
+		position: relative;
 		color: $episode-options-icon;
-		margin: 5px 2px 2px;
-		float: right;
+		display: inline-block;
+		margin: 9px 2px 2px;
+	    width: 25px;
+	    height: 25px;
+	    cursor: pointer;
+	    opacity: 0.3;
+	    transition: 0.1s;
+
+	    &:before {
+	    	content: '\f00c';
+	    	font-family: FontAwesome;
+	    	top: -8px;
+	    	position: absolute;
+	    	font-size: 2.1em;
+	    }
 
 		&:active {
 			-webkit-box-shadow: none;
@@ -320,6 +346,7 @@ tooltip {
 			-o-box-shadow: none;
 			-ms-box-shadow: none;
 			box-shadow: none;
+			transform: scaleX(-0.009);
 		}
 
 		&:focus {
@@ -329,12 +356,10 @@ tooltip {
 
 		&:hover {
 			color: $episode-options-icon-hover;
-			i {
-				transform: scaleX(1.2) scaleY(1.2);
-				transition: 0.1s ease;
-			}
+			opacity: 0.6;
 		}
 	}
+
 }
 
 

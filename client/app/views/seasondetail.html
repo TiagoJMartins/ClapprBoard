@@ -33,13 +33,14 @@
 									<div class="episode-header">
 										<p>Episode {{episode.number}}<br>{{episode.title}}</p>
 										<input 
+										id="{{episode.ids.trakt}}"
 										type="checkbox" 
 										class="btn btn-xs" 
 										ng-show="subscribed" 
-										ng-checked="watchlist[episode.ids.imdb]" 
-										ng-click="toggleOnWatchlist(episode.ids.imdb)">
-											<i class="fa fa-eye fa-2x"></i>
+										ng-checked="watchlist.indexOf(episode.ids.trakt) > -1" 
+										ng-click="toggleOnWatchlist(episode.ids.trakt)">
 										</input>
+										<label for='{{episode.ids.trakt}}'><span></span></label>
 									</div>
 									<small class="episode-date">{{episode.first_aired}}</small>
 									<small>{{episode.overview | limitTo: 200 }}</small>
