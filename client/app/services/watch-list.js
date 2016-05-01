@@ -11,9 +11,7 @@ angular.module('MainApp')
 								user_id: user_id,
 								show_slug: slug,
 								episodes: episodes
-							}, function(data) {
-								return data.result;
-							});
+							}).$promise;
 				},
 				watched: function(slug, episodes) {
 					var user_id = $rootScope.currentUser.id;

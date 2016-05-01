@@ -7,10 +7,12 @@
 		<div class="panel-body">
 			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum explicabo sapiente, voluptas ad et provident perspiciatis error, quos tenetur quasi eius laudantium sit pariatur modi ipsam magni dolor nostrum dolorum.</p>
 			<div ng-repeat="(show, episodes) in subscriptions">
-				<p>{{show}}</p>
-				<ul>
-					<li ng-repeat="episode in episodes">{{episode}}</li>
-				</ul>
+				<div class="sub-show-container" ng-show="episodes.length">
+					<p>{{show}}</p>
+					<ul>
+						<li ng-repeat="episode in episodes">{{episode}}</li>
+					</ul>
+				</div>
 			</div>
 		</div>
 	</div>

@@ -1,5 +1,6 @@
 angular.module('MainApp', ['ngResource', 'ngMessages', 'ui.router', 'angular-loading-bar',
-                           'ngAnimate', 'ngCookies', 'lbServices', 'mgcrea.ngStrap', '720kb.tooltips'])
+                           'ngAnimate', 'ngCookies', 'lbServices', 'mgcrea.ngStrap', '720kb.tooltips',
+                           'checklist-model'])
   .config(['$locationProvider', '$stateProvider', '$urlRouterProvider', 'cfpLoadingBarProvider',
     function($locationProvider, $stateProvider, $urlRouterProvider, cfpLoadingBarProvider) {
     //$locationProvider.html5Mode(false);
@@ -54,7 +55,7 @@ angular.module('MainApp', ['ngResource', 'ngMessages', 'ui.router', 'angular-loa
         });
 
         cfpLoadingBarProvider.parentSelector = '#loading-bar';
-        cfpLoadingBarProvider.latencyThreshold = 350;
+        cfpLoadingBarProvider.latencyThreshold = 400;
 
         $urlRouterProvider.otherwise('home');
   }])

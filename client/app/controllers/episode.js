@@ -13,8 +13,14 @@ angular.module('MainApp')
             };
 
             $scope.watch = function() {
-                WatchListService.modify(slug, $scope.watchlistSelection);
-                $state.go($state.current, slug, { reload: true });
+                WatchListService
+                    .modify(slug, $scope.watchlistSelection)
+                    .then(function() {
+                        $state.go($state.current, slug, { reload: true });
+                    })
+                    .catch(function(err) {
+                        console.log('Error modifying watchlist', err);
+                    });
             };
 
             $scope.toggleOnWatchlist = function(ep_id) {
