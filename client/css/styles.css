@@ -6354,7 +6354,14 @@ tooltip {
   margin-right: 1em;
   margin-left: 1em;
   background-color: none;
-  color: #A022AE; }
+  color: #A022AE;
+  vertical-align: middle;
+  line-height: 30px; }
+  .btn-show p {
+    display: inline-block;
+    font-size: 1.2em;
+    font-weight: bold;
+    margin: 0 5px 0 5px; }
   .btn-show:active {
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
@@ -6363,7 +6370,8 @@ tooltip {
     box-shadow: none; }
   .btn-show:focus {
     color: #A022AE;
-    outline: none; }
+    outline: none;
+    transform: translateY(0.2); }
   .btn-show:hover {
     color: #c52dd6; }
     .btn-show:hover i {

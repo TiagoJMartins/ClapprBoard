@@ -5,7 +5,7 @@ angular.module('MainApp')
       $scope.credentials = {
         email: 'foo@bar.com',
         password: 'foobar',
-        remember: true
+        remember: false
       };
 
       $scope.login = function() {

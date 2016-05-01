@@ -180,6 +180,15 @@ tooltip {
 	margin-left: 1em;
 	background-color: none;
 	color: $show-options-icon;
+	vertical-align: middle;
+	line-height: 30px;
+
+	p {
+		display: inline-block;
+		font-size: 1.2em;
+		font-weight: bold;
+		margin: 0 5px 0 5px;
+	}
 
 	&:active {
 		-webkit-box-shadow: none;
@@ -192,6 +201,7 @@ tooltip {
 	&:focus {
 		color: $show-options-icon-focus;
 		outline: none;
+		transform: translateY(0.2);
 	}
 
 	&:hover {
