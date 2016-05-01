@@ -2,7 +2,8 @@
 
 TV Show tracking application.
 
-- Implement TTL on cookie.
+## TODO
+- fix invalid auth token after server restart [INFO](https://github.com/strongloop/loopback/issues/1669)
 - Set up global error alerts
 - Create footer.
 - Minify CSS and JS. Concat all JS into a single file. Create .maps (Maybe add to watch task?)
@@ -17,8 +18,5 @@ TV Show tracking application.
 - email validation (maybe?)
 - sugar.js for dates aswell
 - watchlist checkboxes need to update automatically, without the need for the submit button
-- add loading spinner overlay on website
 - don't show checkbox if episode hasn't aired yet
 - style episode with no info
-
-https://github.com/strongloop/loopback-getting-started-intermediate/
