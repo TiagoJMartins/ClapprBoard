@@ -1,88 +1,86 @@
 <div class="container-fluid">
-	<div class="panel panel-default">
-		<div class="panel-heading hide-bg" ng-show="show.images.banner.full">
-			<img class="show-banner center-block img-responsive" ng-src="{{show.images.banner.full}}">
-		</div>
-		<div class="panel-body">
-			<div class="show-detail" ng-show="show.title">				
-				<img class="show-poster img-responsive img-rounded" ng-src="{{show.images.poster.full}}">
-				<div class="show-info-header">
-					<h2 class="show-title">
+    <img ng-show="show.images.banner.full" class="show-banner center-block img-responsive" ng-src="{{show.images.banner.full}}">
+    <div class="panel panel-default" ng-show="nextEpisodes || latestEpisodes">
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-sm-4" ng-if="nextEpisodes[0]">
+                    <h3 class="recent-episodes-header">Next Episode</h3>
+                    <div class="episode-container">
+                        <img ng-src="{{nextEpisodes[0].images.screenshot.thumb}}" class="img-responsive episode-thumb">
+                        <div class="show-episode-info">
+                            <strong>{{nextEpisodes[0].season}}x{{nextEpisodes[0].number}} - {{nextEpisodes[0].title}}</strong>
+                            <p>Airs {{nextEpisodes[0].first_aired | fromNow}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div ng-class="{'col-sm-8': nextEpisodes[0], 'col-sm-12': !nextEpisodes[0]}">
+                    <h3 class="recent-episodes-header">Latest Episodes</h3>
+                </div>
+                <div ng-class="{'col-sm-8': nextEpisodes[0], 'col-sm-12': !nextEpisodes[0]}">
+                    <div class="row">
+                        <div ng-class="{'col-sm-6': nextEpisodes[0], 'col-sm-4': !nextEpisodes[0]}">
+                            <div class="episode-container">
+                                <img ng-src="{{latestEpisodes[0].images.screenshot.thumb}}" class="img-responsive episode-thumb">
+                                <div class="show-episode-info">
+                                    <strong>{{latestEpisodes[0].season}}x{{latestEpisodes[0].number}} - {{latestEpisodes[0].title}}</strong>
+                                    <p>Aired {{latestEpisodes[0].first_aired | fromNow}}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div ng-class="{'col-sm-6': nextEpisodes[0], 'col-sm-4': !nextEpisodes[0]}">
+                            <div class="episode-container">
+                                <img ng-src="{{latestEpisodes[1].images.screenshot.thumb}}" class="img-responsive episode-thumb">
+                                <div class="show-episode-info">
+                                    <strong>{{latestEpisodes[1].season}}x{{latestEpisodes[1].number}} - {{latestEpisodes[1].title}}</strong>
+                                    <p>Aired {{latestEpisodes[1].first_aired | fromNow}}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4" ng-if="!nextEpisodes[0]">
+                            <div class="episode-container">
+                                <img ng-src="{{latestEpisodes[2].images.screenshot.thumb}}" class="img-responsive episode-thumb">
+                                <div class="show-episode-info">
+                                    <strong>{{latestEpisodes[2].season}}x{{latestEpisodes[2].number}} - {{latestEpisodes[2].title}}</strong>
+                                    <p>Aired {{latestEpisodes[2].first_aired | fromNow}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div class="show-detail" ng-show="show.title">
+                <img class="show-poster img-responsive img-rounded" ng-src="{{show.images.poster.full}}">
+                <div class="show-info-header">
+                    <h2 class="show-title">
 					<a ng-href="{{show.homepage}}">{{show.title}}</a>
 					</h2>
-					<a ui-sref="show-episodes({id: show.slug})" class="btn btn-xs btn-show btn-episodes">
-						<i class="fa fa-th-list fa-2x"></i>
-						<p>Episodes</p>
-					</a>
-				</div>
-				<div class="show-airtime">
-					<h5 class="airtime" ng-show="nextEpisodes[0]">
+                    <a ui-sref="show-episodes({id: show.slug})" class="btn btn-xs btn-show btn-episodes">
+                        <i class="fa fa-th-list fa-2x"></i>
+                        <p>Episodes</p>
+                    </a>
+                </div>
+                <div class="show-airtime">
+                    <h5 class="airtime" ng-show="nextEpisodes[0]">
 					<i class="fa fa-calendar"></i>
 					{{airs}} on {{show.network}}
 					</h5>
-					<h5 class="airtime" ng-hide="show.airs.day">
+                    <h5 class="airtime" ng-hide="show.airs.day">
 						No air time information found.
 					</h5>
-					<h6>Runtime: {{show.runtime}} Minutes</h6>
-					<h6 class="status" ng-show="show.status === 'returning series'">Returning Series</h6>
-					<h6 class="status" ng-show="show.status === 'cancelled'">Cancelled</h6>
-					<h6 class="status" ng-show="show.status === 'ended'">Finished Series</h6>
-					<h6 class="status" ng-show="show.status === 'in production'">In Production</h6>
-				</div>
-				<p class="show-overview">
-					{{show.overview}}
-				</p>
-			</div>
-		</div>
-	</div>
-	<div class="panel panel-default" ng-show="nextEpisodes || latestEpisodes">
-		<div class="panel-body">
-			<div class="row">
-				<div class="col-sm-4" ng-if="nextEpisodes[0]">
-					<h3 class="recent-episodes-header">Next Episode</h3>
-					<div class="episode-container">
-						<img ng-src="{{nextEpisodes[0].images.screenshot.thumb}}" class="img-responsive episode-thumb">
-					<div class="show-episode-info">
-						<strong>{{nextEpisodes[0].season}}x{{nextEpisodes[0].number}} - {{nextEpisodes[0].title}}</strong>
-						<p>Airs {{nextEpisodes[0].first_aired | fromNow}}</p>
-					</div>
-					</div>
-				</div>
-				<div ng-class="{'col-sm-8': nextEpisodes[0], 'col-sm-12': !nextEpisodes[0]}">
-					<h3 class="recent-episodes-header">Latest Episodes</h3>
-				</div>
-				<div ng-class="{'col-sm-8': nextEpisodes[0], 'col-sm-12': !nextEpisodes[0]}">
-					<div class="row">
-						<div ng-class="{'col-sm-6': nextEpisodes[0], 'col-sm-4': !nextEpisodes[0]}">
-							<div class="episode-container">
-								<img ng-src="{{latestEpisodes[0].images.screenshot.thumb}}" class="img-responsive episode-thumb">
-								<div class="show-episode-info">
-									<strong>{{latestEpisodes[0].season}}x{{latestEpisodes[0].number}} - {{latestEpisodes[0].title}}</strong>
-									<p>Aired {{latestEpisodes[0].first_aired | fromNow}}</p>
-								</div>
-							</div>
-						</div>
-						<div ng-class="{'col-sm-6': nextEpisodes[0], 'col-sm-4': !nextEpisodes[0]}">
-							<div class="episode-container">
-								<img ng-src="{{latestEpisodes[1].images.screenshot.thumb}}" class="img-responsive episode-thumb">
-								<div class="show-episode-info">
-									<strong>{{latestEpisodes[1].season}}x{{latestEpisodes[1].number}} - {{latestEpisodes[1].title}}</strong>
-									<p>Aired {{latestEpisodes[1].first_aired | fromNow}}</p>
-								</div>
-							</div>							
-						</div>
-						<div class="col-sm-4" ng-if="!nextEpisodes[0]">
-							<div class="episode-container">
-								<img ng-src="{{latestEpisodes[2].images.screenshot.thumb}}" class="img-responsive episode-thumb">
-								<div class="show-episode-info">
-									<strong>{{latestEpisodes[2].season}}x{{latestEpisodes[2].number}} - {{latestEpisodes[2].title}}</strong>
-									<p>Aired {{latestEpisodes[2].first_aired | fromNow}}</p>
-								</div>
-							</div>							
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+                    <h6>Runtime: {{show.runtime}} Minutes</h6>
+                    <h6 class="status" ng-show="show.status === 'returning series'">Returning Series</h6>
+                    <h6 class="status" ng-show="show.status === 'cancelled'">Cancelled</h6>
+                    <h6 class="status" ng-show="show.status === 'ended'">Finished Series</h6>
+                    <h6 class="status" ng-show="show.status === 'in production'">In Production</h6>
+                </div>
+                <p class="show-overview">
+                    {{show.overview}}
+                </p>
+            </div>
+        </div>
+    </div>
 </div>

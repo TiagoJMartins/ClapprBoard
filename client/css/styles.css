@@ -6326,8 +6326,12 @@ body {
 
 .show-banner {
   border: 2px solid #333;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  border-radius: 3px;
   width: 100%;
-  margin-top: -20px; }
+  margin-bottom: 20px; }
 
 .panel-heading {
   padding: 0; }

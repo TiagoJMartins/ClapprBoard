@@ -146,9 +146,9 @@ body {
 }
 
 .show-banner {
-	border: 2px solid #333;
+	@include imageBorder;
 	width: 100%;
-	margin-top: -20px;
+	margin-bottom: 20px; 
 }
 
 .panel-heading {
