@@ -30,6 +30,10 @@ module.exports = function(WatchList) {
 					instance.shows[show_slug].push(episode);
 				} else {
 					instance.shows[show_slug].splice(index, 1);
+
+					if (!instance.shows[show_slug].length) {
+						delete instance.shows[show_slug];
+					}
 				}
 				callback();
 
@@ -84,14 +88,6 @@ module.exports = function(WatchList) {
 
 			console.log('FOUND: ', instance.shows);
 			return cb(null, instance.shows);
-
-			async.forEach(instance.shows, function(show, callback) {
-				console.log('BUILDING SUBSCRIBED SHOWS: ', show);
-				returnArr.push(show);
-				callback();
-			}, function(err) {
-				return cb(null, returnArr);
-			});
 		})
 	};
 

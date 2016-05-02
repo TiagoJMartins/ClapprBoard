@@ -5,28 +5,19 @@ angular.module('MainApp')
       function login(credentials) {
         return Client
           .login({ rememberMe: credentials.remember }, credentials)
-          .$promise
-          .then(function(res) {
-            
-          });
+          .$promise;
       }
 
       function logout() {
         return Client
           .logout()
-          .$promise
-          .then(function() {
-            
-          });
+          .$promise;
       }
 
       function register(credentials) {
         return Client
           .create(credentials)
-          .$promise
-          .then(function(res) {
-            
-          });
+          .$promise;
       }
 
       return {

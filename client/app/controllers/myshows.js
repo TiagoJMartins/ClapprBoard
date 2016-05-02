@@ -3,7 +3,8 @@ angular.module('MainApp')
 	function($scope, WatchListService, Show, $rootScope){
 	
 		$scope.subscriptions = {};
-		$scope.images = {};
+		$scope.shows = {};
+		$scope.stats = {};
 		
 		WatchListService
 		.shows()
@@ -22,13 +23,10 @@ angular.module('MainApp')
 						filter: {
 							where: {
 								slug: show
-							},
-							fields: {
-								images: true
 							}
 						}
 					}, function(inst) {
-						$scope.images[show] = inst.images;
+						$scope.shows[show] = inst;
 					})
 				}
 				callback();

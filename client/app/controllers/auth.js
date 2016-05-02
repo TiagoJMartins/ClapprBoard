@@ -5,13 +5,16 @@ angular.module('MainApp')
       $scope.credentials = {
         email: 'foo@bar.com',
         password: 'foobar',
-        remember: false
+        remember: true
       };
 
       $scope.login = function() {
         AuthService.login($scope.credentials)
           .then(function() {
             $window.location.href = '/';
+          })
+          .catch(function(err) {
+            console.log('Login error', err);
           });
       };
     }
@@ -22,7 +25,13 @@ angular.module('MainApp')
       AuthService.logout()
         .then(function() {
           $window.location.href = '/';
-        });
+        })
+        .catch(function() {
+          console.log('Auth token has expires, clearing localStorage and sessionStorage.');
+          window.localStorage.removeItem('$LoopBack$accessTokenId');
+          window.localStorage.removeItem('$LoopBack$currentUserId');
+          $window.location.href = '/';
+        })
     }
   ])
   .controller('SignupCtrl', ['AuthService', '$state', '$scope',
@@ -38,6 +47,9 @@ angular.module('MainApp')
         AuthService.signup($scope.credentials)
           .then(function() {
             $state.go('signup-success');
-          });
+          })
+          .catch(function(err) {
+            console.log('Signup error', err);
+          })
       };
   }]);
