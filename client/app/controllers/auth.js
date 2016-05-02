@@ -13,6 +13,8 @@ angular.module('MainApp')
         password: '',
         remember: true
       };
+      
+      $rootScope.bgImg = "url('assets/sherlock-blur.jpg') 50% 10% no-repeat fixed";
 
       $scope.login = function() {
         AuthService.login($scope.credentials)
@@ -40,14 +42,16 @@ angular.module('MainApp')
         })
     }
   ])
-  .controller('SignupCtrl', ['AuthService', '$state', '$scope',
-    function(AuthService, $state, $scope) {
+  .controller('SignupCtrl', ['AuthService', '$state', '$scope', '$rootScope',
+    function(AuthService, $state, $scope, $rootScope) {
 
       $scope.credentials = {
         email: "",
         password: "",
         confirm: ""
       };
+      
+      $rootScope.bgImg = "url('assets/banshee-blur.jpg') 50% 10% no-repeat fixed";
 
       $scope.signup = function() {
         AuthService.signup($scope.credentials)

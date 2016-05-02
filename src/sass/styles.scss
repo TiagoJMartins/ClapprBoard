@@ -410,7 +410,11 @@ body {
 .container-auth {
 	width: 350px;
 	z-index: 8000;
-	top: 50%;
+	margin-top: 70px;
+	
+	.panel {
+		box-shadow: 0 3px 25px rgba(0, 0, 0, 0.6);	
+	}
 }
 
 .logo-container {
@@ -447,7 +451,7 @@ body {
 .input-group-addon {
 	border: 1px solid #ccc;
 	background-color: #fff;
-	padding: 6px 0 6px 10px;
+	padding: 6px 10px 6px 10px;
 
 }
 
