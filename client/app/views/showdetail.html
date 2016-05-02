@@ -16,13 +16,14 @@
 					</a>
 				</div>
 				<div class="show-airtime">
-					<h5 class="airtime" ng-show="show.airs.day">
+					<h5 class="airtime" ng-show="nextEpisodes[0]">
 					<i class="fa fa-calendar"></i>
-					{{show.airs.day}}, at {{show.airs.time}} on {{show.network}}
+					{{airs}} on {{show.network}}
 					</h5>
 					<h5 class="airtime" ng-hide="show.airs.day">
 						No air time information found.
 					</h5>
+					<h6>Runtime: {{show.runtime}} Minutes</h6>
 					<h6 class="status" ng-show="show.status === 'returning series'">Returning Series</h6>
 					<h6 class="status" ng-show="show.status === 'cancelled'">Cancelled</h6>
 					<h6 class="status" ng-show="show.status === 'ended'">Finished Series</h6>

@@ -18,21 +18,29 @@ angular.module('MainApp')
 
                   $scope.nextEpisodes = $scope.show.episode_meta.filter(function(episode) {
                         var aired = episode.first_aired;
-                        aired = moment(aired.substr(0, aired.length - 1));
-                        var now = moment();
-                        return aired.isAfter(now);
+                        if (aired) {
+                              aired = moment(aired.substr(0, aired.length - 1));
+                              var now = moment();
+                              return aired.isAfter(now);
+                        }
                   });
 
                   $scope.latestEpisodes = $scope.show.episode_meta.filter(function(episode) {
                         var aired = episode.first_aired;
-                        aired = moment(aired.substr(0, aired.length - 1));
-                        var now = moment();
-                        return aired.isBefore(now);
+                        if (aired) {
+                              aired = moment(aired.substr(0, aired.length - 1));
+                              var now = moment();
+                              return aired.isBefore(now);
+                        }
                   });
                   $scope.latestEpisodes.splice(0, $scope.latestEpisodes.length - 3);
                   $scope.latestEpisodes.reverse();
 
+                  if ($scope.nextEpisodes[0]) {      
+                        var airTime = $scope.nextEpisodes[0].first_aired;
+                        airTime = airTime.substr(0, airTime.length - 1);
+                        $scope.airs = moment(airTime).format('dddd[, at ]hh:mm');
+                  }
             });
-
 	}
 ]);
