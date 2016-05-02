@@ -431,6 +431,7 @@ body {
 	input {
 		margin-bottom: 20px;
 		transform: 0.3s ease;
+		border-left: 0;
 	}
 	label {
 		display: block;
@@ -441,6 +442,13 @@ body {
 		color: $brand-danger;
 		margin: 5px 5px 5px 5px;
 	}
+}
+
+.input-group-addon {
+	border: 1px solid #ccc;
+	background-color: #fff;
+	padding: 6px 0 6px 10px;
+
 }
 
 .btn-auth {
@@ -540,7 +548,7 @@ body {
 	}
 
 	.container-auth {
-		width: 350px;
+		width: 100%;
 	}
 
 }

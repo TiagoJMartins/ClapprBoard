@@ -6531,7 +6531,8 @@ body {
   .login-form input,
   .signup-form input {
     margin-bottom: 20px;
-    transform: 0.3s ease; }
+    transform: 0.3s ease;
+    border-left: 0; }
   .login-form label,
   .signup-form label {
     display: block;
@@ -6541,6 +6542,11 @@ body {
     display: block;
     color: #bb0318;
     margin: 5px 5px 5px 5px; }
+
+.input-group-addon {
+  border: 1px solid #ccc;
+  background-color: #fff;
+  padding: 6px 0 6px 10px; }
 
 .btn-auth {
   float: right; }
@@ -6604,7 +6610,7 @@ body {
     -ms-border-radius: 3px 3px 0 0;
     border-radius: 3px 3px 0 0; }
   .container-auth {
-    width: 350px; } }
+    width: 100%; } }
 
 @media screen and (max-width: 418px) {
   .grid-item {
