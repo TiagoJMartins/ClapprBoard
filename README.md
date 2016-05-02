@@ -28,3 +28,9 @@ TV Show tracking application.
 - **ERRORS** **ERRORS** SHOW ERRORS TO USER!
 - main page should have a second panel for subscribed shows' latest episodes or upcoming or trending or top shows
 - quick actions on show thumbnails?
+
+## LOGIN
+
+- oauth login (facebook, g+, twitter)
+- big background picture on login/signup page
+- password confirmation needs to start working!

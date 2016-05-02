@@ -8,6 +8,12 @@ angular.module('MainApp')
         remember: true
       };
 
+      $scope.credentials = {
+        email: '',
+        password: '',
+        remember: true
+      };
+
       $scope.login = function() {
         AuthService.login($scope.credentials)
           .then(function() {

@@ -408,17 +408,25 @@ body {
 /*****************/
 
 .container-auth {
-	width: 500px;
+	width: 350px;
+	z-index: 8000;
+	top: 50%;
 }
 
-.auth-header {
-	margin-top: 10px;
-	margin-left: 10px;
+.logo-container {
+	p {
+		font-size: 1.5em;
+	}
+}
+
+.auth-logo {
+	margin-top: 25px;
+	padding: 10px;
 }
 
 .login-form,
 .signup-form {
-	padding-top: 15px;
+	margin-top: 20px;
 	
 	input {
 		margin-bottom: 20px;

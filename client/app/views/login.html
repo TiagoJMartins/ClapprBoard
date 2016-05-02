@@ -1,38 +1,37 @@
 <div class="container container-auth">
-  <pre class="text-center">
+    <pre class="text-center">
     Test account
     <strong>Email:</strong> foo@bar.com
     <strong>Password:</strong> foobar
   </pre>
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h3 class="auth-header">Log In</h3>
-    </div>
-    <div class="panel-body">
-      <form class="login-form" name="loginForm" ng-submit="login()" novalidate>
-        <div class="form-group" ng-class="{ 'has-error': loginForm.email.$touched && loginForm.email.$invalid,
+    <div class="panel panel-default">
+        <div class="logo-container">
+            <img class="center-block auth-logo" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADQAAAA0CAYAAADFeBvrAAACdUlEQVRoQ+2a4U3DMBCFXycAJgAmoEwAGwATABvABjABMAGwAWwAE0A3gAkoE4C+KocsE8d2laRxlZOq/qgT37v37tlxOlGZsSPpQNKhpJmkW4MxKQTPZgXguAIBIIt3SfslAALEhaQjSdNI4bckzRkzdIZgAjkBqilOJD2tGhBV/7DKRhKmVwC2Fxh3V7HZK0PWyNYHSAqZkOh1Qi9TgPuA/P76qEvJuU5Ehd1G9vOHqUuTTfUjAMzJuJ4CuIG7vTifTnuIZND0dkLl3SEkCLi6Anx6ABj3L7pkiMlwqStJG5nAGP5dAaAwBjR6m1xAJgO+H6uJYpMgFfrkNDZQ0rPDAn2RHTFAMR1TPbRfS7/XA8jIj1dPRtkA/AvqAOFC+D7ffiPWTWhOhXX6RtDUyIt1o+2oA5S6mKXkYo1sfbBwoi6jSXJI5CHTqZKcaFWAbN4mpzInsvVgqUZuE2DMFGwu16loZJPQygGETIG+uXG2FSTa5F5tFrXVe8EQYN5qHI0G5jkjZMmtJtLWzQCEfELbcxY67LuYANBXw3oDO7vFoKke8JBWaK+FDTftkgeHdS0lBwO4ms8Sa4w9VRoTZ9VDVowZNq6MDUVn97F1yLY7dhgBQBZU1+E6SyKAeqmipC6sRYChMCmAigGTAqgoMDFAxYGJAYo52SB/T+mhQSYeSgpAP0VlHEl2BDR0NkeGRoZ6rsAouZ4Lnj3dyFB2yXq+YGSo54JnTzcylF2yni8YGeq54NnTrSVDnMGF/nKSXaEVXzCDIQ4UeTe0DnFuZwrrwBJ/lZkaIF458p60VOkBhpfcc//Uh7M4JFgKMPt7Jm/rF/ELw3+aTggQvVYAAAAASUVORK5CYII=" width="64" height="64">
+            <p class="text-center">Clappr<strong>Board</strong></p>
+        </div>
+        <div class="panel-body">
+            <form class="login-form" name="loginForm" ng-submit="login()" novalidate>
+                <div class="form-group" ng-class="{ 'has-error': loginForm.email.$touched && loginForm.email.$invalid,
                                             'has-success': loginForm.email.$touched && loginForm.email.$valid }">
-          <label for="email">Email</label>
-          <div class="auth-errors" ng-messages="loginForm.email.$error" ng-show="loginForm.email.$touched">
-            <div class="alert alert-info" ng-messages-include="app/views/templates/messages.html"></div>
-          </div>
-          <input class="form-control" type="email" name="email" placeholder="email" ng-model="credentials.email" required>
-        </div>
-        <div class="form-group" ng-class="{ 'has-error': loginForm.password.$touched && loginForm.password.$invalid,
+                    <div class="auth-errors" ng-messages="loginForm.email.$error" ng-show="loginForm.email.$touched">
+                        <div class="alert alert-info" ng-messages-include="app/views/templates/messages.html"></div>
+                    </div>
+                    <input class="form-control" type="email" name="email" placeholder="E-Mail" ng-model="credentials.email" required>
+                </div>
+                <div class="form-group" ng-class="{ 'has-error': loginForm.password.$touched && loginForm.password.$invalid,
                                             'has-success': loginForm.password.$touched && loginForm.password.$valid }">
-          <label for="password">Password</label>
-          <div class="auth-errors" ng-messages="loginForm.password.$error" ng-show="loginForm.password.$touched">
-            <div ng-messages-include="app/views/templates/messages.html"></div>
-          </div>
-          <input class="form-control" type="password" name="password" placeholder="password" ng-model="credentials.password" required>
+                    <div class="auth-errors" ng-messages="loginForm.password.$error" ng-show="loginForm.password.$touched">
+                        <div ng-messages-include="app/views/templates/messages.html"></div>
+                    </div>
+                    <input class="form-control" type="password" name="password" placeholder="Password" ng-model="credentials.password" required>
+                </div>
+                <div class="form-group">
+                    <label for="remember" ng-if="false">
+                        <input class="disabled" disabled type="checkbox" name="remember" ng-model="credentials.remember"> Remember Me
+                    </label>
+                </div>
+                <input ng-disabled="loginForm.$invalid" class="btn btn-default btn-auth btn-block" type="submit" name="login" value="Log In">
+            </form>
         </div>
-        <div class="form-group">
-          <label for="remember">
-            <input class="disabled" disabled type="checkbox" name="remember" ng-model="credentials.remember"> Remember Me
-          </label>
-        </div>
-        <input ng-disabled="loginForm.$invalid" class="btn btn-default btn-auth" type="submit" name="login" value="Log In">
-      </form>
     </div>
-  </div>
 </div>
