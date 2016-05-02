@@ -161,6 +161,10 @@ body {
 	margin: 0 2% 1% 2%;
 }
 
+.show-background {
+	display: none;
+}
+
 .show-info {
 	width: 60%;
 }
@@ -187,8 +191,6 @@ body {
 		}
 	}
 }
-
-
 
 .btn-show {
 	float: right;
@@ -226,48 +228,6 @@ body {
 			transform: scaleX(1.3) scaleY(1.3);
 			transition: 0.1s;
 		}
-	}
-}
-
-.btn-subscribe {
-	color: $show-options-subscribe;
-
-	&:active {
-		-webkit-box-shadow: none;
-		-moz-box-shadow: none;
-		-o-box-shadow: none;
-		-ms-box-shadow: none;
-		box-shadow: none;
-	}
-
-	&:focus {
-		color: $show-options-subscribe-focus;
-		outline: none;
-	}
-
-	&:hover {
-		color: $show-options-subscribe-hover;
-	}
-}
-
-.btn-unsubscribe {
-	color: $show-options-unsubscribe;
-
-	&:active {
-		-webkit-box-shadow: none;
-		-moz-box-shadow: none;
-		-o-box-shadow: none;
-		-ms-box-shadow: none;
-		box-shadow: none;
-	}
-
-	&:focus {
-		color: $show-options-unsubscribe-focus;
-		outline: none;
-	}
-
-	&:hover {
-		color: $show-options-unsubscribe-hover;
 	}
 }
 
@@ -488,10 +448,15 @@ body {
 	}
 
 	.show-poster {
-		width: 100%;
+		/* width: 100%;
 		margin: 0 auto;
 		margin-bottom: 2em;
-		transition: 0.3s ease;
+		transition: 0.3s ease; */
+		display: none;
+	}
+
+	.show-background {
+		display: block;
 	}
 
 	.show-info-header {

@@ -1,6 +1,40 @@
 <div class="container-fluid">
     <img ng-show="show.images.banner.full" class="show-banner center-block img-responsive" ng-src="{{show.images.banner.full}}">
-    <div class="panel panel-default" ng-show="nextEpisodes || latestEpisodes">
+    <div class="panel panel-default">
+        <div class="panel-body">
+        <img class="img-responsive img-rounded show-background" ng-src="{{show.images.fanart.thumb}}">
+            <div class="show-detail" ng-show="show.title">
+                <img class="show-poster img-responsive img-rounded" ng-src="{{show.images.poster.full}}">
+                <div class="show-info-header">
+                    <h2 class="show-title">
+					<a ng-href="{{show.homepage}}">{{show.title}}</a>
+					</h2>
+                    <a ui-sref="show-episodes({id: show.slug})" class="btn btn-xs btn-show btn-episodes">
+                        <i class="fa fa-th-list fa-2x"></i>
+                        <p>Episodes</p>
+                    </a>
+                </div>
+                <div class="show-airtime">
+                    <h5 class="airtime" ng-show="nextEpisodes[0]">
+					<i class="fa fa-calendar"></i>
+					{{airs}} on {{show.network}}
+					</h5>
+                    <h5 class="airtime" ng-hide="show.airs.day">
+						No air time information found.
+					</h5>
+                    <h6>Runtime: {{show.runtime}} Minutes</h6>
+                    <h6 class="status" ng-show="show.status === 'returning series'">Returning Series</h6>
+                    <h6 class="status" ng-show="show.status === 'cancelled'">Cancelled</h6>
+                    <h6 class="status" ng-show="show.status === 'ended'">Finished Series</h6>
+                    <h6 class="status" ng-show="show.status === 'in production'">In Production</h6>
+                </div>
+                <p class="show-overview">
+                    {{show.overview}}
+                </p>
+            </div>
+        </div>
+    </div>
+     <div class="panel panel-default" ng-show="nextEpisodes || latestEpisodes">
         <div class="panel-body">
             <div class="row">
                 <div class="col-sm-4" ng-if="nextEpisodes[0]">
@@ -47,39 +81,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
-    <div class="panel panel-default">
-        <div class="panel-body">
-            <div class="show-detail" ng-show="show.title">
-                <img class="show-poster img-responsive img-rounded" ng-src="{{show.images.poster.full}}">
-                <div class="show-info-header">
-                    <h2 class="show-title">
-					<a ng-href="{{show.homepage}}">{{show.title}}</a>
-					</h2>
-                    <a ui-sref="show-episodes({id: show.slug})" class="btn btn-xs btn-show btn-episodes">
-                        <i class="fa fa-th-list fa-2x"></i>
-                        <p>Episodes</p>
-                    </a>
-                </div>
-                <div class="show-airtime">
-                    <h5 class="airtime" ng-show="nextEpisodes[0]">
-					<i class="fa fa-calendar"></i>
-					{{airs}} on {{show.network}}
-					</h5>
-                    <h5 class="airtime" ng-hide="show.airs.day">
-						No air time information found.
-					</h5>
-                    <h6>Runtime: {{show.runtime}} Minutes</h6>
-                    <h6 class="status" ng-show="show.status === 'returning series'">Returning Series</h6>
-                    <h6 class="status" ng-show="show.status === 'cancelled'">Cancelled</h6>
-                    <h6 class="status" ng-show="show.status === 'ended'">Finished Series</h6>
-                    <h6 class="status" ng-show="show.status === 'in production'">In Production</h6>
-                </div>
-                <p class="show-overview">
-                    {{show.overview}}
-                </p>
             </div>
         </div>
     </div>

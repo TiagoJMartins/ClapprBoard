@@ -6341,6 +6341,9 @@ body {
   float: left;
   margin: 0 2% 1% 2%; }
 
+.show-background {
+  display: none; }
+
 .show-info {
   width: 60%; }
 
@@ -6388,34 +6391,6 @@ body {
     .btn-show:hover i {
       transform: scaleX(1.3) scaleY(1.3);
       transition: 0.1s; }
-
-.btn-subscribe {
-  color: #22ae5f; }
-  .btn-subscribe:active {
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-    -o-box-shadow: none;
-    -ms-box-shadow: none;
-    box-shadow: none; }
-  .btn-subscribe:focus {
-    color: #22ae5f;
-    outline: none; }
-  .btn-subscribe:hover {
-    color: #2dd677; }
-
-.btn-unsubscribe {
-  color: #A90000; }
-  .btn-unsubscribe:active {
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-    -o-box-shadow: none;
-    -ms-box-shadow: none;
-    box-shadow: none; }
-  .btn-unsubscribe:focus {
-    color: #A90000;
-    outline: none; }
-  .btn-unsubscribe:hover {
-    color: #dc0000; }
 
 .show-overview {
   margin-top: 2em; }
@@ -6570,10 +6545,13 @@ body {
   .banner-container img {
     width: 100%; }
   .show-poster {
-    width: 100%;
-    margin: 0 auto;
-    margin-bottom: 2em;
-    transition: 0.3s ease; }
+    /* width: 100%;
+		margin: 0 auto;
+		margin-bottom: 2em;
+		transition: 0.3s ease; */
+    display: none; }
+  .show-background {
+    display: block; }
   .show-info-header h2 {
     display: block;
     text-align: center;
