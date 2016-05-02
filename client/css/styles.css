@@ -6326,11 +6326,8 @@ body {
 
 .show-banner {
   border: 2px solid #333;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  -ms-border-radius: 3px;
-  border-radius: 3px;
-  width: 100%; }
+  width: 100%;
+  margin-top: -20px; }
 
 .panel-heading {
   padding: 0; }
@@ -6346,8 +6343,19 @@ body {
 .show-info-header h2 {
   display: inline; }
 
-tooltip {
-  float: right; }
+.recent-episodes-header {
+  margin-top: 0; }
+
+.episode-container .episode-thumb {
+  border: 2px solid #333;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  border-radius: 3px; }
+
+.episode-container .show-episode-info strong {
+  margin-top: 0.5em;
+  font-size: 1.2em; }
 
 .btn-show {
   float: right;
@@ -6533,7 +6541,13 @@ tooltip {
 /*****************/
 @media screen and (min-width: 1280px) {
   .container-fluid {
-    width: 1024px; } }
+    width: 1024px; }
+  .show-banner {
+    width: 1280px;
+    -webkit-border-radius: 0 0 3px 3px;
+    -moz-border-radius: 0 0 3px 3px;
+    -ms-border-radius: 0 0 3px 3px;
+    border-radius: 0 0 3px 3px; } }
 
 @media screen and (max-width: 767px) {
   .banner-container img {

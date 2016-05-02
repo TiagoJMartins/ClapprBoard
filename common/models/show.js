@@ -51,10 +51,12 @@ module.exports = function(Show) {
           newShow.aired_episodes = show.aired_episodes;
           newShow.images = show.images;
           newShow.slug = slug;
-          newShow.episode_ids = [];
+          newShow.episode_meta = [];
           newShow.subscribers = [];
 
-          newArr = [];
+          var newArr = [];
+          var episode_meta = [];
+
           console.log('BEGIN SEASON SEARCH...')
           trakt.seasons.summary({
             id: slug,
@@ -100,9 +102,9 @@ module.exports = function(Show) {
                         extended: ['images', 'full']
                       })
                       .then(function(result) {
-                        console.log('PUSHING EPISODES...')
+                        console.log('PUSHING EPISODE... ', 's' + result.season + 'e' + result.number);
                         season.episodes.push(result);
-                        newShow.episode_ids.push(result.ids.trakt.toString());
+                        episode_meta.push(result);
                         count++;
                         return callback(null, count);
                       })
@@ -118,12 +120,23 @@ module.exports = function(Show) {
                 }, function(err) {
                   if (err) return cb(err);
                   //COMPLETE
+
                   newShow.seasons = newArr;
-                  console.log('COMPLETING...')
-                  Show.create(newShow, function(err, instance) {
-                    if (err) return cb(err, null);
-                    console.log('SHOW SAVED!')
-                    return cb(null, instance);
+                  
+                  console.log('SORTING EPISODES...')
+                  async.sortBy(episode_meta, function(episode, callback) {
+                    console.log('++++++++',episode.ids.trakt)
+                    callback(null, episode.ids.trakt);
+                  }, function(err, results) {
+                    console.log('COMPLETING...')
+
+                    newShow.episode_meta = results;
+
+                    Show.create(newShow, function(err, instance) {
+                      if (err) return cb(err, null);
+                      console.log('SHOW SAVED!')
+                      return cb(null, instance);
+                    }); 
                   });
                 });
             });

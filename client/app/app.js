@@ -1,6 +1,6 @@
 angular.module('MainApp', ['ngResource', 'ngMessages', 'ui.router', 'angular-loading-bar',
                            'ngAnimate', 'ngCookies', 'lbServices', 'mgcrea.ngStrap', '720kb.tooltips',
-                           'checklist-model', 'angular.filter'])
+                           'checklist-model', 'angular.filter', 'MomentFilters'])
   .config(['$locationProvider', '$stateProvider', '$urlRouterProvider', 'cfpLoadingBarProvider',
     function($locationProvider, $stateProvider, $urlRouterProvider, cfpLoadingBarProvider) {
     //$locationProvider.html5Mode(false);
@@ -62,6 +62,8 @@ angular.module('MainApp', ['ngResource', 'ngMessages', 'ui.router', 'angular-loa
   .run(['$cookies', '$rootScope', 'Client', '$state',
    function($cookies, $rootScope, Client, $state) {
     
+    moment.locale('en-gb');
+
     Client.getCurrent(function(success) {
       $rootScope.currentUser = success;
     }, function(err) {

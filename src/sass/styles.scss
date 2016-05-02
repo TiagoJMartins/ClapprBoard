@@ -146,8 +146,9 @@ body {
 }
 
 .show-banner {
-	@include imageBorder;
+	border: 2px solid #333;
 	width: 100%;
+	margin-top: -20px;
 }
 
 .panel-heading {
@@ -170,9 +171,24 @@ body {
 	}
 }
 
-tooltip {
-	float: right;
+.recent-episodes-header {
+	margin-top: 0;
 }
+
+.episode-container {
+	.episode-thumb {
+		@include imageBorder;
+	}
+
+	.show-episode-info {
+		strong {
+			margin-top: 0.5em;
+			font-size: 1.2em;
+		}
+	}
+}
+
+
 
 .btn-show {
 	float: right;
@@ -432,6 +448,14 @@ tooltip {
 @media screen and (min-width: $big-breakpoint) {
 	.container-fluid {
 		width: 1024px;
+	}
+
+	.show-banner {
+		width: 1280px;
+		-webkit-border-radius: 0 0 3px 3px;
+		-moz-border-radius: 0 0 3px 3px;
+		-ms-border-radius: 0 0 3px 3px;
+		border-radius: 0 0 3px 3px;
 	}
 }
 

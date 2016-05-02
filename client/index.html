@@ -43,11 +43,12 @@
 
     <div class="alert alert-danger" ng-if="error">{{error}}</div>
     <main ui-view></main>
-
+    
+    <!-- Dependencies -->
     <script src="/vendor/jquery.min.js" charset="utf-8"></script>
     <script src="/vendor/async.min.js" charset="utf-8"></script>
-    <!-- <script src="/vendor/masonry.pkgd.min.js" charset="utf-8"></script> -->
     <script src="/vendor/moment-with-locales.min.js" charset="utf-8"></script>
+    <!-- Angular -->
     <script src="/vendor/angular.js" charset="utf-8"></script>
     <script src="/vendor/angular-resource.min.js" charset="utf-8"></script>
     <script src="/vendor/angular-filter.min.js" charset="utf-8"></script>
@@ -62,12 +63,18 @@
     <script src="/vendor/ngStorage.min.js" charset="utf-8"></script>
     <script src="/js/loading-bar.min.js" charset="utf-8"></script>
     <script src="/js/lb-services.js" charset="utf-8"></script>
+    <!-- Main App -->
     <script src="/app/app.js" charset="utf-8"></script>
+    <!-- Directives -->
     <script src="/app/directives/confirmPassword.js" charset="utf-8"></script>
     <script src="/app/directives/checklist-model.js" charset="utf-8"></script>
+    <!-- Filters -->
+    <script src="/app/filters/moment.js" charset="utf-8"></script>
+    <!-- Services -->
     <script src="/app/services/auth.js" charset="utf-8"></script>
     <script src="/app/services/show.js" charset="utf-8"></script>
     <script src="/app/services/watch-list.js" charset="utf-8"></script>
+    <!-- Controllers -->
     <script src="/app/controllers/auth.js" charset="utf-8"></script>
     <script src="/app/controllers/main.js" charset="utf-8"></script>
     <script src="/app/controllers/detail.js" charset="utf-8"></script>

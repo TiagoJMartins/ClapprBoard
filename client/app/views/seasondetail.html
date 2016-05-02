@@ -1,8 +1,10 @@
+<a ui-sref="show-detail({id: show.slug})" ng-show="show">
+	<img class="show-banner center-block img-responsive" ng-src="{{show.images.banner.full}}">
+</a>
 <div class="container-fluid">
 	<div class="panel panel-default" ng-show="show">
-		<div class="panel-heading hide-bg" ng-show="show.images.banner.full">
-			<img class="show-banner center-block img-responsive" ng-src="{{show.images.banner.full}}">
-		</div>
+		<!-- <div class="panel-heading hide-bg" ng-show="show.images.banner.full"> -->
+		<!-- </div> -->
 		<div class="panel-body">
 			<div class="season-container">				
 				<div class="season-tabs-container">
@@ -39,7 +41,7 @@
 										</input>
 										<label for='{{episode.ids.trakt}}'><span></span></label>
 									</div>
-									<small class="episode-date">{{episode.first_aired}}</small>
+									<small class="episode-date">{{episode.first_aired | parseDate}}</small>
 									<small>{{episode.overview | limitTo: 200 }}</small>
 								</div>
 							</li>

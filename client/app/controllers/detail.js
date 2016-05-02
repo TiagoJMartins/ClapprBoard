@@ -4,9 +4,7 @@ angular.module('MainApp')
 
 		$scope.slug = $state.params.id;
 		$scope.show = {};
-            $scope.isSubscribed = function(subscribers) {
-                  return ShowService.util.isSubscribed(subscribers);
-            }
+            
 
 		ShowService.findShow.get({ slug: $scope.slug }, function(data) {
 			if(!data.result) {
@@ -14,29 +12,27 @@ angular.module('MainApp')
                         return;
 			}
 
+                  $rootScope.error = '';
                   $scope.subscribed = ShowService.util.isSubscribed(data.result.subscribers);
                   $scope.show = data.result;
-                  $scope.time = moment();
-                  $rootScope.error = '';
-			return;
-		});
 
-            $scope.subscribe = function() {
-                  ShowService.sub.subscribe.save({
-                        user: $rootScope.currentUser.id,
-                        show: $scope.slug
-                  }, function() {
-                        $state.go('show-detail', $scope.slug, { reload: true });
+                  $scope.nextEpisodes = $scope.show.episode_meta.filter(function(episode) {
+                        var aired = episode.first_aired;
+                        aired = moment(aired.substr(0, aired.length - 1));
+                        var now = moment();
+                        return aired.isAfter(now);
                   });
-            }
 
-            $scope.unsubscribe = function() {
-                  ShowService.sub.unsubscribe.save({
-                        user: $rootScope.currentUser.id,
-                        show: $scope.slug
-                  }, function() {
-                        $state.go('show-detail', $scope.slug, { reload: true });
+                  $scope.latestEpisodes = $scope.show.episode_meta.filter(function(episode) {
+                        var aired = episode.first_aired;
+                        aired = moment(aired.substr(0, aired.length - 1));
+                        var now = moment();
+                        return aired.isBefore(now);
                   });
-            }
+                  $scope.latestEpisodes.splice(0, $scope.latestEpisodes.length - 3);
+                  $scope.latestEpisodes.reverse();
+
+            });
+
 	}
 ]);
