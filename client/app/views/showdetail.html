@@ -6,7 +6,7 @@
                 <div class="col-sm-4" ng-if="nextEpisodes[0]">
                     <h3 class="recent-episodes-header">Next Episode</h3>
                     <div class="episode-container">
-                        <img ng-src="{{nextEpisodes[0].images.screenshot.thumb}}" class="img-responsive episode-thumb">
+                        <img ng-src="{{nextEpisodes[0].images.screenshot.thumb || show.images.fanart.medium}}" class="img-responsive episode-thumb">
                         <div class="show-episode-info">
                             <strong>{{nextEpisodes[0].season}}x{{nextEpisodes[0].number}} - {{nextEpisodes[0].title}}</strong>
                             <p>Airs {{nextEpisodes[0].first_aired | fromNow}}</p>
@@ -20,7 +20,7 @@
                     <div class="row">
                         <div ng-class="{'col-sm-6': nextEpisodes[0], 'col-sm-4': !nextEpisodes[0]}">
                             <div class="episode-container">
-                                <img ng-src="{{latestEpisodes[0].images.screenshot.thumb}}" class="img-responsive episode-thumb">
+                                <img ng-src="{{latestEpisodes[0].images.screenshot.thumb || show.images.fanart.medium}}" class="img-responsive episode-thumb">
                                 <div class="show-episode-info">
                                     <strong>{{latestEpisodes[0].season}}x{{latestEpisodes[0].number}} - {{latestEpisodes[0].title}}</strong>
                                     <p>Aired {{latestEpisodes[0].first_aired | fromNow}}</p>
@@ -29,7 +29,7 @@
                         </div>
                         <div ng-class="{'col-sm-6': nextEpisodes[0], 'col-sm-4': !nextEpisodes[0]}">
                             <div class="episode-container">
-                                <img ng-src="{{latestEpisodes[1].images.screenshot.thumb}}" class="img-responsive episode-thumb">
+                                <img ng-src="{{latestEpisodes[1].images.screenshot.thumb || show.images.fanart.medium}}" class="img-responsive episode-thumb">
                                 <div class="show-episode-info">
                                     <strong>{{latestEpisodes[1].season}}x{{latestEpisodes[1].number}} - {{latestEpisodes[1].title}}</strong>
                                     <p>Aired {{latestEpisodes[1].first_aired | fromNow}}</p>
@@ -38,7 +38,7 @@
                         </div>
                         <div class="col-sm-4" ng-if="!nextEpisodes[0]">
                             <div class="episode-container">
-                                <img ng-src="{{latestEpisodes[2].images.screenshot.thumb}}" class="img-responsive episode-thumb">
+                                <img ng-src="{{latestEpisodes[2].images.screenshot.thumb || show.images.fanart.medium}}" class="img-responsive episode-thumb">
                                 <div class="show-episode-info">
                                     <strong>{{latestEpisodes[2].season}}x{{latestEpisodes[2].number}} - {{latestEpisodes[2].title}}</strong>
                                     <p>Aired {{latestEpisodes[2].first_aired | fromNow}}</p>

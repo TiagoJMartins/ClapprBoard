@@ -7,12 +7,6 @@ angular.module('MainApp')
         password: 'foobar',
         remember: true
       };
-
-      $scope.credentials = {
-        email: '',
-        password: '',
-        remember: true
-      };
       
       $rootScope.bgImg = "url('assets/sherlock-blur.jpg') 50% 10% no-repeat fixed";
 

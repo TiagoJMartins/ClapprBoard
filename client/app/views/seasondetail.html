@@ -3,8 +3,6 @@
 </a>
 <div class="container-fluid">
 	<div class="panel panel-default" ng-show="show">
-		<!-- <div class="panel-heading hide-bg" ng-show="show.images.banner.full"> -->
-		<!-- </div> -->
 		<div class="panel-body">
 			<div class="season-container">				
 				<div class="season-tabs-container">
@@ -27,7 +25,7 @@
 						<ul class="episode-list">
 							<li class="row" ng-repeat="episode in season.episodes" ng-hide="!episode.title">
 								<div class="episode-image col-sm-4">
-									<img ng-src="{{episode.images.screenshot.full || show.images.fanart.medium}}" class="img-responsive">							
+									<img ng-src="{{episode.images.screenshot.thumb || show.images.fanart.medium}}" class="img-responsive">							
 								</div>
 								<div class="episode-info col-sm-8">
 									<div class="episode-header">
