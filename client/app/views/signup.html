@@ -36,7 +36,7 @@
 					</div>
 					<div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-key"></i></span>
-                        <input class="form-control" type="password" name="confirm" placeholder="Confirm Password" ng-model="credentials.confirm" required>
+                        <input class="form-control" type="password" name="confirm" placeholder="Confirm Password" ng-model="credentials.confirm" compare-password="credentials.password" required>
                     </div>
 				</div>
 				<input ng-disabled="signupForm.$invalid" class="btn btn-default btn-auth btn-block" type="submit" name="signup" value="Sign Up">

@@ -7,7 +7,8 @@ angular.module('MainApp')
         password: 'foobar',
         remember: true
       };
-      
+
+      $rootScope.error = '';      
       $rootScope.bgImg = "url('assets/sherlock-blur.jpg') 50% 10% no-repeat fixed";
 
       $scope.login = function() {
@@ -16,7 +17,8 @@ angular.module('MainApp')
             $window.location.href = '/';
           })
           .catch(function(err) {
-            console.log('Login error', err);
+            console.log(err);
+            $rootScope.error = err.data;
           });
       };
     }
@@ -39,6 +41,7 @@ angular.module('MainApp')
   .controller('SignupCtrl', ['AuthService', '$state', '$scope', '$rootScope',
     function(AuthService, $state, $scope, $rootScope) {
 
+      $rootScope.error = '';
       $scope.credentials = {
         email: "",
         password: "",
@@ -53,7 +56,7 @@ angular.module('MainApp')
             $state.go('signup-success');
           })
           .catch(function(err) {
-            console.log('Signup error', err);
-          })
+            $rootScope.error = err.data.error.message;
+          });
       };
   }]);
