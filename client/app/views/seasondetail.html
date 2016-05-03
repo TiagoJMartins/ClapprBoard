@@ -40,7 +40,7 @@
 										<label for='{{episode.ids.trakt}}'><span></span></label>
 									</div>
 									<small class="episode-date">{{episode.first_aired | parseDate}}</small>
-									<small>{{episode.overview | limitTo: 200 }}</small>
+									<small>{{episode.overview | truncate: 300 }}</small>
 								</div>
 							</li>
 						</ul>
