@@ -1,26 +1,16 @@
 <div class="container-fluid">
 	<div class="panel panel-default">
-		<div class="panel-heading">
-			<h4 class="text-center">Subscribed Shows</h4>
-		</div>
 		<div class="panel-body">
+			<h4 class="text-center">Subscribed Shows</h4>
 			<div class="main-content" ng-show="shows">
 				<div class="grid">
 					<div class="grid-item" ng-repeat="show in shows track by $index">
 						<a ui-sref="show-episodes({id: show.slug})">
 							<img ng-src="{{show.images.poster.thumb}}" class="img-responsive img-rounded show-img">
+							<small>{{subscriptions[show.slug].length}} episodes watched</small>
 						</a>
 					</div>
 				</div>
-			</div>
-		</div>
-	</div>
-	<div class="panel panel-default">
-		<div class="panel-body">
-			<div class="main-content" ng-show="shows">
-				{{stats.timewatched}}
-				{{stats.episodes}}
-				{{stats.shows}}
 			</div>
 		</div>
 	</div>

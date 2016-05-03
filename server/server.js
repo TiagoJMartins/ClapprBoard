@@ -1,10 +1,11 @@
 var loopback = require('loopback');
 var boot = require('loopback-boot');
 var logger = require('morgan');
-var path = require('path');
+var compress = require('compression');
 
 var app = module.exports = loopback();
 
+app.use(compress());
 app.use(logger(':method :url :status :response-time ms - :res[content-length] | :date[web]'));
 
 

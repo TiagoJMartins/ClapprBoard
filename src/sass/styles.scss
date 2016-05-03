@@ -102,6 +102,26 @@ body {
 	overflow-x: hidden;
 }
 
+html {
+	position: relative;
+	min-height: 100%;
+}
+
+body {
+	margin-bottom: 30px;
+}
+
+.footer {
+	position: absolute;
+	height: 30px;
+	bottom: 0;
+	width: 100%;
+}
+
+.main-content {
+	margin-bottom: 35px;
+}
+
 .img-rounded {
 	border-radius: 4px;
 }
