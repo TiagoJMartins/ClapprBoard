@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "server/server.js",
   "scripts": {
-    "start": "node server/server.js",
+    "start": "slc run",
     "pretest": "jshint .",
     "posttest": "nsp check",
     "lb-ng": "lb-ng server/server.js client/js/lb-services.js"
