@@ -2,9 +2,10 @@
 
 TV Show tracking application.
 
+Finished MVP. Constructive criticism welcome!
+
 ## TODO
 
-- create ng filter for truncating show.overview nicely
 - update show information as necessary automatically
 - don't show checkbox if episode hasn't aired yet
 
